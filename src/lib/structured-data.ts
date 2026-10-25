@@ -44,16 +44,21 @@ export const eventNode = (locale: Locale, description: string): Record<string, u
   offers: { '@type': 'Offer', price: 0, priceCurrency: 'EUR', availability: 'https://schema.org/InStock', url: url(getPath('home', locale)) },
 })
 
-export const personNodes = (artist: Artist, locale: Locale, description: string, imageUrl?: string): Record<string, unknown>[] =>
-  artist.names.map((name) => ({
+const isOwnWikipediaPage = (source: string, name: string, isDuo: boolean): boolean =>
+  source.includes('wikipedia.org') && (!isDuo || decodeURI(source).includes(name.replace(/ /g, '_')))
+
+export const personNodes = (artist: Artist, locale: Locale, description: string, imageUrl?: string): Record<string, unknown>[] => {
+  const isDuo = artist.names.length > 1
+  return artist.names.map((name, index) => ({
     '@type': 'Person',
     name,
     description,
-    nationality: artist.nationality[locale] || undefined,
-    image: imageUrl,
-    sameAs: artist.sources.filter((source) => source.includes('wikipedia.org')),
+    nationality: isDuo ? undefined : artist.nationality[locale] || undefined,
+    image: index === 0 ? imageUrl : undefined,
+    sameAs: artist.sources.filter((source) => isOwnWikipediaPage(source, name, isDuo)),
     url: url(getPath('artist', locale, artist.slug)),
   }))
+}
 
 export const breadcrumbNode = (locale: Locale, artist: Artist, name: string): Record<string, unknown> => {
   const category = getCategory(artist.category)

@@ -16,7 +16,7 @@ type Props = { locale: Locale }
 
 const { locale } = Astro.props
 const copy = HOME_COPY[locale]
-const jsonLd = [organizationNode(), eventNode(locale, copy.description)]
+const jsonLd = EVENT.isPlaceholder ? [organizationNode()] : [organizationNode(), eventNode(locale, copy.description)]
 ---
 
 <BaseLayout locale={locale} title={copy.title} description={copy.description} jsonLd={jsonLd}>

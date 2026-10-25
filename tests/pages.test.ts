@@ -18,7 +18,8 @@ describe('pages', () => {
 
   it('shows the event facts on the home page', () => {
     const home = read('dist/index.html')
-    expect(home).toContain('Jeudi 25 mars 2027')
+    expect(home).toContain('Printemps 2027')
+    expect(home).not.toContain('25 mars')
     expect(home).toContain('@ladygallery')
   })
 
@@ -39,6 +40,12 @@ describe('pages', () => {
   it('prints duo names on separate lines', () => {
     const html = read('dist/artistes/madonna-beyonce/index.html')
     expect(html).toMatch(/<h1[^>]*>[\s\S]*Madonna[\s\S]*<br[\s\S]*Beyoncé[\s\S]*<\/h1>/)
+  })
+
+  it('uses plural wording on duo pages', () => {
+    expect(read('dist/artistes/madonna-beyonce/index.html')).toContain('Pourquoi elles sont là')
+    expect(read('dist/en/artists/madonna-beyonce/index.html')).toContain('Why they’re here')
+    expect(read('dist/artistes/kate-bush/index.html')).toContain('Pourquoi elle est là')
   })
 
   it('lists every category artist on the category page', () => {

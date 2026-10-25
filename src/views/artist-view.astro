@@ -27,6 +27,7 @@ const discipline = artist.subcategories.length
   ? artist.subcategories.map((sub) => SUBCATEGORY_LABELS[sub][locale]).join(locale === 'fr' ? ' et ' : ' and ')
   : category.label[locale]
 const name = getDisplayName(artist)
+const isDuo = artist.names.length > 1
 const source = getArtistImage(artist)
 const hero = source
   ? await getImage({ src: source, widths: [320, 480, 640], format: 'avif', quality: 55 })
@@ -105,11 +106,11 @@ const jsonLd = [
         </section>
 
         <aside class="why">
-          <h2>{copy.whyHere}</h2>
+          <h2>{isDuo ? copy.whyHerePlural : copy.whyHere}</h2>
           <p>{entry.data.whyHere}</p>
           {
             workshop && (
-              <a href={`${getPath('workshops', locale)}#${workshop.key}`}>{copy.workshopLink(workshop.title[locale])}</a>
+              <a href={`${getPath('workshops', locale)}#${workshop.key}`}>{(isDuo ? copy.workshopLinkPlural : copy.workshopLink)(workshop.title[locale])}</a>
             )
           }
         </aside>
@@ -261,6 +262,10 @@ const jsonLd = [
 
   .why a:hover {
     color: var(--ochre);
+  }
+
+  .why a:focus-visible {
+    outline-color: var(--ochre);
   }
 
   .pager {

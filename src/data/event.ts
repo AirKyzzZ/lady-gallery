@@ -8,7 +8,7 @@ export const EVENT = {
   isPlaceholder: true,
   startDate: '2027-03-25T14:00:00+01:00',
   endDate: '2027-03-25T20:00:00+01:00',
-  date: { fr: 'Jeudi 25 mars 2027', en: 'Thursday 25 March 2027' } satisfies Localised,
+  date: { fr: 'Printemps 2027', en: 'Spring 2027' } satisfies Localised,
   time: { fr: '14h – 20h', en: '2pm – 8pm' } satisfies Localised,
   venue: { fr: 'Université de Bordeaux', en: 'University of Bordeaux' } satisfies Localised,
   address: { fr: 'Campus Victoire, Bordeaux', en: 'Victoire campus, Bordeaux' } satisfies Localised,

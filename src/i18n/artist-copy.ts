@@ -13,7 +13,9 @@ export const ARTIST_COPY: Record<
   Locale,
   {
     whyHere: string
+    whyHerePlural: string
     workshopLink: (title: string) => string
+    workshopLinkPlural: (title: string) => string
     previous: string
     next: string
     imageBy: string
@@ -23,7 +25,9 @@ export const ARTIST_COPY: Record<
 > = {
   fr: {
     whyHere: 'Pourquoi elle est là',
+    whyHerePlural: 'Pourquoi elles sont là',
     workshopLink: (title) => `La retrouver à l’atelier ${title}`,
+    workshopLinkPlural: (title) => `Les retrouver à l’atelier ${title}`,
     previous: 'Précédente',
     next: 'Suivante',
     imageBy: 'Image',
@@ -32,7 +36,9 @@ export const ARTIST_COPY: Record<
   },
   en: {
     whyHere: 'Why she’s here',
+    whyHerePlural: 'Why they’re here',
     workshopLink: (title) => `Find her at the ${title} workshop`,
+    workshopLinkPlural: (title) => `Find them at the ${title} workshop`,
     previous: 'Previous',
     next: 'Next',
     imageBy: 'Image',
