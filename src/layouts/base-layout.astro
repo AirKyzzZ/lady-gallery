@@ -1,0 +1,40 @@
+---
+import '@fontsource/poiret-one/latin.css'
+import '@fontsource/poiret-one/latin-ext.css'
+import '@fontsource-variable/outfit/wght.css'
+import '../styles/global.css'
+import poiretLatin from '@fontsource/poiret-one/files/poiret-one-latin-400-normal.woff2?url'
+import outfitLatin from '@fontsource-variable/outfit/files/outfit-latin-wght-normal.woff2?url'
+import type { Locale } from '../i18n/routes'
+import { t } from '../i18n/ui'
+
+type Props = {
+  locale: Locale
+  title: string
+  description: string
+}
+
+const { locale, title, description } = Astro.props
+---
+
+<!doctype html>
+<html lang={locale}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#f3ebe0" />
+    <link rel="preload" href={poiretLatin} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={outfitLatin} as="font" type="font/woff2" crossorigin />
+    <slot name="head" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">{t(locale, 'site.skip')}</a>
+    <slot name="header" />
+    <main id="main">
+      <slot />
+    </main>
+    <slot name="footer" />
+  </body>
+</html>

@@ -1,0 +1,41 @@
+:root {
+  --cream: #f3ebe0;
+  --paper: #faf5ee;
+  --beige: #bea787;
+  --beige-soft: #e2d6c3;
+  --navy: #292f43;
+  --navy-soft: #3d4560;
+  --red: #9d160d;
+  --red-deep: #7c110a;
+  --ochre: #df9e3f;
+  --sage: #8e977a;
+  --slate: #59697c;
+
+  --ink: var(--navy);
+  --ink-muted: #4f5568;
+  --bg: var(--cream);
+
+  --font-display: 'Poiret One', 'Didot', 'Bodoni 72', serif;
+  --font-body: 'Outfit Variable', 'Avenir Next', 'Segoe UI', system-ui, sans-serif;
+
+  --step--1: clamp(0.875rem, 0.85rem + 0.1vw, 0.95rem);
+  --step-0: clamp(1rem, 0.96rem + 0.2vw, 1.125rem);
+  --step-1: clamp(1.2rem, 1.1rem + 0.45vw, 1.45rem);
+  --step-2: clamp(1.75rem, 1.5rem + 1.1vw, 2.4rem);
+  --step-3: clamp(2.2rem, 1.7rem + 2.2vw, 3.6rem);
+  --step-4: clamp(2.8rem, 1.9rem + 4.2vw, 5.6rem);
+
+  --space-2xs: 0.25rem;
+  --space-xs: 0.5rem;
+  --space-s: 0.875rem;
+  --space-m: 1.25rem;
+  --space-l: 2rem;
+  --space-xl: 3.25rem;
+  --space-2xl: 5rem;
+
+  --measure: 64ch;
+  --wrap: 72rem;
+  --gutter: clamp(1rem, 4vw, 2.5rem);
+  --radius: 999px;
+  --rule: 1px solid color-mix(in srgb, var(--red) 70%, transparent);
+}
