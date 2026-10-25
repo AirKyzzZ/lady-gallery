@@ -13,11 +13,17 @@ export const getArtistImage = (artist: Artist): ImageMetadata | undefined => {
   return found.default
 }
 
-export const formatYears = (years: string, locale: Locale): string => {
+const formatLifespan = (years: string, locale: Locale): string => {
   const born = years.match(/^b\. (\d{4})$/)
   if (!born) return years
   return locale === 'fr' ? `née en ${born[1]}` : `born ${born[1]}`
 }
+
+export const formatYears = (years: string, locale: Locale): string =>
+  years
+    .split(' · ')
+    .map((part) => formatLifespan(part, locale))
+    .join(locale === 'fr' ? ' et ' : ' and ')
 
 export const initials = (artist: Artist): string =>
   artist.names
