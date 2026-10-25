@@ -20,3 +20,11 @@ describe('getAlternatePath', () => {
     expect(getAlternatePath('/unknown/', 'en')).toBe('/en/')
   })
 })
+
+describe('category routes', () => {
+  it('localises category slugs', () => {
+    expect(getPath('category', 'en', 'film')).toBe('/en/arts/film-theatre/')
+    expect(getPath('category', 'fr', 'film')).toBe('/arts/cinema-theatre/')
+    expect(getAlternatePath('/arts/mode-design/', 'en')).toBe('/en/arts/fashion-design/')
+  })
+})
