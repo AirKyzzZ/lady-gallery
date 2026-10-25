@@ -1,0 +1,11 @@
+---
+import View from '../../views/artist-view.astro'
+import { ARTISTS } from '../../data/artists'
+
+export const getStaticPaths = () =>
+  ARTISTS.map((artist) => ({ params: { slug: artist.slug } }))
+
+const { slug } = Astro.params
+---
+
+<View locale="fr" slug={slug} />

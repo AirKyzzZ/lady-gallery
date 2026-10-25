@@ -1,0 +1,13 @@
+---
+import BaseLayout from '../layouts/base-layout.astro'
+import type { Locale } from '../i18n/routes'
+import type { CategoryKey } from '../data/taxonomy'
+
+type Props = { locale: Locale; category: CategoryKey }
+
+const { locale, category } = Astro.props
+---
+
+<BaseLayout locale={locale} title="Lady Gallery" description="Lady Gallery">
+  <div class="wrap"><h1>{category}</h1></div>
+</BaseLayout>

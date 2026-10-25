@@ -1,0 +1,174 @@
+---
+import logoUrl from '../assets/brand/logo.svg?url'
+import { getPath, type Locale } from '../i18n/routes'
+import { t } from '../i18n/ui'
+import SiteNav from './site-nav.astro'
+import LangToggle from './lang-toggle.astro'
+
+type Props = { locale: Locale; pathname: string }
+
+const { locale, pathname } = Astro.props
+---
+
+<header class="site-header">
+  <div class="bar">
+    <a class="brand" href={getPath('home', locale)} aria-label={t(locale, 'nav.home')}>
+      <img src={logoUrl} alt="" width="56" height="56" />
+      <span class="brand-name" aria-hidden="true">Lady Gallery</span>
+    </a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu">
+      <span class="menu-icon" aria-hidden="true"></span>
+      <span>{t(locale, 'nav.menu')}</span>
+    </button>
+    <div class="menu" id="site-menu">
+      <SiteNav locale={locale} pathname={pathname} />
+      <LangToggle locale={locale} pathname={pathname} />
+    </div>
+  </div>
+</header>
+
+<script>
+  const toggle = document.querySelector<HTMLButtonElement>('.menu-toggle')
+  const header = document.querySelector<HTMLElement>('.site-header')
+  toggle?.addEventListener('click', () => {
+    const open = toggle.getAttribute('aria-expanded') !== 'true'
+    toggle.setAttribute('aria-expanded', String(open))
+    header?.classList.toggle('is-open', open)
+  })
+</script>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 30;
+    background: color-mix(in srgb, var(--cream) 94%, transparent);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--red);
+    box-shadow: 0 3px 0 -2px var(--red);
+  }
+
+  .bar {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-m);
+    width: min(100% - 2 * var(--gutter), var(--wrap));
+    min-height: 4.5rem;
+    margin-inline: auto;
+  }
+
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-s);
+    color: var(--navy);
+    text-decoration: none;
+  }
+
+  .brand img {
+    width: 3.25rem;
+    height: 3.25rem;
+  }
+
+  .brand-name {
+    font-family: var(--font-display);
+    font-size: var(--step-1);
+    letter-spacing: 0.04em;
+  }
+
+  .menu {
+    display: flex;
+    align-items: center;
+    gap: clamp(1rem, 3vw, 2.5rem);
+  }
+
+  .menu-toggle {
+    display: none;
+  }
+
+  @media (max-width: 60rem) {
+    .bar {
+      flex-wrap: wrap;
+    }
+
+    .menu {
+      flex-basis: 100%;
+      flex-direction: column;
+      align-items: stretch;
+      padding-bottom: var(--space-m);
+    }
+
+    :global(.js) .menu {
+      display: none;
+    }
+
+    :global(.js) .is-open .menu {
+      display: flex;
+      max-height: calc(100dvh - 4.5rem);
+      overflow-y: auto;
+    }
+
+    :global(.js) .menu-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      min-height: 2.75rem;
+      padding: 0 1rem;
+      border: 0;
+      border-radius: var(--radius);
+      background: var(--navy);
+      color: var(--cream);
+      font: inherit;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .menu-icon,
+    .menu-icon::before,
+    .menu-icon::after {
+      display: block;
+      width: 1.1rem;
+      height: 1.5px;
+      background: currentColor;
+      transition: transform 0.2s ease;
+    }
+
+    .menu-icon {
+      position: relative;
+    }
+
+    .menu-icon::before,
+    .menu-icon::after {
+      content: '';
+      position: absolute;
+      left: 0;
+    }
+
+    .menu-icon::before {
+      top: -5px;
+    }
+
+    .menu-icon::after {
+      top: 5px;
+    }
+
+    .is-open .menu-icon {
+      background: transparent;
+    }
+
+    .is-open .menu-icon::before {
+      transform: translateY(5px) rotate(45deg);
+    }
+
+    .is-open .menu-icon::after {
+      transform: translateY(-5px) rotate(-45deg);
+    }
+
+    .menu :global(.lang-toggle) {
+      align-self: flex-start;
+      margin-top: var(--space-m);
+    }
+  }
+</style>

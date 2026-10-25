@@ -1,0 +1,100 @@
+---
+import { getPath, type Locale } from '../i18n/routes'
+import { t } from '../i18n/ui'
+import { EVENT } from '../data/event'
+
+type Props = { locale: Locale }
+
+const { locale } = Astro.props
+const legal = [
+  { key: 'legal', label: t(locale, 'footer.legal') },
+  { key: 'terms', label: t(locale, 'footer.terms') },
+  { key: 'credits', label: t(locale, 'footer.credits') },
+] as const
+---
+
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div>
+      <p class="footer-name">Lady Gallery</p>
+      <p>{t(locale, 'footer.project')}</p>
+    </div>
+    <div>
+      <p class="footer-title">{t(locale, 'footer.follow')}</p>
+      <ul role="list">
+        <li>
+          <a href={EVENT.instagramUrl} rel="noopener">Instagram {EVENT.instagramHandle}</a>
+          <span class="tbc">{t(locale, 'footer.handleTbc')}</span>
+        </li>
+        <li><a href={EVENT.tiktokUrl} rel="noopener">TikTok</a></li>
+      </ul>
+    </div>
+    <div>
+      <ul role="list">
+        {legal.map((link) => <li><a href={getPath(link.key, locale)}>{link.label}</a></li>)}
+      </ul>
+      <p class="footer-small">{t(locale, 'footer.noCookies')}</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    margin-top: var(--space-2xl);
+    padding-block: var(--space-xl) var(--space-l);
+    background: var(--navy);
+    color: var(--cream);
+    border-top: 6px double var(--red);
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1.2fr 1fr;
+    gap: var(--space-l);
+  }
+
+  .footer-name {
+    margin-bottom: var(--space-xs);
+    font-family: var(--font-display);
+    font-size: var(--step-2);
+    line-height: 1;
+  }
+
+  .footer-title {
+    margin-bottom: var(--space-xs);
+    font-weight: 600;
+  }
+
+  ul {
+    padding: 0;
+    list-style: none;
+  }
+
+  li + li {
+    margin-top: 0.35rem;
+  }
+
+  a {
+    color: var(--cream);
+  }
+
+  a:hover {
+    color: var(--ochre);
+  }
+
+  .tbc {
+    color: var(--beige);
+  }
+
+  .footer-small {
+    margin-top: var(--space-s);
+    color: var(--beige);
+    font-size: var(--step--1);
+  }
+
+  @media (max-width: 48rem) {
+    .footer-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

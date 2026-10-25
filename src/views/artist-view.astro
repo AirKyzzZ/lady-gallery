@@ -1,0 +1,12 @@
+---
+import BaseLayout from '../layouts/base-layout.astro'
+import type { Locale } from '../i18n/routes'
+
+type Props = { locale: Locale; slug: string }
+
+const { locale, slug } = Astro.props
+---
+
+<BaseLayout locale={locale} title="Lady Gallery" description="Lady Gallery">
+  <div class="wrap"><h1>{slug}</h1></div>
+</BaseLayout>

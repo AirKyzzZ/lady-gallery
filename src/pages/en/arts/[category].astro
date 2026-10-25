@@ -1,0 +1,11 @@
+---
+import View from '../../../views/category-view.astro'
+import { CATEGORIES } from '../../../data/taxonomy'
+
+export const getStaticPaths = () =>
+  CATEGORIES.map((category) => ({ params: { category: category.slug.en }, props: { key: category.key } }))
+
+const { key } = Astro.props
+---
+
+<View locale="en" category={key} />

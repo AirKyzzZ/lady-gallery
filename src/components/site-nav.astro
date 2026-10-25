@@ -1,0 +1,253 @@
+---
+import { getPath, type Locale } from '../i18n/routes'
+import { t } from '../i18n/ui'
+import { CATEGORIES, SUBCATEGORY_LABELS } from '../data/taxonomy'
+import { getArtistsByCategory, getDisplayName } from '../data/artists'
+
+type Props = { locale: Locale; pathname: string }
+
+const { locale, pathname } = Astro.props
+
+const groups = CATEGORIES.map((category) => {
+  const artists = getArtistsByCategory(category.key)
+  const sections = category.subcategories
+    ? category.subcategories.map((sub) => ({
+        label: SUBCATEGORY_LABELS[sub][locale],
+        artists: artists.filter((a) => a.subcategories.includes(sub)),
+      }))
+    : [{ label: undefined, artists }]
+  return { category, sections }
+})
+
+const links = [
+  { key: 'workshops', label: t(locale, 'nav.workshops') },
+  { key: 'partners', label: t(locale, 'nav.partners') },
+  { key: 'about', label: t(locale, 'nav.about') },
+] as const
+
+const isCurrent = (href: string): boolean => pathname === href
+const inArts = pathname.startsWith(getPath('arts', locale)) || pathname.startsWith(getPath('artist', locale))
+---
+
+<nav class="site-nav" aria-label={t(locale, 'nav.label')}>
+  <ul class="nav-list" role="list">
+    <li class="nav-item nav-item--arts">
+      <details class="nav-arts">
+        <summary aria-current={inArts ? 'true' : undefined}>{t(locale, 'nav.arts')}</summary>
+        <div class="mega">
+          <div class="mega-inner">
+            {
+              groups.map(({ category, sections }) => (
+                <div class="mega-col">
+                  <a class="mega-cat" href={getPath('category', locale, category.key)}>
+                    {category.label[locale]}
+                  </a>
+                  {sections.map((section) => (
+                    <>
+                      {section.label && <p class="mega-sub">{section.label}</p>}
+                      <ul role="list">
+                        {section.artists.map((artist) => {
+                          const href = getPath('artist', locale, artist.slug)
+                          return (
+                            <li>
+                              <a href={href} aria-current={isCurrent(href) ? 'page' : undefined}>
+                                {getDisplayName(artist)}
+                              </a>
+                            </li>
+                          )
+                        })}
+                      </ul>
+                    </>
+                  ))}
+                </div>
+              ))
+            }
+          </div>
+          <a class="mega-all" href={getPath('arts', locale)}>{t(locale, 'nav.artsAll')}</a>
+        </div>
+      </details>
+    </li>
+    {
+      links.map((link) => {
+        const href = getPath(link.key, locale)
+        return (
+          <li class="nav-item">
+            <a href={href} aria-current={isCurrent(href) ? 'page' : undefined}>
+              {link.label}
+            </a>
+          </li>
+        )
+      })
+    }
+  </ul>
+</nav>
+
+<script>
+  const menus = document.querySelectorAll<HTMLDetailsElement>('details.nav-arts')
+  document.addEventListener('click', (event) => {
+    menus.forEach((menu) => {
+      if (menu.open && event.target instanceof Node && !menu.contains(event.target)) menu.open = false
+    })
+  })
+  document.addEventListener('keydown', (event) => {
+    if (event.key !== 'Escape') return
+    menus.forEach((menu) => {
+      if (!menu.open) return
+      menu.open = false
+      menu.querySelector('summary')?.focus()
+    })
+  })
+</script>
+
+<style>
+  .nav-list {
+    display: flex;
+    align-items: center;
+    gap: clamp(0.75rem, 2.5vw, 2rem);
+    padding: 0;
+    list-style: none;
+  }
+
+  .nav-item > a,
+  summary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4em;
+    min-height: 2.75rem;
+    color: var(--navy);
+    font-weight: 500;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .nav-item > a:hover,
+  summary:hover,
+  [aria-current] {
+    color: var(--red);
+  }
+
+  .nav-item > a[aria-current='page'],
+  summary[aria-current] {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.35em;
+  }
+
+  summary {
+    list-style: none;
+  }
+
+  summary::-webkit-details-marker {
+    display: none;
+  }
+
+  summary::after {
+    content: '';
+    width: 0.45em;
+    height: 0.45em;
+    border-right: 1.5px solid currentColor;
+    border-bottom: 1.5px solid currentColor;
+    transform: translateY(-0.15em) rotate(45deg);
+    transition: transform 0.2s ease;
+  }
+
+  details[open] > summary::after {
+    transform: translateY(0.1em) rotate(-135deg);
+  }
+
+  .mega {
+    position: absolute;
+    inset-inline: 0;
+    top: 100%;
+    z-index: 20;
+    padding: var(--space-l) var(--gutter) var(--space-m);
+    background: var(--paper);
+    border-block: 1px solid var(--red);
+    box-shadow: 0 1.5rem 2rem -1.5rem rgb(41 47 67 / 0.35);
+  }
+
+  .mega-inner {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: var(--space-l);
+    max-width: var(--wrap);
+    margin-inline: auto;
+  }
+
+  .mega ul {
+    padding: 0;
+    list-style: none;
+  }
+
+  .mega li a {
+    display: block;
+    padding-block: 0.2rem;
+    color: var(--navy);
+    font-size: var(--step--1);
+    text-decoration: none;
+  }
+
+  .mega li a:hover,
+  .mega li a[aria-current='page'] {
+    color: var(--red);
+    text-decoration: underline;
+  }
+
+  .mega-cat {
+    display: block;
+    margin-bottom: var(--space-xs);
+    font-family: var(--font-display);
+    font-size: var(--step-1);
+    color: var(--red);
+    text-decoration: none;
+  }
+
+  .mega-sub {
+    margin-top: var(--space-s);
+    color: var(--slate);
+    font-size: var(--step--1);
+    font-style: italic;
+  }
+
+  .mega-all {
+    display: block;
+    max-width: var(--wrap);
+    margin: var(--space-l) auto 0;
+    padding-top: var(--space-s);
+    border-top: 1px solid var(--beige);
+    font-weight: 600;
+  }
+
+  @media (max-width: 60rem) {
+    .nav-list {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
+    }
+
+    .nav-item {
+      border-bottom: 1px solid var(--beige-soft);
+    }
+
+    .nav-item > a,
+    summary {
+      width: 100%;
+      justify-content: space-between;
+      min-height: 3.25rem;
+      font-size: var(--step-1);
+    }
+
+    .mega {
+      position: static;
+      padding: 0 0 var(--space-m);
+      background: none;
+      border: 0;
+      box-shadow: none;
+    }
+
+    .mega-inner {
+      grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr));
+      gap: var(--space-m);
+    }
+  }
+</style>
