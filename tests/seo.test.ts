@@ -72,4 +72,32 @@ describe('seo', () => {
   it('keeps 404 pages out of the index', () => {
     expect(read('dist/404.html')).toContain('<meta name="robots" content="noindex"')
   })
+
+  it('pairs every french and english page in the sitemap with the same codes as the pages', () => {
+    const sitemap = read('dist/sitemap-0.xml')
+    expect(sitemap).toContain(`<xhtml:link rel="alternate" hreflang="en" href="${SITE}/en/artists/kate-bush/"/>`)
+    expect(sitemap).toContain(`<xhtml:link rel="alternate" hreflang="fr" href="${SITE}/arts/musique/"/>`)
+    expect(sitemap).not.toContain('hreflang="fr-FR"')
+  })
+
+  it('titles artist pages for biography searches', () => {
+    expect(read('dist/artistes/kate-bush/index.html')).toContain('<title>Kate Bush : biographie et œuvres | Lady Gallery</title>')
+    expect(read('dist/en/artists/kate-bush/index.html')).toContain('<title>Kate Bush: biography and work | Lady Gallery</title>')
+  })
+
+  it('gives the biography its own heading', () => {
+    expect(read('dist/artistes/kate-bush/index.html')).toMatch(/<h2[^>]*>Biographie<\/h2>/)
+  })
+
+  it('describes the website with a raster organisation logo', () => {
+    const home = read('dist/index.html')
+    expect(jsonLdTypes(home)).toContain('WebSite')
+    expect(home).toContain('apple-touch-icon.png')
+    expect(home).toContain('<meta property="og:image:alt"')
+  })
+
+  it('gives each duo member her own identifier', () => {
+    const ids = [...read('dist/artistes/madonna-beyonce/index.html').matchAll(/"@id":"([^"]*#person-[^"]*)"/g)].map((m) => m[1])
+    expect(new Set(ids).size).toBe(2)
+  })
 })

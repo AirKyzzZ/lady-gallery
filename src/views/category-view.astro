@@ -24,7 +24,7 @@ const sections = category.subcategories
   : [{ label: undefined, artists }]
 ---
 
-<BaseLayout locale={locale} title={`${category.label[locale]}, Lady Gallery`} description={copy.description}>
+<BaseLayout locale={locale} title={`${category.label[locale]}${locale === 'fr' ? ' : artistes femmes anglophones' : ': English-speaking women artists'} | Lady Gallery`} description={copy.description}>
   <header class="room-header wrap">
     <nav class="crumbs" aria-label="Breadcrumb">
       <a href={getPath('arts', locale)}>{t(locale, 'nav.arts')}</a>

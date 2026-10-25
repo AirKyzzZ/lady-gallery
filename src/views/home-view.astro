@@ -10,13 +10,14 @@ import { getArtistsByCategory, getDisplayName } from '../data/artists'
 import { EVENT, WORKSHOPS } from '../data/event'
 import { toRoman } from '../lib/artist-images'
 import { HOME_COPY } from '../i18n/home-copy'
-import { eventNode, organizationNode } from '../lib/structured-data'
+import { eventNode, organizationNode, websiteNode } from '../lib/structured-data'
 
 type Props = { locale: Locale }
 
 const { locale } = Astro.props
 const copy = HOME_COPY[locale]
-const jsonLd = EVENT.isPlaceholder ? [organizationNode()] : [organizationNode(), eventNode(locale, copy.description)]
+const baseNodes = [organizationNode(), websiteNode(locale)]
+const jsonLd = EVENT.isPlaceholder ? baseNodes : [...baseNodes, eventNode(locale, copy.description)]
 ---
 
 <BaseLayout locale={locale} title={copy.title} description={copy.description} jsonLd={jsonLd}>

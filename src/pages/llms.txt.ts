@@ -19,7 +19,7 @@ export const GET: APIRoute = () => {
 
 > A one-day event by students of the language department of the University of Bordeaux, France, about English-speaking women artists: visual arts, literature, music, film and theatre, fashion. Free entry. The site is in French (default) and English.
 
-Event date, time and venue are provisional (${EVENT.date.en}, ${EVENT.time.en}, ${EVENT.venue.en}) and marked TBC on the site.
+Key facts: 45 women artists (43 pages, two of them duos), 5 rooms (visual arts, literature and poetry, music, film and theatre, fashion and design), 6 free workshops, free entry, organised by students of the language department, Université de Bordeaux. Contact: Instagram ${EVENT.instagramHandle} (handle TBC).\n\nEvent date, time and venue are provisional (${EVENT.date.en}, ${EVENT.time.en}, ${EVENT.venue.en}) and marked TBC on the site.
 
 ## Main pages
 
@@ -27,9 +27,15 @@ Event date, time and venue are provisional (${EVENT.date.en}, ${EVENT.time.en}, 
 - The arts, all artists: ${url(getPath('arts', 'en'))}
 - Workshops: ${url(getPath('workshops', 'en'))}
 - About: ${url(getPath('about', 'en'))}
-- Image credits: ${url(getPath('credits', 'en'))}
 
 ${sections.join('\n\n')}
+
+## Optional
+
+- Image credits: ${url(getPath('credits', 'en'))}
+- Partners: ${url(getPath('partners', 'en'))}
+- Legal notice: ${url(getPath('legal', 'en'))}
+- Terms of use: ${url(getPath('terms', 'en'))}
 `
   return new Response(body, { headers: { 'Content-Type': 'text/plain; charset=utf-8' } })
 }

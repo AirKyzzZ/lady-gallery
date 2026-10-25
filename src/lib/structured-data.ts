@@ -12,9 +12,19 @@ export const organizationNode = (): Record<string, unknown> => ({
   '@id': `${SITE}/#organization`,
   name: 'Lady Gallery',
   url: SITE,
-  logo: url('/favicon.svg'),
+  logo: url('/apple-touch-icon.png'),
+  description: 'Student event from the language department of the University of Bordeaux about English-speaking women artists.',
   sameAs: [EVENT.instagramUrl],
   parentOrganization: { '@type': 'CollegeOrUniversity', name: 'Université de Bordeaux', url: 'https://www.u-bordeaux.fr' },
+})
+
+export const websiteNode = (locale: Locale): Record<string, unknown> => ({
+  '@type': 'WebSite',
+  '@id': `${SITE}/#website`,
+  name: 'Lady Gallery',
+  url: url(getPath('home', locale)),
+  inLanguage: ['fr', 'en'],
+  publisher: { '@id': `${SITE}/#organization` },
 })
 
 export const eventNode = (locale: Locale, description: string): Record<string, unknown> => ({
@@ -51,6 +61,7 @@ export const personNodes = (artist: Artist, locale: Locale, description: string,
   const isDuo = artist.names.length > 1
   return artist.names.map((name, index) => ({
     '@type': 'Person',
+    '@id': `${url(getPath('artist', locale, artist.slug))}#person-${index + 1}`,
     name,
     description,
     nationality: isDuo ? undefined : artist.nationality[locale] || undefined,

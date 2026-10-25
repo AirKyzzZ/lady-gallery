@@ -12,6 +12,7 @@ export const WORKS_TITLE: Record<CategoryKey, Record<Locale, string>> = {
 export const ARTIST_COPY: Record<
   Locale,
   {
+    biography: string
     whyHere: string
     whyHerePlural: string
     workshopLink: (title: string) => string
@@ -24,6 +25,7 @@ export const ARTIST_COPY: Record<
   }
 > = {
   fr: {
+    biography: 'Biographie',
     whyHere: 'Pourquoi elle est là',
     whyHerePlural: 'Pourquoi elles sont là',
     workshopLink: (title) => `La retrouver à l’atelier ${title}`,
@@ -35,6 +37,7 @@ export const ARTIST_COPY: Record<
     artwork: 'Œuvre',
   },
   en: {
+    biography: 'Biography',
     whyHere: 'Why she’s here',
     whyHerePlural: 'Why they’re here',
     workshopLink: (title) => `Find her at the ${title} workshop`,
