@@ -97,8 +97,8 @@ const sections = category.subcategories
 
   .cartel-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(min(12.5rem, 42vw), 1fr));
-    gap: var(--space-xl) var(--space-l);
+    grid-template-columns: repeat(auto-fill, minmax(min(12.5rem, calc(50% - var(--space-s))), 1fr));
+    gap: var(--space-l) var(--space-m);
     padding: 0;
     list-style: none;
   }
