@@ -1,12 +1,109 @@
 ---
 import BaseLayout from '../layouts/base-layout.astro'
+import PageHeader from '../components/page-header.astro'
 import type { Locale } from '../i18n/routes'
+import { WORKSHOPS } from '../data/event'
+import { WORKSHOPS_COPY } from '../i18n/pages-copy'
 
 type Props = { locale: Locale }
 
 const { locale } = Astro.props
+const copy = WORKSHOPS_COPY[locale]
 ---
 
-<BaseLayout locale={locale} title="Lady Gallery" description="Lady Gallery">
-  <div class="wrap"><h1>workshops</h1></div>
+<BaseLayout locale={locale} title={`${copy.title}, Lady Gallery`} description={copy.description}>
+  <PageHeader title={copy.title}><p>{copy.intro}</p></PageHeader>
+  <div class="wrap workshops">
+    {
+      WORKSHOPS.map((workshop) => {
+        const item = copy.items[workshop.key]
+        return (
+          <section class="workshop" id={workshop.key} aria-labelledby={`${workshop.key}-title`}>
+            <h2 id={`${workshop.key}-title`}>{workshop.title[locale]}</h2>
+            <p class="lead">{item.lead}</p>
+            <div class="workshop-cols">
+              <div>
+                <h3>{copy.howToTitle}</h3>
+                <ol>
+                  {item.howTo.map((step) => (
+                    <li>{step}</li>
+                  ))}
+                </ol>
+              </div>
+              <div>
+                <h3>{copy.artistsTitle}</h3>
+                <p>{item.artists}</p>
+              </div>
+            </div>
+          </section>
+        )
+      })
+    }
+    <p class="note">{copy.note}</p>
+  </div>
 </BaseLayout>
+
+<style>
+  .workshops {
+    display: grid;
+    gap: var(--space-xl);
+    padding-top: var(--space-l);
+  }
+
+  .workshop {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+    gap: var(--space-s) var(--space-xl);
+    padding-top: var(--space-l);
+    border-top: 1px solid var(--red);
+  }
+
+  h2 {
+    font-size: var(--step-3);
+  }
+
+  .lead {
+    font-size: var(--step-1);
+    line-height: 1.5;
+  }
+
+  .workshop-cols {
+    grid-column: 2;
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: var(--space-l);
+  }
+
+  h3 {
+    margin-bottom: var(--space-xs);
+    color: var(--red);
+    font-size: var(--step-0);
+    font-style: italic;
+    font-weight: 500;
+  }
+
+  ol {
+    padding-left: 1.2rem;
+  }
+
+  ol li + li {
+    margin-top: 0.4rem;
+  }
+
+  .note {
+    color: var(--ink-muted);
+    font-style: italic;
+  }
+
+  @media (max-width: 52rem) {
+    .workshop {
+      grid-template-columns: 1fr;
+    }
+
+    .workshop-cols {
+      grid-column: auto;
+      grid-template-columns: 1fr;
+      gap: var(--space-m);
+    }
+  }
+</style>

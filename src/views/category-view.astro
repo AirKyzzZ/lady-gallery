@@ -1,13 +1,105 @@
 ---
 import BaseLayout from '../layouts/base-layout.astro'
-import type { Locale } from '../i18n/routes'
-import type { CategoryKey } from '../data/taxonomy'
+import ArtistCard from '../components/artist-card.astro'
+import Pictogram from '../components/pictogram.astro'
+import { getPath, type Locale } from '../i18n/routes'
+import { t } from '../i18n/ui'
+import { CATEGORIES, SUBCATEGORY_LABELS, getCategory, type CategoryKey } from '../data/taxonomy'
+import { getArtistsByCategory } from '../data/artists'
+import { toRoman } from '../lib/artist-images'
+import { CATEGORY_COPY, ROOM_LABEL } from '../i18n/arts-copy'
 
 type Props = { locale: Locale; category: CategoryKey }
 
-const { locale, category } = Astro.props
+const { locale, category: key } = Astro.props
+const category = getCategory(key)
+const index = CATEGORIES.findIndex((c) => c.key === key)
+const artists = getArtistsByCategory(key)
+const copy = CATEGORY_COPY[key][locale]
+const sections = category.subcategories
+  ? category.subcategories.map((sub) => ({
+      label: SUBCATEGORY_LABELS[sub][locale],
+      artists: artists.filter((a) => a.subcategories[0] === sub || (sub === 'poetry' && a.subcategories.includes(sub))),
+    }))
+  : [{ label: undefined, artists }]
 ---
 
-<BaseLayout locale={locale} title="Lady Gallery" description="Lady Gallery">
-  <div class="wrap"><h1>{category}</h1></div>
+<BaseLayout locale={locale} title={`${category.label[locale]}, Lady Gallery`} description={copy.description}>
+  <header class="room-header wrap">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href={getPath('arts', locale)}>{t(locale, 'nav.arts')}</a>
+    </nav>
+    <div class="room-title">
+      <span class="room-number">{ROOM_LABEL[locale]} {toRoman(index + 1)}</span>
+      <Pictogram name={category.pictogram} size={64} class="room-picto" />
+    </div>
+    <h1>{category.label[locale]}</h1>
+    <p class="room-intro prose">{copy.intro}</p>
+  </header>
+
+  {
+    sections.map((section) => (
+      <section class="room-section wrap">
+        {section.label && <h2>{section.label}</h2>}
+        <ul class="cartel-grid" role="list">
+          {section.artists.map((artist) => (
+            <li>
+              <ArtistCard artist={artist} locale={locale} />
+            </li>
+          ))}
+        </ul>
+      </section>
+    ))
+  }
 </BaseLayout>
+
+<style>
+  .room-header {
+    padding-block: var(--space-l) var(--space-l);
+    border-bottom: 6px double var(--red);
+  }
+
+  .crumbs {
+    font-size: var(--step--1);
+  }
+
+  .room-title {
+    display: flex;
+    align-items: center;
+    gap: var(--space-m);
+    margin-top: var(--space-l);
+    color: var(--red);
+  }
+
+  .room-number {
+    font-family: var(--font-display);
+    font-size: var(--step-2);
+  }
+
+  .room-header :global(.room-picto) {
+    color: var(--navy);
+  }
+
+  .room-intro {
+    margin-top: var(--space-m);
+    font-size: var(--step-1);
+    line-height: 1.5;
+  }
+
+  .room-section {
+    padding-top: var(--space-xl);
+  }
+
+  .room-section h2 {
+    margin-bottom: var(--space-l);
+    font-size: var(--step-2);
+  }
+
+  .cartel-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(12.5rem, 42vw), 1fr));
+    gap: var(--space-xl) var(--space-l);
+    padding: 0;
+    list-style: none;
+  }
+</style>

@@ -1,12 +1,95 @@
 ---
 import BaseLayout from '../layouts/base-layout.astro'
-import type { Locale } from '../i18n/routes'
+import PageHeader from '../components/page-header.astro'
+import { getPath, type Locale } from '../i18n/routes'
+import { ARTISTS, getDisplayName } from '../data/artists'
 
 type Props = { locale: Locale }
 
 const { locale } = Astro.props
+const fr = locale === 'fr'
+const credited = ARTISTS.filter((artist) => artist.image)
 ---
 
-<BaseLayout locale={locale} title="Lady Gallery" description="Lady Gallery">
-  <div class="wrap"><h1>credits</h1></div>
+<BaseLayout
+  locale={locale}
+  title={fr ? 'Crédits photo, Lady Gallery' : 'Image credits, Lady Gallery'}
+  description={fr
+    ? 'Auteurs et licences des images et polices utilisées sur le site Lady Gallery, toutes issues de sources libres.'
+    : 'Authors and licences of the images and fonts used on the Lady Gallery website, all from free sources.'}
+>
+  <PageHeader title={fr ? 'Crédits photo' : 'Image credits'}>
+    <p>
+      {
+        fr
+          ? 'Toutes les images viennent de Wikimedia Commons, sous licence libre ou dans le domaine public. Merci à leurs auteurs.'
+          : 'All images come from Wikimedia Commons, under free licences or in the public domain. Thanks to their authors.'
+      }
+    </p>
+  </PageHeader>
+  <div class="wrap">
+    <ul class="credits" role="list">
+      {
+        credited.map((artist) =>
+          artist.image ? (
+            <li>
+              <a href={getPath('artist', locale, artist.slug)}>{getDisplayName(artist)}</a>
+              <span>
+                {artist.image.author},{' '}
+                <a href={artist.image.licenceUrl} rel="license noopener">
+                  {artist.image.licence}
+                </a>
+                , <a href={artist.image.sourceUrl} rel="noopener">{fr ? 'source' : 'source'}</a>
+              </span>
+            </li>
+          ) : null,
+        )
+      }
+    </ul>
+    <h2>{fr ? 'Polices' : 'Fonts'}</h2>
+    <ul class="credits" role="list">
+      <li>
+        <span>Poiret One, Denis Masharov</span>
+        <span><a href="https://openfontlicense.org" rel="license noopener">SIL Open Font License 1.1</a></span>
+      </li>
+      <li>
+        <span>Outfit, Rodrigo Fuenzalida</span>
+        <span><a href="https://openfontlicense.org" rel="license noopener">SIL Open Font License 1.1</a></span>
+      </li>
+    </ul>
+    <h2>Logo</h2>
+    <p class="prose">{fr ? 'Logo dessiné par l’équipe Lady Gallery.' : 'Logo designed by the Lady Gallery team.'}</p>
+  </div>
 </BaseLayout>
+
+<style>
+  .credits {
+    padding: 0;
+    list-style: none;
+    border-top: 1px solid var(--red);
+  }
+
+  .credits li {
+    display: grid;
+    grid-template-columns: minmax(10rem, 1fr) 2fr;
+    gap: 0.25rem 1rem;
+    padding-block: 0.6rem;
+    border-bottom: 1px solid var(--beige);
+  }
+
+  .credits span {
+    color: var(--ink-muted);
+    font-size: var(--step--1);
+  }
+
+  h2 {
+    margin-block: var(--space-xl) var(--space-s);
+    font-size: var(--step-2);
+  }
+
+  @media (max-width: 40rem) {
+    .credits li {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

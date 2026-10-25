@@ -1,12 +1,64 @@
 ---
 import BaseLayout from '../layouts/base-layout.astro'
-import type { Locale } from '../i18n/routes'
+import PageHeader from '../components/page-header.astro'
+import { getPath, type Locale } from '../i18n/routes'
 
 type Props = { locale: Locale }
 
 const { locale } = Astro.props
+const fr = locale === 'fr'
 ---
 
-<BaseLayout locale={locale} title="Lady Gallery" description="Lady Gallery">
-  <div class="wrap"><h1>terms</h1></div>
+<BaseLayout
+  locale={locale}
+  title={fr ? 'Conditions générales d’utilisation, Lady Gallery' : 'Terms of use, Lady Gallery'}
+  description={fr
+    ? 'Conditions générales d’utilisation du site Lady Gallery, site d’information d’un événement étudiant gratuit.'
+    : 'Terms of use of the Lady Gallery website, the information site of a free student event.'}
+>
+  <PageHeader title={fr ? 'Conditions générales d’utilisation' : 'Terms of use'} />
+  <div class="wrap prose terms">
+    {
+      fr ? (
+        <>
+          <h2>Objet</h2>
+          <p>Ce site présente l’événement Lady Gallery et les artistes qui y sont mises à l’honneur. Il est consultable gratuitement, sans compte ni inscription.</p>
+          <h2>Contenus</h2>
+          <p>Les informations pratiques (date, horaires, lieu) sont provisoires tant qu’elles portent la mention « à confirmer ». Les biographies sont rédigées avec soin à partir de sources publiques. Si vous repérez une erreur, signalez-la sur notre Instagram.</p>
+          <h2>Réutilisation</h2>
+          <p>Les textes peuvent être cités en mentionnant Lady Gallery. Les images restent soumises à leur licence d’origine, indiquée sur la page <a href={getPath('credits', locale)}>crédits photo</a>.</p>
+          <h2>Liens externes</h2>
+          <p>Le site renvoie vers Instagram, TikTok et Wikimedia Commons. Nous ne sommes pas responsables du contenu de ces sites.</p>
+          <h2>Droit applicable</h2>
+          <p>Ces conditions sont soumises au droit français.</p>
+        </>
+      ) : (
+        <>
+          <h2>Purpose</h2>
+          <p>This site presents the Lady Gallery event and the artists it features. It is free to browse, with no account or sign-up.</p>
+          <h2>Content</h2>
+          <p>Practical details (date, times, venue) are provisional while they are marked “TBC”. The biographies are written carefully from public sources. If you spot a mistake, let us know on Instagram.</p>
+          <h2>Reuse</h2>
+          <p>The texts may be quoted with credit to Lady Gallery. Images remain under their original licence, listed on the <a href={getPath('credits', locale)}>image credits</a> page.</p>
+          <h2>External links</h2>
+          <p>The site links to Instagram, TikTok and Wikimedia Commons. We are not responsible for the content of those sites.</p>
+          <h2>Governing law</h2>
+          <p>These terms are governed by French law.</p>
+        </>
+      )
+    }
+  </div>
 </BaseLayout>
+
+<style>
+  .terms {
+    padding-top: var(--space-l);
+  }
+
+  h2 {
+    padding-top: var(--space-m);
+    font-family: var(--font-body);
+    font-size: var(--step-1);
+    font-weight: 600;
+  }
+</style>

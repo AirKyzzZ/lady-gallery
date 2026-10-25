@@ -1,0 +1,39 @@
+---
+import { getAlternatePath, LOCALES, type Locale } from '../i18n/routes'
+
+type Props = {
+  locale: Locale
+  title: string
+  description: string
+  image?: string
+  noindex?: boolean
+}
+
+const { locale, title, description, image = '/og-default.png', noindex = false } = Astro.props
+const site = Astro.site ?? new URL('https://lady-gallery.netlify.app')
+const pathname = Astro.url.pathname
+const absolute = (path: string): string => new URL(path, site).href
+const OG_LOCALE: Record<Locale, string> = { fr: 'fr_FR', en: 'en_GB' }
+---
+
+<meta name="description" content={description} />
+{noindex && <meta name="robots" content="noindex" />}
+{
+  !noindex && (
+    <>
+      <link rel="canonical" href={absolute(pathname)} />
+      {LOCALES.map((alt) => (
+        <link rel="alternate" hreflang={alt} href={absolute(alt === locale ? pathname : getAlternatePath(pathname, alt))} />
+      ))}
+      <link rel="alternate" hreflang="x-default" href={absolute(locale === 'fr' ? pathname : getAlternatePath(pathname, 'fr'))} />
+    </>
+  )
+}
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Lady Gallery" />
+<meta property="og:locale" content={OG_LOCALE[locale]} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={absolute(pathname)} />
+<meta property="og:image" content={absolute(image)} />
+<meta name="twitter:card" content="summary_large_image" />

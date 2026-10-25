@@ -1,0 +1,49 @@
+---
+import type { Artist } from '../data/artists'
+import { initials } from '../lib/artist-images'
+
+type Props = { artist: Artist; size?: 'small' | 'large' }
+
+const { artist, size = 'small' } = Astro.props
+const tones = ['red', 'navy', 'beige'] as const
+const tone = tones[artist.slug.length % tones.length]
+---
+
+<div class:list={['monogram', `monogram--${tone}`, `monogram--${size}`]} aria-hidden="true">
+  <span>{initials(artist)}</span>
+</div>
+
+<style>
+  .monogram {
+    display: grid;
+    place-items: center;
+    aspect-ratio: 4 / 5;
+    width: 100%;
+    background-image: radial-gradient(circle at 50% 50%, transparent 54%, currentColor 54.4%, currentColor 55%, transparent 55.4%, transparent 59%, currentColor 59.4%, currentColor 59.8%, transparent 60.2%);
+  }
+
+  .monogram span {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 6vw, 3.5rem);
+    letter-spacing: 0.04em;
+  }
+
+  .monogram--large span {
+    font-size: clamp(3.5rem, 10vw, 6rem);
+  }
+
+  .monogram--red {
+    background-color: var(--red);
+    color: var(--cream);
+  }
+
+  .monogram--navy {
+    background-color: var(--navy);
+    color: var(--ochre);
+  }
+
+  .monogram--beige {
+    background-color: var(--beige);
+    color: var(--navy);
+  }
+</style>

@@ -1,12 +1,51 @@
 ---
 import BaseLayout from '../layouts/base-layout.astro'
-import type { Locale } from '../i18n/routes'
+import { getPath, type Locale } from '../i18n/routes'
+import { NOT_FOUND_COPY } from '../i18n/pages-copy'
 
 type Props = { locale: Locale }
 
 const { locale } = Astro.props
+const copy = NOT_FOUND_COPY[locale]
 ---
 
-<BaseLayout locale={locale} title="Lady Gallery" description="Lady Gallery">
-  <div class="wrap"><h1>not-found</h1></div>
+<BaseLayout locale={locale} title={`${copy.title}, Lady Gallery`} description={copy.text} noindex>
+  <section class="wrap closed">
+    <p class="code" aria-hidden="true">404</p>
+    <h1>{copy.title}</h1>
+    <p>{copy.text}</p>
+    <p class="actions">
+      <a class="button" href={getPath('home', locale)}>{copy.home}</a>
+      <a class="button button--ghost" href={getPath('arts', locale)}>{copy.arts}</a>
+    </p>
+  </section>
 </BaseLayout>
+
+<style>
+  .closed {
+    padding-block: var(--space-2xl);
+    text-align: center;
+  }
+
+  .code {
+    font-family: var(--font-display);
+    font-size: clamp(5rem, 20vw, 12rem);
+    line-height: 1;
+    color: var(--red);
+  }
+
+  h1 {
+    font-size: var(--step-3);
+  }
+
+  .closed > p {
+    margin-top: var(--space-m);
+  }
+
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-s);
+  }
+</style>

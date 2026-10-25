@@ -1,0 +1,79 @@
+---
+import { Image } from 'astro:assets'
+import type { Artist } from '../data/artists'
+import type { Locale } from '../i18n/routes'
+import { getArtistImage } from '../lib/artist-images'
+import { ARTIST_COPY } from '../i18n/artist-copy'
+import Monogram from './monogram.astro'
+
+type Props = { artist: Artist; locale: Locale }
+
+const { artist, locale } = Astro.props
+const image = getArtistImage(artist)
+const copy = ARTIST_COPY[locale]
+---
+
+<figure class="artist-figure">
+  <div class="frame">
+    {
+      image && artist.image ? (
+        <Image
+          src={image}
+          alt={artist.image.alt[locale]}
+          widths={[360, 540, 720]}
+          sizes="(max-width: 52rem) 90vw, 26rem"
+          loading="eager"
+          fetchpriority="high"
+          class="figure-img"
+        />
+      ) : (
+        <Monogram artist={artist} size="large" />
+      )
+    }
+  </div>
+  {
+    artist.image && (
+      <figcaption>
+        {artist.image.kind === 'artwork' ? copy.artwork : copy.portrait}
+        {locale === 'fr' ? ' : ' : ': '}
+        {artist.image.author},{' '}
+        <a href={artist.image.licenceUrl} rel="license noopener">
+          {artist.image.licence}
+        </a>
+        , <a href={artist.image.sourceUrl} rel="noopener">Wikimedia Commons</a>
+      </figcaption>
+    )
+  }
+</figure>
+
+<style>
+  .artist-figure {
+    margin: 0;
+  }
+
+  .frame {
+    padding: 10px;
+    border: 1.5px solid var(--red);
+    outline: 1px solid var(--red);
+    outline-offset: -6px;
+    background: var(--paper);
+  }
+
+  .figure-img {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    object-position: 50% 20%;
+  }
+
+  figcaption {
+    margin-top: var(--space-xs);
+    color: var(--ink-muted);
+    font-size: 0.8rem;
+    line-height: 1.4;
+  }
+
+  figcaption a {
+    color: inherit;
+  }
+</style>

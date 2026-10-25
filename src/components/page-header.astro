@@ -1,0 +1,38 @@
+---
+type Props = { title: string; kicker?: string }
+
+const { title, kicker } = Astro.props
+---
+
+<header class="page-header wrap">
+  {kicker && <p class="kicker">{kicker}</p>}
+  <h1>{title}</h1>
+  <div class="intro prose"><slot /></div>
+  <div class="deco-rule" aria-hidden="true"></div>
+</header>
+
+<style>
+  .page-header {
+    padding-block: var(--space-xl) var(--space-l);
+  }
+
+  .kicker {
+    margin-bottom: var(--space-xs);
+    color: var(--red);
+    font-style: italic;
+  }
+
+  .intro {
+    margin-top: var(--space-m);
+    font-size: var(--step-1);
+    line-height: 1.5;
+  }
+
+  .intro:empty {
+    display: none;
+  }
+
+  .deco-rule {
+    margin-top: var(--space-l);
+  }
+</style>

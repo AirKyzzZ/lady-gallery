@@ -1,12 +1,84 @@
 ---
 import BaseLayout from '../layouts/base-layout.astro'
-import type { Locale } from '../i18n/routes'
+import PageHeader from '../components/page-header.astro'
+import { getPath, type Locale } from '../i18n/routes'
 
 type Props = { locale: Locale }
 
 const { locale } = Astro.props
+const fr = locale === 'fr'
 ---
 
-<BaseLayout locale={locale} title="Lady Gallery" description="Lady Gallery">
-  <div class="wrap"><h1>legal</h1></div>
+<BaseLayout
+  locale={locale}
+  title={fr ? 'Mentions légales, Lady Gallery' : 'Legal notice, Lady Gallery'}
+  description={fr
+    ? 'Mentions légales du site Lady Gallery : éditeur, hébergement, propriété intellectuelle et données personnelles.'
+    : 'Legal notice for the Lady Gallery website: publisher, hosting, intellectual property and personal data.'}
+>
+  <PageHeader title={fr ? 'Mentions légales' : 'Legal notice'} />
+  <div class="wrap prose legal">
+    {
+      fr ? (
+        <>
+          <h2>Éditeur du site</h2>
+          <p>
+            Lady Gallery, projet étudiant du département de langues de l’Université de Bordeaux.
+            <br />
+            Responsable de la publication : [nom à compléter]
+            <br />
+            Contact : [adresse e-mail à compléter]
+          </p>
+          <h2>Hébergement</h2>
+          <p>
+            Netlify, Inc., 512 2nd Street, Suite 200, San Francisco, CA 94107, États-Unis. <a href="https://www.netlify.com" rel="noopener">netlify.com</a>
+          </p>
+          <h2>Propriété intellectuelle</h2>
+          <p>
+            Les textes du site ont été écrits par l’équipe Lady Gallery. Les images proviennent de Wikimedia Commons, sous licence libre ou dans le domaine public. Leurs auteurs et licences sont indiqués sous chaque image et sur la page <a href={getPath('credits', locale)}>crédits photo</a>.
+          </p>
+          <h2>Données personnelles</h2>
+          <p>
+            Ce site ne dépose aucun cookie, n’utilise aucun outil de mesure d’audience et ne contient aucun formulaire. Aucune donnée personnelle n’est collectée par l’équipe. L’hébergeur peut conserver des journaux techniques (adresse IP, date de visite) pour des raisons de sécurité.
+          </p>
+        </>
+      ) : (
+        <>
+          <h2>Publisher</h2>
+          <p>
+            Lady Gallery, a student project from the language department of the University of Bordeaux.
+            <br />
+            Publication manager: [name to be added]
+            <br />
+            Contact: [email to be added]
+          </p>
+          <h2>Hosting</h2>
+          <p>
+            Netlify, Inc., 512 2nd Street, Suite 200, San Francisco, CA 94107, United States. <a href="https://www.netlify.com" rel="noopener">netlify.com</a>
+          </p>
+          <h2>Intellectual property</h2>
+          <p>
+            The texts on this site were written by the Lady Gallery team. Images come from Wikimedia Commons, under free licences or in the public domain. Their authors and licences are given under each image and on the <a href={getPath('credits', locale)}>image credits</a> page.
+          </p>
+          <h2>Personal data</h2>
+          <p>
+            This site sets no cookies, uses no analytics and has no forms. The team collects no personal data. The host may keep technical logs (IP address, time of visit) for security purposes.
+          </p>
+        </>
+      )
+    }
+  </div>
 </BaseLayout>
+
+<style>
+  .legal {
+    padding-top: var(--space-l);
+  }
+
+  h2 {
+    padding-top: var(--space-m);
+    font-family: var(--font-body);
+    font-size: var(--step-1);
+    font-weight: 600;
+  }
+</style>

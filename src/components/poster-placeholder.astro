@@ -1,0 +1,93 @@
+---
+type Props = { variant: 1 | 2 | 3; label: string; caption: string }
+
+const { variant, label, caption } = Astro.props
+---
+
+<figure class:list={['poster', `poster--${variant}`]}>
+  <div class="poster-sheet" aria-hidden="true">
+    <span class="poster-top">Lady Gallery</span>
+    <span class="poster-sun"></span>
+    <span class="poster-title">{label}</span>
+  </div>
+  <figcaption>{caption}</figcaption>
+</figure>
+
+<style>
+  .poster {
+    margin: 0;
+  }
+
+  .poster-sheet {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    aspect-ratio: 3 / 4;
+    padding: 1.25rem;
+    overflow: hidden;
+    box-shadow:
+      0 1px 0 rgb(0 0 0 / 0.04),
+      0 14px 24px -12px rgb(41 47 67 / 0.45);
+  }
+
+  .poster-sheet::before {
+    content: '';
+    position: absolute;
+    inset: 0.6rem;
+    border: 1px solid currentColor;
+    opacity: 0.6;
+  }
+
+  .poster-top {
+    position: relative;
+    font-family: var(--font-display);
+    font-size: var(--step-1);
+    letter-spacing: 0.06em;
+  }
+
+  .poster-sun {
+    position: absolute;
+    left: 50%;
+    top: 58%;
+    width: 140%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    background: repeating-conic-gradient(currentColor 0 4deg, transparent 4deg 12deg);
+    opacity: 0.16;
+    mask: radial-gradient(circle, #000 0 30%, transparent 70%);
+  }
+
+  .poster-title {
+    position: relative;
+    font-family: var(--font-display);
+    font-size: var(--step-2);
+    line-height: 1;
+  }
+
+  figcaption {
+    margin-top: 0.75rem;
+    color: var(--ink-muted);
+    font-size: var(--step--1);
+    font-style: italic;
+  }
+
+  .poster--1 .poster-sheet {
+    background: var(--red);
+    color: var(--cream);
+    transform: rotate(-2.5deg);
+  }
+
+  .poster--2 .poster-sheet {
+    background: var(--navy);
+    color: var(--ochre);
+    transform: rotate(1.5deg) translateY(1rem);
+  }
+
+  .poster--3 .poster-sheet {
+    background: var(--beige);
+    color: var(--navy);
+    transform: rotate(-1deg);
+  }
+</style>

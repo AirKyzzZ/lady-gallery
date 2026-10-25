@@ -1,12 +1,294 @@
 ---
+import { getEntry, render } from 'astro:content'
+import { getImage } from 'astro:assets'
 import BaseLayout from '../layouts/base-layout.astro'
-import type { Locale } from '../i18n/routes'
+import ArtistFigure from '../components/artist-figure.astro'
+import { getPath, type Locale } from '../i18n/routes'
+import { t } from '../i18n/ui'
+import { getArtist, getDisplayName, getNeighbours } from '../data/artists'
+import { SUBCATEGORY_LABELS, getCategory } from '../data/taxonomy'
+import { WORKSHOPS } from '../data/event'
+import { formatYears, getArtistImage } from '../lib/artist-images'
+import { breadcrumbNode, personNodes } from '../lib/structured-data'
+import { ARTIST_COPY, WORKS_TITLE } from '../i18n/artist-copy'
 
 type Props = { locale: Locale; slug: string }
 
 const { locale, slug } = Astro.props
+const artist = getArtist(slug)
+const entry = await getEntry('bios', `${locale}/${slug}`)
+if (!entry) throw new Error(`Missing ${locale} bio for ${slug}`)
+const { Content } = await render(entry)
+const category = getCategory(artist.category)
+const copy = ARTIST_COPY[locale]
+const { prev, next } = getNeighbours(slug)
+const workshop = WORKSHOPS.find((w) => w.key === entry.data.workshop)
+const discipline = artist.subcategories.length
+  ? artist.subcategories.map((sub) => SUBCATEGORY_LABELS[sub][locale]).join(locale === 'fr' ? ' et ' : ' and ')
+  : category.label[locale]
+const name = getDisplayName(artist)
+const source = getArtistImage(artist)
+const ogImage = source ? (await getImage({ src: source, width: 1200, format: 'jpeg' })).src : undefined
+const jsonLd = [
+  ...personNodes(artist, locale, entry.data.lede, ogImage && new URL(ogImage, Astro.site).href),
+  breadcrumbNode(locale, artist, name),
+]
 ---
 
-<BaseLayout locale={locale} title="Lady Gallery" description="Lady Gallery">
-  <div class="wrap"><h1>{slug}</h1></div>
+<BaseLayout locale={locale} title={`${name}, Lady Gallery`} description={entry.data.lede} image={ogImage} jsonLd={jsonLd}>
+  <article class="artist wrap">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href={getPath('arts', locale)}>{t(locale, 'nav.arts')}</a>
+      <span aria-hidden="true">/</span>
+      <a href={getPath('category', locale, category.key)}>{category.label[locale]}</a>
+    </nav>
+
+    <div class="artist-grid">
+      <div class="artist-aside">
+        <ArtistFigure artist={artist} locale={locale} />
+      </div>
+
+      <div class="artist-main">
+        <p class="discipline">{discipline}</p>
+        <h1>
+          {
+            artist.names.map((n, i) =>
+              i === 0 ? (
+                n
+              ) : (
+                <>
+                  <br />
+                  <span class="amp">&amp;</span> {n}
+                </>
+              ),
+            )
+          }
+        </h1>
+        {artist.years && <p class="meta">{formatYears(artist.years, locale)}, {artist.nationality[locale]}</p>}
+        <p class="lede">{entry.data.lede}</p>
+
+        <div class="bio prose">
+          <Content />
+        </div>
+
+        <section class="works" aria-labelledby="works-title">
+          <h2 id="works-title">{WORKS_TITLE[artist.category][locale]}</h2>
+          <ul role="list">
+            {
+              entry.data.works.map((work) => (
+                <li>
+                  <cite>{work.title}</cite>
+                  <span class="work-meta">
+                    {work.kind}
+                    {work.year && `, ${work.year}`}
+                  </span>
+                </li>
+              ))
+            }
+          </ul>
+        </section>
+
+        <aside class="why">
+          <h2>{copy.whyHere}</h2>
+          <p>{entry.data.whyHere}</p>
+          {
+            workshop && (
+              <a href={`${getPath('workshops', locale)}#${workshop.key}`}>{copy.workshopLink(workshop.title[locale])}</a>
+            )
+          }
+        </aside>
+      </div>
+    </div>
+
+    <nav class="pager" aria-label={category.label[locale]}>
+      {
+        prev ? (
+          <a class="pager-prev" href={getPath('artist', locale, prev.slug)}>
+            <span class="pager-label">{copy.previous}</span>
+            {getDisplayName(prev)}
+          </a>
+        ) : (
+          <span />
+        )
+      }
+      {
+        next && (
+          <a class="pager-next" href={getPath('artist', locale, next.slug)}>
+            <span class="pager-label">{copy.next}</span>
+            {getDisplayName(next)}
+          </a>
+        )
+      }
+    </nav>
+  </article>
 </BaseLayout>
+
+<style>
+  .artist {
+    padding-top: var(--space-l);
+  }
+
+  .crumbs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    font-size: var(--step--1);
+  }
+
+  .crumbs span {
+    color: var(--beige);
+  }
+
+  .artist-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 26rem) minmax(0, 1fr);
+    gap: clamp(2rem, 5vw, 5rem);
+    margin-top: var(--space-l);
+  }
+
+  .artist-aside {
+    align-self: start;
+    position: sticky;
+    top: 6rem;
+  }
+
+  .discipline {
+    color: var(--red);
+    font-style: italic;
+  }
+
+  h1 {
+    margin-top: var(--space-2xs);
+    font-size: clamp(2.6rem, 1.6rem + 4vw, 5rem);
+    line-height: 1;
+  }
+
+  .amp {
+    color: var(--red);
+  }
+
+  .meta {
+    margin-top: var(--space-s);
+    color: var(--ink-muted);
+  }
+
+  .lede {
+    max-width: var(--measure);
+    margin-block: var(--space-l);
+    padding-left: var(--space-m);
+    border-left: 3px solid var(--red);
+    font-size: var(--step-1);
+    line-height: 1.5;
+  }
+
+  .bio :global(em) {
+    font-style: italic;
+  }
+
+  .works {
+    max-width: var(--measure);
+    margin-top: var(--space-xl);
+  }
+
+  .works h2,
+  .why h2 {
+    font-size: var(--step-2);
+    margin-bottom: var(--space-s);
+  }
+
+  .works ul {
+    padding: 0;
+    list-style: none;
+    border-top: 1px solid var(--red);
+  }
+
+  .works li {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.25rem 1rem;
+    padding-block: 0.7rem;
+    border-bottom: 1px solid var(--beige);
+  }
+
+  cite {
+    font-weight: 600;
+    font-style: italic;
+  }
+
+  .work-meta {
+    color: var(--ink-muted);
+    font-size: var(--step--1);
+  }
+
+  .why {
+    max-width: var(--measure);
+    margin-top: var(--space-xl);
+    padding: var(--space-l);
+    background: var(--navy);
+    color: var(--cream);
+    border: 1px solid var(--navy);
+    outline: 1px solid var(--ochre);
+    outline-offset: -8px;
+  }
+
+  .why h2 {
+    color: var(--ochre);
+  }
+
+  .why a {
+    display: inline-block;
+    margin-top: var(--space-s);
+    color: var(--cream);
+    font-weight: 600;
+  }
+
+  .why a:hover {
+    color: var(--ochre);
+  }
+
+  .pager {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--space-m);
+    margin-top: var(--space-2xl);
+    padding-top: var(--space-m);
+    border-top: 6px double var(--red);
+  }
+
+  .pager a {
+    display: grid;
+    gap: 0.1rem;
+    color: var(--navy);
+    font-family: var(--font-display);
+    font-size: var(--step-2);
+    line-height: 1.1;
+    text-decoration: none;
+  }
+
+  .pager a:hover {
+    color: var(--red);
+  }
+
+  .pager-next {
+    text-align: right;
+  }
+
+  .pager-label {
+    color: var(--red);
+    font-family: var(--font-body);
+    font-size: var(--step--1);
+    font-style: italic;
+  }
+
+  @media (max-width: 52rem) {
+    .artist-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .artist-aside {
+      position: static;
+      max-width: 22rem;
+    }
+  }
+</style>

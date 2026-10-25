@@ -1,12 +1,101 @@
 ---
 import BaseLayout from '../layouts/base-layout.astro'
-import type { Locale } from '../i18n/routes'
+import PageHeader from '../components/page-header.astro'
+import Pictogram from '../components/pictogram.astro'
+import { getPath, type Locale } from '../i18n/routes'
+import { CATEGORIES } from '../data/taxonomy'
+import { getArtistsByCategory, getDisplayName } from '../data/artists'
+import { toRoman } from '../lib/artist-images'
+import { ARTS_INDEX_COPY, ROOM_LABEL } from '../i18n/arts-copy'
 
 type Props = { locale: Locale }
 
 const { locale } = Astro.props
+const copy = ARTS_INDEX_COPY[locale]
 ---
 
-<BaseLayout locale={locale} title="Lady Gallery" description="Lady Gallery">
-  <div class="wrap"><h1>arts-index</h1></div>
+<BaseLayout locale={locale} title={`${copy.title}, Lady Gallery`} description={copy.description}>
+  <PageHeader title={copy.title}><p>{copy.intro}</p></PageHeader>
+  <div class="wrap rooms">
+    {
+      CATEGORIES.map((category, index) => (
+        <section class="room">
+          <div class="room-head">
+            <Pictogram name={category.pictogram} size={52} />
+            <div>
+              <p class="room-number">
+                {ROOM_LABEL[locale]} {toRoman(index + 1)}
+              </p>
+              <h2>
+                <a href={getPath('category', locale, category.key)}>{category.label[locale]}</a>
+              </h2>
+            </div>
+          </div>
+          <ul role="list">
+            {getArtistsByCategory(category.key).map((artist) => (
+              <li>
+                <a href={getPath('artist', locale, artist.slug)}>{getDisplayName(artist)}</a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ))
+    }
+  </div>
 </BaseLayout>
+
+<style>
+  .rooms {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(19rem, 100%), 1fr));
+    gap: var(--space-xl) var(--space-l);
+    padding-top: var(--space-l);
+  }
+
+  .room-head {
+    display: flex;
+    align-items: center;
+    gap: var(--space-s);
+    padding-bottom: var(--space-s);
+    border-bottom: 1px solid var(--red);
+  }
+
+  .room-number {
+    color: var(--red);
+    font-size: var(--step--1);
+    font-style: italic;
+  }
+
+  h2 {
+    font-size: var(--step-2);
+  }
+
+  h2 a {
+    color: var(--navy);
+    text-decoration: none;
+  }
+
+  h2 a:hover {
+    color: var(--red);
+  }
+
+  ul {
+    columns: 2;
+    column-gap: var(--space-m);
+    padding: var(--space-s) 0 0;
+    list-style: none;
+  }
+
+  li {
+    break-inside: avoid;
+    padding-block: 0.2rem;
+  }
+
+  li a {
+    color: var(--navy);
+  }
+
+  li a:hover {
+    color: var(--red);
+  }
+</style>

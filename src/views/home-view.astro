@@ -1,12 +1,296 @@
 ---
 import BaseLayout from '../layouts/base-layout.astro'
-import type { Locale } from '../i18n/routes'
+import EventFacts from '../components/event-facts.astro'
+import PosterPlaceholder from '../components/poster-placeholder.astro'
+import Pictogram from '../components/pictogram.astro'
+import logoUrl from '../assets/brand/logo.svg?url'
+import { getPath, type Locale } from '../i18n/routes'
+import { CATEGORIES } from '../data/taxonomy'
+import { getArtistsByCategory, getDisplayName } from '../data/artists'
+import { EVENT, WORKSHOPS } from '../data/event'
+import { toRoman } from '../lib/artist-images'
+import { HOME_COPY } from '../i18n/home-copy'
+import { eventNode, organizationNode } from '../lib/structured-data'
 
 type Props = { locale: Locale }
 
 const { locale } = Astro.props
+const copy = HOME_COPY[locale]
+const jsonLd = [organizationNode(), eventNode(locale, copy.description)]
 ---
 
-<BaseLayout locale={locale} title="Lady Gallery" description="Lady Gallery">
-  <div class="wrap"><h1>home</h1></div>
+<BaseLayout locale={locale} title={copy.title} description={copy.description} jsonLd={jsonLd}>
+  <section class="hero wrap">
+    <div class="hero-text">
+      <p class="hero-kicker">{copy.kicker}</p>
+      <h1>Lady Gallery</h1>
+      <p class="hero-quote" lang="en">Women just wanna make, create, shape it.</p>
+      <p class="hero-intro">{copy.intro}</p>
+      <EventFacts locale={locale} />
+      <div class="hero-actions">
+        <a class="button" href={EVENT.instagramUrl} rel="noopener">{copy.instagram} {EVENT.instagramHandle}</a>
+        <a class="button button--ghost" href={getPath('arts', locale)}>{copy.seeArtists}</a>
+      </div>
+    </div>
+    <div class="hero-logo">
+      <img src={logoUrl} alt={copy.logoAlt} width="520" height="520" fetchpriority="high" />
+    </div>
+  </section>
+
+  <section class="rooms" aria-labelledby="rooms-title">
+    <div class="wrap">
+      <h2 id="rooms-title">{copy.roomsTitle}</h2>
+      <p class="section-intro prose">{copy.roomsIntro}</p>
+      <ol class="room-list" role="list">
+        {
+          CATEGORIES.map((category, index) => {
+            const artists = getArtistsByCategory(category.key)
+            const preview = artists.slice(0, 4).map(getDisplayName).join(', ')
+            return (
+              <li>
+                <a class="room" href={getPath('category', locale, category.key)}>
+                  <span class="room-number" aria-hidden="true">
+                    {toRoman(index + 1)}
+                  </span>
+                  <Pictogram name={category.pictogram} size={44} class="room-picto" />
+                  <span class="room-body">
+                    <span class="room-name">{category.label[locale]}</span>
+                    <span class="room-preview">
+                      {preview}
+                      {artists.length > 4 && copy.andMore(artists.length - 4)}
+                    </span>
+                  </span>
+                </a>
+              </li>
+            )
+          })
+        }
+      </ol>
+    </div>
+  </section>
+
+  <section class="posters" aria-labelledby="posters-title">
+    <div class="wrap">
+      <h2 id="posters-title">{copy.postersTitle}</h2>
+      <p class="section-intro prose">{copy.postersIntro}</p>
+      <div class="poster-wall">
+        {copy.posters.map((poster, i) => <PosterPlaceholder variant={(i + 1) as 1 | 2 | 3} label={poster} caption={copy.posterCaption} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="workshops wrap" aria-labelledby="workshops-title">
+    <h2 id="workshops-title">{copy.workshopsTitle}</h2>
+    <p class="section-intro prose">{copy.workshopsIntro}</p>
+    <ul class="workshop-list" role="list">
+      {
+        WORKSHOPS.map((workshop) => (
+          <li>
+            <a href={`${getPath('workshops', locale)}#${workshop.key}`}>{workshop.title[locale]}</a>
+            <p>{copy.workshopLines[workshop.key]}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
 </BaseLayout>
+
+<style>
+  .hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+    align-items: center;
+    gap: var(--space-xl);
+    padding-block: var(--space-xl) var(--space-2xl);
+  }
+
+  .hero-kicker {
+    color: var(--red);
+    font-style: italic;
+  }
+
+  .hero h1 {
+    margin-top: var(--space-xs);
+    font-size: clamp(3.4rem, 2rem + 6vw, 7.5rem);
+    line-height: 0.95;
+  }
+
+  .hero-quote {
+    margin-top: var(--space-s);
+    font-family: var(--font-display);
+    font-size: var(--step-2);
+    line-height: 1.15;
+    color: var(--red);
+  }
+
+  .hero-intro {
+    max-width: 38rem;
+    margin-block: var(--space-m) var(--space-l);
+    font-size: var(--step-1);
+    line-height: 1.5;
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-s);
+    margin-top: var(--space-l);
+  }
+
+  .hero-logo img {
+    width: 100%;
+    max-width: 30rem;
+    margin-inline: auto;
+  }
+
+  h2 {
+    margin-bottom: var(--space-s);
+  }
+
+  .section-intro {
+    margin-bottom: var(--space-l);
+    color: var(--ink-muted);
+  }
+
+  .rooms {
+    padding-block: var(--space-xl);
+    background: var(--paper);
+    border-block: 6px double var(--red);
+  }
+
+  .room-list {
+    padding: 0;
+    list-style: none;
+    border-top: 1px solid var(--beige);
+  }
+
+  .room {
+    display: grid;
+    grid-template-columns: 4rem auto 1fr;
+    align-items: center;
+    gap: var(--space-m);
+    padding: var(--space-m) var(--space-xs);
+    border-bottom: 1px solid var(--beige);
+    color: var(--navy);
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+  }
+
+  .room:hover {
+    background: var(--cream);
+    color: var(--navy);
+  }
+
+  .room-number {
+    font-family: var(--font-display);
+    font-size: var(--step-3);
+    line-height: 1;
+    color: var(--red);
+  }
+
+  .room :global(.room-picto) {
+    color: var(--navy);
+  }
+
+  .room-body {
+    display: grid;
+    gap: 0.15rem;
+  }
+
+  .room-name {
+    font-family: var(--font-display);
+    font-size: var(--step-2);
+    line-height: 1.1;
+  }
+
+  .room:hover .room-name {
+    color: var(--red);
+  }
+
+  .room-preview {
+    color: var(--ink-muted);
+    font-size: var(--step--1);
+  }
+
+  .posters {
+    padding-block: var(--space-2xl) var(--space-xl);
+  }
+
+  .poster-wall {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(1rem, 4vw, 3.5rem);
+    max-width: 56rem;
+  }
+
+  .workshops {
+    padding-block: var(--space-xl) 0;
+  }
+
+  .workshop-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
+    gap: var(--space-m) var(--space-l);
+    padding: 0;
+    list-style: none;
+  }
+
+  .workshop-list li {
+    padding-top: var(--space-s);
+    border-top: 1px solid var(--red);
+  }
+
+  .workshop-list a {
+    font-family: var(--font-display);
+    font-size: var(--step-2);
+    line-height: 1.1;
+    text-decoration: none;
+    color: var(--navy);
+  }
+
+  .workshop-list a:hover {
+    color: var(--red);
+  }
+
+  .workshop-list p {
+    margin-top: var(--space-2xs);
+    color: var(--ink-muted);
+  }
+
+  @media (max-width: 52rem) {
+    .hero {
+      grid-template-columns: 1fr;
+      gap: var(--space-l);
+      padding-top: var(--space-l);
+    }
+
+    .hero-logo {
+      grid-row: 1;
+    }
+
+    .hero-logo img {
+      max-width: 13rem;
+    }
+  }
+
+  @media (max-width: 40rem) {
+    .room {
+      grid-template-columns: 2.5rem 1fr;
+    }
+
+    .room :global(.room-picto) {
+      display: none;
+    }
+
+    .poster-wall {
+      grid-template-columns: repeat(3, 70%);
+      overflow-x: auto;
+      padding: 1rem 0.5rem 1.5rem;
+      scroll-snap-type: x mandatory;
+    }
+
+    .poster-wall > :global(*) {
+      scroll-snap-align: center;
+    }
+  }
+</style>

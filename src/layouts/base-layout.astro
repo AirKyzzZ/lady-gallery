@@ -9,14 +9,19 @@ import type { Locale } from '../i18n/routes'
 import { t } from '../i18n/ui'
 import SiteHeader from '../components/site-header.astro'
 import SiteFooter from '../components/site-footer.astro'
+import SeoHead from '../components/seo-head.astro'
+import JsonLd from '../components/json-ld.astro'
 
 type Props = {
   locale: Locale
   title: string
   description: string
+  noindex?: boolean
+  image?: string
+  jsonLd?: Record<string, unknown>[]
 }
 
-const { locale, title, description } = Astro.props
+const { locale, title, description, noindex = false, image, jsonLd } = Astro.props
 const pathname = Astro.url.pathname
 ---
 
@@ -26,8 +31,9 @@ const pathname = Astro.url.pathname
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
-    <meta name="description" content={description} />
     <meta name="theme-color" content="#f3ebe0" />
+    <SeoHead locale={locale} title={title} description={description} image={image} noindex={noindex} />
+    {jsonLd && <JsonLd nodes={jsonLd} />}
     <link rel="preload" href={poiretLatin} as="font" type="font/woff2" crossorigin />
     <link rel="preload" href={outfitLatin} as="font" type="font/woff2" crossorigin />
     <link rel="icon" href="/favicon.ico" sizes="32x32" />

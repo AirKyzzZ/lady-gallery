@@ -1,0 +1,91 @@
+---
+import { Image } from 'astro:assets'
+import type { Artist } from '../data/artists'
+import { getPath, type Locale } from '../i18n/routes'
+import { formatYears, getArtistImage } from '../lib/artist-images'
+import Monogram from './monogram.astro'
+
+type Props = { artist: Artist; locale: Locale }
+
+const { artist, locale } = Astro.props
+const image = getArtistImage(artist)
+---
+
+<a class="cartel" href={getPath('artist', locale, artist.slug)}>
+  <div class="cartel-frame">
+    {
+      image && artist.image ? (
+        <Image
+          src={image}
+          alt=""
+          widths={[240, 360, 480]}
+          sizes="(max-width: 40rem) 45vw, 15rem"
+          class="cartel-img"
+          loading="lazy"
+        />
+      ) : (
+        <Monogram artist={artist} />
+      )
+    }
+  </div>
+  <span class="cartel-name">
+    {artist.names.map((name, i) => (i === 0 ? name : <><span class="amp"> & </span>{name}</>))}
+  </span>
+  {artist.years && <span class="cartel-meta">{formatYears(artist.years, locale)}, {artist.nationality[locale]}</span>}
+</a>
+
+<style>
+  .cartel {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    color: var(--navy);
+    text-decoration: none;
+  }
+
+  .cartel-frame {
+    padding: 6px;
+    border: 1px solid var(--red);
+    outline: 1px solid var(--red);
+    outline-offset: -4px;
+    background: var(--paper);
+    transition: transform 0.25s ease;
+  }
+
+  .cartel-img {
+    aspect-ratio: 4 / 5;
+    width: 100%;
+    object-fit: cover;
+    object-position: 50% 20%;
+    filter: sepia(0.25) saturate(0.85);
+    transition: filter 0.25s ease;
+  }
+
+  .cartel:hover .cartel-frame {
+    transform: rotate(-1.2deg);
+  }
+
+  .cartel:hover .cartel-img {
+    filter: none;
+  }
+
+  .cartel-name {
+    margin-top: 0.4rem;
+    font-weight: 600;
+    line-height: 1.25;
+  }
+
+  .cartel:hover .cartel-name {
+    color: var(--red);
+  }
+
+  .amp {
+    color: var(--red);
+  }
+
+  .cartel-meta {
+    color: var(--ink-muted);
+    font-size: var(--step--1);
+    font-style: italic;
+  }
+</style>
