@@ -6,6 +6,9 @@ works:
   - { title: "A-Tisket, A-Tasket", year: "1938", kind: "song" }
   - { title: "Ella in Berlin", year: "1960", kind: "album" }
 whyHere: "Two voices you can name in three notes, which suits the music bingo, and a pair that shows two ways of singing jazz in the same years."
+people:
+  - { name: "Billie Holiday", description: "American jazz singer (1915-1959), nicknamed Lady Day, who sang Strange Fruit at Café Society in 1939." }
+  - { name: "Ella Fitzgerald", description: "American jazz singer (1917-1996), discovered at an amateur contest at the Apollo in Harlem, famous for her scat and Ella in Berlin (1960)." }
 workshop: bingo
 ---
 

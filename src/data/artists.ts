@@ -1,6 +1,7 @@
 import type { Locale } from '../i18n/routes'
 import type { CategoryKey, SubcategoryKey } from './taxonomy'
 import facts from './artist-facts.json'
+import wikidata from './wikidata.json'
 
 export type ArtistImage = {
   file: string
@@ -21,6 +22,7 @@ export type Artist = {
   nationality: Record<Locale, string>
   image?: ArtistImage
   sources: string[]
+  wikidata: string[]
 }
 
 type ArtistFacts = Pick<Artist, 'years' | 'nationality' | 'image' | 'sources'>
@@ -89,6 +91,8 @@ const FACTS: Partial<Record<string, ArtistFacts>> = Object.fromEntries(
   Object.entries(RAW_FACTS).flatMap(([slug, raw]) => (raw ? [[slug, toFacts(slug, raw)]] : [])),
 )
 
+const WIKIDATA: Partial<Record<string, string[]>> = wikidata
+
 const EMPTY_FACTS: ArtistFacts = { years: '', nationality: { fr: '', en: '' }, sources: [] }
 
 export const ARTISTS: readonly Artist[] = ENTRIES.map(([slug, names, category, subcategories = []]) => ({
@@ -97,6 +101,7 @@ export const ARTISTS: readonly Artist[] = ENTRIES.map(([slug, names, category, s
   category,
   subcategories,
   ...(FACTS[slug] ?? EMPTY_FACTS),
+  wikidata: WIKIDATA[slug] ?? [],
 }))
 
 export const getArtist = (slug: string): Artist => {

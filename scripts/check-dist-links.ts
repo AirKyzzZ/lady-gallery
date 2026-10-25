@@ -20,8 +20,11 @@ export const checkDistLinks = (distDir: string): string[] =>
   listHtml(distDir).flatMap((file) => {
     const html = readFileSync(file, 'utf8')
     const page = `/${relative(distDir, file)}`
-    return [...html.matchAll(/\s(?:href|src)="(\/[^"]*)"/g)]
-      .map((match) => match[1] ?? '')
+    const direct = [...html.matchAll(/\s(?:href|src)="(\/[^"]*)"/g)].map((match) => match[1] ?? '')
+    const sets = [...html.matchAll(/\s(?:srcset|imagesrcset)="([^"]*)"/g)].flatMap((match) =>
+      (match[1] ?? '').split(',').map((candidate) => candidate.trim().split(/\s+/)[0] ?? ''),
+    )
+    return [...direct, ...sets.filter((url) => url.startsWith('/'))]
       .filter((href) => !href.startsWith('//') && !resolves(distDir, href))
       .map((href) => `${page} -> ${href}`)
   })

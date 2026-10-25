@@ -48,6 +48,6 @@ const pathname = Astro.url.pathname
     <main id="main">
       <slot />
     </main>
-    <SiteFooter locale={locale} />
+    <SiteFooter locale={locale} pathname={pathname} />
   </body>
 </html>

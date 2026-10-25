@@ -6,6 +6,9 @@ works:
   - { title: "Lemonade", year: "2016", kind: "album" }
   - { title: "Renaissance", year: "2022", kind: "album" }
 whyHere: "Vogue, Like a Prayer, Crazy in Love, Single Ladies: between them, these two could fill a whole music bingo card."
+people:
+  - { name: "Madonna", description: "American singer born in 1958 in Bay City, Michigan, whose first album came out in 1983, followed by Like a Virgin in 1984." }
+  - { name: "Beyoncé", description: "American singer born in 1981 in Houston, Texas, who overtook Madonna’s record at the MTV Video Music Awards." }
 workshop: bingo
 ---
 

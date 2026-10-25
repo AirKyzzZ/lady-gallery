@@ -6,6 +6,9 @@ works:
   - { title: "Lemonade", year: "2016", kind: "album" }
   - { title: "Renaissance", year: "2022", kind: "album" }
 whyHere: "Vogue, Like a Prayer, Crazy in Love, Single Ladies : de quoi remplir une grille entière de bingo musical avec ces deux-là."
+people:
+  - { name: "Madonna", description: "Chanteuse américaine née en 1958 à Bay City (Michigan), dont le premier album sort en 1983, suivi de Like a Virgin en 1984." }
+  - { name: "Beyoncé", description: "Chanteuse américaine née en 1981 à Houston (Texas), qui a dépassé le record de Madonna aux MTV Video Music Awards." }
 workshop: bingo
 ---
 

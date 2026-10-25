@@ -7,8 +7,8 @@ type Props = { locale: Locale }
 
 const { locale } = Astro.props
 const labels = {
-  fr: { date: 'Date', time: 'Horaires', place: 'Lieu', price: 'Entrée', title: 'Billet d’entrée' },
-  en: { date: 'Date', time: 'Time', place: 'Venue', price: 'Entry', title: 'Admission ticket' },
+  fr: { date: 'Date', time: 'Horaires', place: 'Lieu', price: 'Entrée', title: 'Billet d’entrée', stamp: 'Laissez-passer' },
+  en: { date: 'Date', time: 'Time', place: 'Venue', price: 'Entry', title: 'Admission ticket', stamp: 'Admit one' },
 }[locale]
 const rows = [
   { label: labels.date, value: EVENT.date[locale], tbc: true },
@@ -32,7 +32,7 @@ const rows = [
       ))
     }
   </dl>
-  <p class="ticket-stub" aria-hidden="true">Admit one</p>
+  <p class="ticket-stub" aria-hidden="true">{labels.stamp}</p>
 </section>
 
 <style>

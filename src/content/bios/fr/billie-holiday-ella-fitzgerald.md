@@ -6,6 +6,9 @@ works:
   - { title: "A-Tisket, A-Tasket", year: "1938", kind: "chanson" }
   - { title: "Ella in Berlin", year: "1960", kind: "album" }
 whyHere: "Deux timbres qu'on identifie en trois notes, idéals pour le bingo musical, et un duo qui fait entendre deux façons de chanter le jazz à la même époque."
+people:
+  - { name: "Billie Holiday", description: "Chanteuse de jazz américaine (1915-1959), surnommée Lady Day, qui a chanté Strange Fruit au Café Society en 1939." }
+  - { name: "Ella Fitzgerald", description: "Chanteuse de jazz américaine (1917-1996), révélée par un concours amateur à l’Apollo de Harlem, célèbre pour son scat et Ella in Berlin (1960)." }
 workshop: bingo
 ---
 

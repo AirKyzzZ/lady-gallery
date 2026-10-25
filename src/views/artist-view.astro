@@ -9,6 +9,7 @@ import { getArtist, getDisplayName, getNeighbours } from '../data/artists'
 import { SUBCATEGORY_LABELS, getCategory } from '../data/taxonomy'
 import { WORKSHOPS } from '../data/event'
 import { formatYears, getArtistImage } from '../lib/artist-images'
+import { splitFrenchWorkTitle, type TitlePart } from '../lib/work-title'
 import { breadcrumbNode, personNodes } from '../lib/structured-data'
 import { ARTIST_COPY, WORKS_TITLE } from '../i18n/artist-copy'
 
@@ -28,13 +29,17 @@ const discipline = artist.subcategories.length
   : category.label[locale]
 const name = getDisplayName(artist)
 const isDuo = artist.names.length > 1
+const englishEntry = locale === 'fr' ? await getEntry('bios', `en/${slug}`) : undefined
+const englishTitles = englishEntry?.data.works.map((work) => work.title) ?? []
+const titleParts = (title: string): TitlePart[] =>
+  locale === 'fr' ? splitFrenchWorkTitle(title, englishTitles) : [{ text: title }]
 const source = getArtistImage(artist)
 const hero = source
   ? await getImage({ src: source, widths: [320, 480, 640], format: 'avif', quality: 55 })
   : undefined
 const ogImage = source ? (await getImage({ src: source, width: 1200, format: 'jpeg' })).src : undefined
 const jsonLd = [
-  ...personNodes(artist, locale, entry.data.lede, ogImage && new URL(ogImage, Astro.site).href),
+  ...personNodes(artist, locale, entry.data.lede, ogImage && new URL(ogImage, Astro.site).href, entry.data.people),
   breadcrumbNode(locale, artist, name),
 ]
 ---
@@ -56,7 +61,7 @@ const jsonLd = [
     )
   }
   <article class="artist wrap">
-    <nav class="crumbs" aria-label="Breadcrumb">
+    <nav class="crumbs" aria-label={t(locale, 'nav.breadcrumb')}>
       <a href={getPath('arts', locale)}>{t(locale, 'nav.arts')}</a>
       <span aria-hidden="true">/</span>
       <a href={getPath('category', locale, category.key)}>{category.label[locale]}</a>
@@ -97,7 +102,9 @@ const jsonLd = [
             {
               entry.data.works.map((work) => (
                 <li>
-                  <cite>{work.title}</cite>
+                  <cite>
+                    {titleParts(work.title).map((part) => (part.lang ? <span lang={part.lang}>{part.text}</span> : part.text))}
+                  </cite>
                   <span class="work-meta">
                     {work.kind}
                     {work.year && `, ${work.year}`}
@@ -120,7 +127,7 @@ const jsonLd = [
       </div>
     </div>
 
-    <nav class="pager" aria-label={category.label[locale]}>
+    <nav class="pager" aria-label={t(locale, 'nav.pager')}>
       {
         prev ? (
           <a class="pager-prev" href={getPath('artist', locale, prev.slug)}>
@@ -156,7 +163,7 @@ const jsonLd = [
   }
 
   .crumbs span {
-    color: var(--beige);
+    color: var(--ink-muted);
   }
 
   .artist-grid {

@@ -27,6 +27,15 @@ export const websiteNode = (locale: Locale): Record<string, unknown> => ({
   publisher: { '@id': `${SITE}/#organization` },
 })
 
+export const faqNode = (items: { question: string; answer: string }[]): Record<string, unknown> => ({
+  '@type': 'FAQPage',
+  mainEntity: items.map((item) => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: { '@type': 'Answer', text: item.answer },
+  })),
+})
+
 export const eventNode = (locale: Locale, description: string): Record<string, unknown> => ({
   '@type': 'Event',
   name: 'Lady Gallery',
@@ -57,16 +66,25 @@ export const eventNode = (locale: Locale, description: string): Record<string, u
 const isOwnWikipediaPage = (source: string, name: string, isDuo: boolean): boolean =>
   source.includes('wikipedia.org') && (!isDuo || decodeURI(source).includes(name.replace(/ /g, '_')))
 
-export const personNodes = (artist: Artist, locale: Locale, description: string, imageUrl?: string): Record<string, unknown>[] => {
+export const personNodes = (
+  artist: Artist,
+  locale: Locale,
+  description: string,
+  imageUrl?: string,
+  people: { name: string; description: string }[] = [],
+): Record<string, unknown>[] => {
   const isDuo = artist.names.length > 1
   return artist.names.map((name, index) => ({
     '@type': 'Person',
     '@id': `${url(getPath('artist', locale, artist.slug))}#person-${index + 1}`,
     name,
-    description,
+    description: people.find((person) => person.name === name)?.description ?? description,
     nationality: isDuo ? undefined : artist.nationality[locale] || undefined,
     image: index === 0 ? imageUrl : undefined,
-    sameAs: artist.sources.filter((source) => isOwnWikipediaPage(source, name, isDuo)),
+    sameAs: [
+      ...artist.sources.filter((source) => isOwnWikipediaPage(source, name, isDuo)),
+      ...(artist.wikidata[index] ? [`https://www.wikidata.org/wiki/${artist.wikidata[index]}`] : []),
+    ],
     url: url(getPath('artist', locale, artist.slug)),
   }))
 }

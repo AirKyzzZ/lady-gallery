@@ -14,6 +14,7 @@ const bios = defineCollection({
       .max(4),
     whyHere: z.string(),
     workshop: z.enum(WORKSHOP_KEYS).optional(),
+    people: z.array(z.object({ name: z.string(), description: z.string() })).optional(),
   }),
 })
 

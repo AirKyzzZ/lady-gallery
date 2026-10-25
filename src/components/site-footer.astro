@@ -1,11 +1,12 @@
 ---
-import { getPath, type Locale } from '../i18n/routes'
+import { getAlternatePath, getPath, type Locale } from '../i18n/routes'
 import { t } from '../i18n/ui'
 import { EVENT } from '../data/event'
 
-type Props = { locale: Locale }
+type Props = { locale: Locale; pathname: string }
 
-const { locale } = Astro.props
+const { locale, pathname } = Astro.props
+const other: Locale = locale === 'fr' ? 'en' : 'fr'
 const legal = [
   { key: 'legal', label: t(locale, 'footer.legal') },
   { key: 'terms', label: t(locale, 'footer.terms') },
@@ -33,6 +34,9 @@ const legal = [
       <ul role="list">
         {legal.map((link) => <li><a href={getPath(link.key, locale)}>{link.label}</a></li>)}
       </ul>
+      <p class="footer-lang">
+        <a href={getAlternatePath(pathname, other)} hreflang={other} lang={other}>{t(locale, 'lang.footer')}</a>
+      </p>
       <p class="footer-small">{t(locale, 'footer.noCookies')}</p>
     </div>
   </div>
@@ -88,6 +92,11 @@ const legal = [
 
   :focus-visible {
     outline-color: var(--ochre);
+  }
+
+  .footer-lang {
+    margin-top: var(--space-s);
+    font-weight: 600;
   }
 
   .footer-small {
