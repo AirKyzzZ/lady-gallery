@@ -9,5 +9,10 @@ export default defineConfig({
     locales: ['fr', 'en'],
     routing: { prefixDefaultLocale: false },
   },
-  integrations: [sitemap()],
+  integrations: [
+    sitemap({
+      i18n: { defaultLocale: 'fr', locales: { fr: 'fr-FR', en: 'en-GB' } },
+      filter: (page) => !page.includes('/404'),
+    }),
+  ],
 })
