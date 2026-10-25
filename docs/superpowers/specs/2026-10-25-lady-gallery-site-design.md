@@ -12,7 +12,7 @@ Insta bio draft (from the Canva deck), the tone to follow: *"Women just wanna ma
 
 - v1 live on `lady-gallery.netlify.app`, deployed from a public GitHub repo (`AirKyzzZ/lady-gallery`).
 - Event key facts (date, time, place, Instagram, posters) visible on the home page above the fold on mobile.
-- One page per artist (~50), with a real, specific, human-sounding bio in FR and EN.
+- One page per artist (43), with a real, specific, human-sounding bio in FR and EN.
 - Bilingual: French default at `/`, English at `/en/`, toggle in the header that keeps the current page.
 - Lighthouse mobile 100/100/100/100 (Performance, Accessibility, Best Practices, SEO) on home, a category page and an artist page.
 - SEO/GEO: sitemap, robots.txt, canonical + hreflang, OG/Twitter meta, JSON-LD (`Event`, `Organization`, `Person` per artist, `BreadcrumbList`), `llms.txt`.
@@ -64,7 +64,7 @@ Spec typos corrected: Jane Campion, Amy Winehouse, Dobble.
 
 - Duos listed as one entry in the spec ("Billie Holiday & Ella Fitzgerald", "Madonna & Beyoncé") stay **one page per duo**, because the organisers grouped them deliberately (pairing/contrast). The page treats both women and the reason they're paired.
 - Margaret Atwood: **one page**, tagged under both Romans & nouvelles and Poésie; appears in both lists.
-- That gives 48 artist pages (50 names, 2 duo pages, Atwood once).
+- That gives 43 artist pages (45 distinct women, 2 duo pages, Atwood once).
 
 ### Artist page
 
