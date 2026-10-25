@@ -1,1 +1,1001 @@
-{}
+{
+  "vivienne-westwood": {
+    "years": "1941–2022",
+    "nationality": {
+      "fr": "britannique",
+      "en": "British"
+    },
+    "sources": [
+      "https://en.wikipedia.org/wiki/Vivienne_Westwood",
+      "https://fr.wikipedia.org/wiki/Vivienne_Westwood",
+      "https://www.vam.ac.uk/articles/vivienne-westwood-punk-new-romantic-and-beyond"
+    ],
+    "image": {
+      "file": "vivienne-westwood.jpg",
+      "kind": "portrait",
+      "author": "Manfred Werner - Tsui",
+      "licence": "CC BY-SA 3.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Vivienne_Westwood_Life_Ball_2011_a_(cropped).jpg",
+      "alt": {
+        "fr": "Vivienne Westwood en 2011 au Life Ball de Vienne, cheveux roux relevés en boucles, regardant hors champ.",
+        "en": "Vivienne Westwood at the 2011 Life Ball in Vienna, her red hair pinned up in curls, looking off to one side."
+      }
+    }
+  },
+  "mary-quant": {
+    "years": "1930–2023",
+    "nationality": {
+      "fr": "britannique",
+      "en": "British"
+    },
+    "sources": [
+      "https://en.wikipedia.org/wiki/Mary_Quant",
+      "https://fr.wikipedia.org/wiki/Mary_Quant",
+      "https://www.vam.ac.uk/articles/introducing-mary-quant"
+    ],
+    "image": {
+      "file": "mary-quant.jpg",
+      "kind": "portrait",
+      "author": "Jack de Nijs for Anefo / Anefo",
+      "licence": "CC0",
+      "licenceUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mary_Quant_(1966).jpg",
+      "alt": {
+        "fr": "Mary Quant souriante à son arrivée à l'aéroport de Schiphol en décembre 1966, coupe au carré à frange, sac en peau lainée sur l'épaule.",
+        "en": "Mary Quant smiling as she arrives at Schiphol airport in December 1966, with her fringed bob and a sheepskin bag over her shoulder."
+      }
+    }
+  },
+  "stella-mccartney": {
+    "years": "b. 1971",
+    "nationality": {
+      "fr": "britannique",
+      "en": "British"
+    },
+    "sources": [
+      "https://en.wikipedia.org/wiki/Stella_McCartney",
+      "https://fr.wikipedia.org/wiki/Stella_McCartney"
+    ],
+    "image": {
+      "file": "stella-mccartney.jpg",
+      "kind": "portrait",
+      "author": "Jaguar MENA; cropped by Blackcat",
+      "licence": "CC BY 2.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/2.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Stella_McCartney_London_2014_cropped.jpg",
+      "alt": {
+        "fr": "Stella McCartney à Londres en septembre 2014, cheveux blonds lâchés, robe noire et ceinture argentée, devant un fond blanc.",
+        "en": "Stella McCartney in London in September 2014, long blonde hair down, wearing a black dress with a silver belt against a white backdrop."
+      }
+    }
+  },
+  "vera-wang": {
+    "years": "b. 1949",
+    "nationality": {
+      "fr": "américaine",
+      "en": "American"
+    },
+    "sources": [
+      "https://en.wikipedia.org/wiki/Vera_Wang",
+      "https://fr.wikipedia.org/wiki/Vera_Wang",
+      "https://hellomagazine.com/fashion/201110266404/vera-wang-wedding-dresses-black-gothic"
+    ],
+    "image": {
+      "file": "vera-wang.jpg",
+      "kind": "portrait",
+      "author": "David Shankbone",
+      "licence": "CC BY 3.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/3.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Vera_Wang_2009_portrait_Tribeca.jpg",
+      "alt": {
+        "fr": "Vera Wang au festival du film de Tribeca en 2009, longs cheveux noirs et grandes boucles d'oreilles dorées.",
+        "en": "Vera Wang at the 2009 Tribeca Film Festival, with long black hair and large gold chandelier earrings."
+      }
+    }
+  },
+  "claire-mccardell": {
+    "years": "1905–1958",
+    "nationality": {
+      "fr": "américaine",
+      "en": "American"
+    },
+    "sources": [
+      "https://en.wikipedia.org/wiki/Claire_McCardell",
+      "https://fr.wikipedia.org/wiki/Claire_McCardell"
+    ],
+    "image": {
+      "file": "claire-mccardell.jpg",
+      "kind": "portrait",
+      "author": "Philippe Halsman",
+      "licence": "Public domain",
+      "licenceUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fashion_designer_Claire_McCardell_1944.jpg",
+      "alt": {
+        "fr": "Claire McCardell en 1944, photographiée pour Life, examinant un tissu à carreaux avec un homme penché sur son travail.",
+        "en": "Claire McCardell in 1944, photographed for Life, studying a checked fabric beside a man bent over his work."
+      }
+    }
+  },
+  "meryl-streep": {
+    "years": "b. 1949",
+    "nationality": {
+      "fr": "américaine",
+      "en": "American"
+    },
+    "sources": [
+      "https://en.wikipedia.org/wiki/Meryl_Streep",
+      "https://fr.wikipedia.org/wiki/Meryl_Streep"
+    ],
+    "image": {
+      "file": "meryl-streep.jpg",
+      "kind": "portrait",
+      "author": "Kevin Payravi",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Meryl_Streep_interview_at_Festival_de_Cannes_2024_(cropped_2).jpg",
+      "alt": {
+        "fr": "Meryl Streep, lunettes noires et micro à la main, répond à une interview au Festival de Cannes en 2024.",
+        "en": "Meryl Streep, in black glasses and holding a microphone, speaking at an interview at the 2024 Cannes Film Festival."
+      }
+    }
+  },
+  "katharine-hepburn": {
+    "years": "1907–2003",
+    "nationality": {
+      "fr": "américaine",
+      "en": "American"
+    },
+    "sources": [
+      "https://en.wikipedia.org/wiki/Katharine_Hepburn",
+      "https://fr.wikipedia.org/wiki/Katharine_Hepburn"
+    ],
+    "image": {
+      "file": "katharine-hepburn.jpg",
+      "kind": "portrait",
+      "author": "Metro-Goldwyn-Mayer Studios; Restored by Adam Cuerden",
+      "licence": "Public domain",
+      "licenceUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Katharine_Hepburn_publicity_photograph.jpg",
+      "alt": {
+        "fr": "Portrait de studio en noir et blanc de Katharine Hepburn vers 1941, cheveux ondulés, col de chemise blanc sur une veste sombre.",
+        "en": "Black-and-white studio publicity portrait of Katharine Hepburn around 1941, with wavy hair and a white shirt collar over a dark jacket."
+      }
+    }
+  },
+  "greta-gerwig": {
+    "years": "b. 1983",
+    "nationality": {
+      "fr": "américaine",
+      "en": "American"
+    },
+    "sources": [
+      "https://en.wikipedia.org/wiki/Greta_Gerwig",
+      "https://fr.wikipedia.org/wiki/Greta_Gerwig"
+    ],
+    "image": {
+      "file": "greta-gerwig.jpg",
+      "kind": "portrait",
+      "author": "UKinUSA",
+      "licence": "CC BY-SA 2.5",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/2.5",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Greta_Gerwig_at_Barbie_Movie_Reception_(headshot).jpg",
+      "alt": {
+        "fr": "Greta Gerwig souriante, en chemise verte, lors d'une réception autour du film Barbie en 2023.",
+        "en": "Greta Gerwig smiling in a green shirt at a reception for the film Barbie in 2023."
+      }
+    }
+  },
+  "kathryn-bigelow": {
+    "years": "b. 1951",
+    "nationality": {
+      "fr": "américaine",
+      "en": "American"
+    },
+    "sources": [
+      "https://en.wikipedia.org/wiki/Kathryn_Bigelow",
+      "https://fr.wikipedia.org/wiki/Kathryn_Bigelow"
+    ],
+    "image": {
+      "file": "kathryn-bigelow.jpg",
+      "kind": "portrait",
+      "author": "Bryan Berlin",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kathryn_Bigelow_A_House_of_Dynamite-13_(cropped).jpg",
+      "alt": {
+        "fr": "Kathryn Bigelow en robe noire au Festival du film de New York en 2025, pour la présentation de A House of Dynamite.",
+        "en": "Kathryn Bigelow in a black dress at the 2025 New York Film Festival, presenting A House of Dynamite."
+      }
+    }
+  },
+  "judi-dench": {
+    "years": "b. 1934",
+    "nationality": {
+      "fr": "britannique",
+      "en": "British"
+    },
+    "sources": [
+      "https://en.wikipedia.org/wiki/Judi_Dench",
+      "https://fr.wikipedia.org/wiki/Judi_Dench"
+    ],
+    "image": {
+      "file": "judi-dench.jpg",
+      "kind": "portrait",
+      "author": "Raph_PH",
+      "licence": "CC BY 2.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/2.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Judi_Dench_2023.jpg",
+      "alt": {
+        "fr": "Judi Dench, cheveux blancs courts, sur la scène du London Palladium en mars 2023.",
+        "en": "Judi Dench, with short white hair, on stage at the London Palladium in March 2023."
+      }
+    }
+  },
+  "maggie-smith": {
+    "years": "1934–2024",
+    "nationality": {
+      "fr": "britannique",
+      "en": "British"
+    },
+    "sources": [
+      "https://en.wikipedia.org/wiki/Maggie_Smith",
+      "https://fr.wikipedia.org/wiki/Maggie_Smith"
+    ],
+    "image": {
+      "file": "maggie-smith.jpg",
+      "kind": "portrait",
+      "author": "Unknown photographer (studio press photo)",
+      "licence": "Public domain",
+      "licenceUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Maggie_Smith_-_Vintage_(trim).jpg",
+      "alt": {
+        "fr": "Photo de presse en noir et blanc de Maggie Smith vers 1970, la joue appuyée sur la main.",
+        "en": "Black-and-white press photo of Maggie Smith around 1970, resting her cheek on her hand."
+      }
+    }
+  },
+  "cate-blanchett": {
+    "years": "b. 1969",
+    "nationality": {
+      "fr": "australienne",
+      "en": "Australian"
+    },
+    "sources": [
+      "https://en.wikipedia.org/wiki/Cate_Blanchett",
+      "https://fr.wikipedia.org/wiki/Cate_Blanchett"
+    ],
+    "image": {
+      "file": "cate-blanchett.jpg",
+      "kind": "portrait",
+      "author": "Harald Krichel",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cate_Blanchett-63298_(cropped_2).jpg",
+      "alt": {
+        "fr": "Cate Blanchett en robe argentée sur le tapis rouge de la Mostra de Venise en 2024.",
+        "en": "Cate Blanchett in a silver dress on the red carpet at the 2024 Venice Film Festival."
+      }
+    }
+  },
+  "nicole-kidman": {
+    "years": "b. 1967",
+    "nationality": {
+      "fr": "australo-américaine",
+      "en": "Australian and American"
+    },
+    "sources": [
+      "https://en.wikipedia.org/wiki/Nicole_Kidman",
+      "https://fr.wikipedia.org/wiki/Nicole_Kidman"
+    ],
+    "image": {
+      "file": "nicole-kidman.jpg",
+      "kind": "portrait",
+      "author": "Martin Kraft",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:MKr384262_Nicole_Kidman_(Women_In_Motion,_Cannes_2025).jpg",
+      "alt": {
+        "fr": "Nicole Kidman en robe de dentelle rouge, de profil, lors de l'événement Women in Motion au Festival de Cannes 2025.",
+        "en": "Nicole Kidman in a red lace dress, seen in three-quarter profile, at the Women in Motion event at the 2025 Cannes Film Festival."
+      }
+    }
+  },
+  "jane-campion": {
+    "years": "b. 1954",
+    "nationality": {
+      "fr": "néo-zélandaise",
+      "en": "New Zealand"
+    },
+    "sources": [
+      "https://en.wikipedia.org/wiki/Jane_Campion",
+      "https://fr.wikipedia.org/wiki/Jane_Campion"
+    ],
+    "image": {
+      "file": "jane-campion.jpg",
+      "kind": "portrait",
+      "author": "New Zealand Government, Office of the Governor-General",
+      "licence": "CC BY 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Jane_Campion_DNZM_(cropped).jpg",
+      "alt": {
+        "fr": "Jane Campion souriante, lunettes et décoration épinglée à la veste, après sa nomination comme Dame à Wellington en 2016.",
+        "en": "Jane Campion smiling, in glasses and wearing her insignia, after being invested as a Dame at Government House, Wellington, in 2016."
+      }
+    }
+  },
+  "toni-morrison": {
+    "years": "1931–2019",
+    "nationality": {
+      "fr": "américaine",
+      "en": "American"
+    },
+    "sources": [
+      "https://en.wikipedia.org/wiki/Toni_Morrison",
+      "https://fr.wikipedia.org/wiki/Toni_Morrison"
+    ],
+    "image": {
+      "file": "toni-morrison.jpg",
+      "kind": "portrait",
+      "author": "John Mathew Smith (celebrity-photos.com)",
+      "licence": "CC BY-SA 2.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Toni_Morrison.jpg",
+      "alt": {
+        "fr": "Toni Morrison, cheveux gris, éclate de rire lors d'une rencontre à la bibliothèque Enoch Pratt de Baltimore en 1998.",
+        "en": "Toni Morrison, grey-haired, laughing at an event at the Enoch Pratt Library in Baltimore in 1998."
+      }
+    }
+  },
+  "joan-didion": {
+    "years": "1934–2021",
+    "nationality": {
+      "fr": "américaine",
+      "en": "American"
+    },
+    "sources": [
+      "https://en.wikipedia.org/wiki/Joan_Didion",
+      "https://fr.wikipedia.org/wiki/Joan_Didion"
+    ],
+    "image": {
+      "file": "joan-didion.jpg",
+      "kind": "portrait",
+      "author": "Kathleen Ballard, Los Angeles Times",
+      "licence": "CC BY 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Didion1970_(cropped).jpg",
+      "alt": {
+        "fr": "Portrait en noir et blanc de Joan Didion à Los Angeles en 1970, cheveux longs, devant un feuillage.",
+        "en": "Black and white portrait of Joan Didion in Los Angeles in 1970, long-haired, in front of foliage."
+      }
+    }
+  },
+  "virginia-woolf": {
+    "years": "1882–1941",
+    "nationality": {
+      "fr": "anglaise",
+      "en": "English"
+    },
+    "sources": [
+      "https://en.wikipedia.org/wiki/Virginia_Woolf",
+      "https://fr.wikipedia.org/wiki/Virginia_Woolf"
+    ],
+    "image": {
+      "file": "virginia-woolf.jpg",
+      "kind": "portrait",
+      "author": "George Charles Beresford / Adam Cuerden",
+      "licence": "Public domain",
+      "licenceUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:George_Charles_Beresford_-_Virginia_Woolf_in_1902_-_Restoration.jpg",
+      "alt": {
+        "fr": "Virginia Woolf de profil à 20 ans, en 1902, cheveux relevés en chignon, photographiée par George Charles Beresford.",
+        "en": "Virginia Woolf in profile aged 20, in 1902, hair in a bun, photographed by George Charles Beresford."
+      }
+    }
+  },
+  "agatha-christie": {
+    "years": "1890–1976",
+    "nationality": {
+      "fr": "anglaise",
+      "en": "English"
+    },
+    "sources": [
+      "https://en.wikipedia.org/wiki/Agatha_Christie",
+      "https://fr.wikipedia.org/wiki/Agatha_Christie"
+    ],
+    "image": {
+      "file": "agatha-christie.jpg",
+      "kind": "portrait",
+      "author": "Joop van Bilsen for Anefo",
+      "licence": "CC0",
+      "licenceUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Agatha_Christie_in_Nederland_(detectiveschrijfster),_bij_aankomst_op_Schiphol_me,_Bestanddeelnr_916-8898_(cropped).jpg",
+      "alt": {
+        "fr": "Agatha Christie à son arrivée à l'aéroport de Schiphol, Amsterdam, en 1964, avec lunettes, chapeau fleuri et col de fourrure.",
+        "en": "Agatha Christie arriving at Schiphol Airport, Amsterdam, in 1964, in glasses, a flowered hat and a fur collar."
+      }
+    }
+  },
+  "margaret-atwood": {
+    "years": "b. 1939",
+    "nationality": {
+      "fr": "canadienne",
+      "en": "Canadian"
+    },
+    "sources": [
+      "https://en.wikipedia.org/wiki/Margaret_Atwood",
+      "https://fr.wikipedia.org/wiki/Margaret_Atwood"
+    ],
+    "image": {
+      "file": "margaret-atwood.jpg",
+      "kind": "portrait",
+      "author": "Collision Conf",
+      "licence": "CC BY 2.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/2.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Margaret_Atwood_(3x4_cropped).jpg",
+      "alt": {
+        "fr": "Margaret Atwood parle sur scène à la conférence Collision de Toronto en 2022, micro-casque et collier rose.",
+        "en": "Margaret Atwood speaking on stage at the Collision conference in Toronto in 2022, wearing a headset mic and a pink necklace."
+      }
+    }
+  },
+  "alice-munro": {
+    "years": "1931–2024",
+    "nationality": {
+      "fr": "canadienne",
+      "en": "Canadian"
+    },
+    "sources": [
+      "https://en.wikipedia.org/wiki/Alice_Munro",
+      "https://fr.wikipedia.org/wiki/Alice_Munro"
+    ],
+    "image": {
+      "file": "alice-munro.jpg",
+      "kind": "portrait",
+      "author": "MacDowell",
+      "licence": "CC BY-SA 3.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Alice_Munro_2006_(cropped).jpg",
+      "alt": {
+        "fr": "Alice Munro au pupitre en 2006, pendant son discours de remise de la médaille Edward MacDowell.",
+        "en": "Alice Munro at the lectern in 2006, giving her speech on receiving the Edward MacDowell Medal."
+      }
+    }
+  },
+  "miles-franklin": {
+    "years": "1879–1954",
+    "nationality": {
+      "fr": "australienne",
+      "en": "Australian"
+    },
+    "sources": [
+      "https://en.wikipedia.org/wiki/Miles_Franklin",
+      "https://fr.wikipedia.org/wiki/Miles_Franklin"
+    ],
+    "image": {
+      "file": "miles-franklin.jpg",
+      "kind": "portrait",
+      "author": "Unknown author",
+      "licence": "Public domain",
+      "licenceUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Miles_franklin.jpg",
+      "alt": {
+        "fr": "Portrait ancien de Miles Franklin vers les années 1940, en chapeau sombre, col de dentelle blanche et collier de perles.",
+        "en": "Old portrait of Miles Franklin around the 1940s, in a dark hat, white lace collar and bead necklace."
+      }
+    }
+  },
+  "nadine-gordimer": {
+    "years": "1923–2014",
+    "nationality": {
+      "fr": "sud-africaine",
+      "en": "South African"
+    },
+    "sources": [
+      "https://en.wikipedia.org/wiki/Nadine_Gordimer",
+      "https://fr.wikipedia.org/wiki/Nadine_Gordimer"
+    ],
+    "image": {
+      "file": "nadine-gordimer.jpg",
+      "kind": "portrait",
+      "author": "Boberger. Photo: Bengt Oberger",
+      "licence": "CC BY 3.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/3.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nadine_Gordimer_01.JPG",
+      "alt": {
+        "fr": "Nadine Gordimer souriante à la Foire du livre de Göteborg en 2010, en chemise à motifs colorés.",
+        "en": "Nadine Gordimer smiling at the Gothenburg Book Fair in 2010, in a patterned shirt."
+      }
+    }
+  },
+  "sylvia-plath": {
+    "years": "1932–1963",
+    "nationality": {
+      "fr": "américaine",
+      "en": "American"
+    },
+    "sources": [
+      "https://en.wikipedia.org/wiki/Sylvia_Plath",
+      "https://fr.wikipedia.org/wiki/Sylvia_Plath"
+    ],
+    "image": {
+      "file": "sylvia-plath.jpg",
+      "kind": "portrait",
+      "author": "Distributed by Associated Press",
+      "licence": "Public domain",
+      "licenceUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sylvia_Plath_-_The_Boston_Globe_(1953)_(cropped).png",
+      "alt": {
+        "fr": "Photo de presse en noir et blanc de Sylvia Plath étudiante, souriante, collier au cou, parue dans le Boston Globe en 1953.",
+        "en": "Black and white press photo of Sylvia Plath as a student, smiling and wearing a necklace, printed in the Boston Globe in 1953."
+      }
+    }
+  },
+  "maya-angelou": {
+    "years": "1928–2014",
+    "nationality": {
+      "fr": "américaine",
+      "en": "American"
+    },
+    "sources": [
+      "https://en.wikipedia.org/wiki/Maya_Angelou",
+      "https://fr.wikipedia.org/wiki/Maya_Angelou"
+    ],
+    "image": {
+      "file": "maya-angelou.jpg",
+      "kind": "portrait",
+      "author": "Clinton Library",
+      "licence": "Public domain",
+      "licenceUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Angelou_at_Clinton_inauguration_(cropped_2).jpg",
+      "alt": {
+        "fr": "Maya Angelou lit son poème « On the Pulse of Morning » lors de l'investiture de Bill Clinton, en janvier 1993.",
+        "en": "Maya Angelou reciting her poem \"On the Pulse of Morning\" at Bill Clinton's inauguration in January 1993."
+      }
+    }
+  },
+  "aretha-franklin": {
+    "years": "1942–2018",
+    "nationality": {
+      "fr": "américaine",
+      "en": "American"
+    },
+    "sources": [
+      "https://en.wikipedia.org/wiki/Aretha_Franklin",
+      "https://fr.wikipedia.org/wiki/Aretha_Franklin"
+    ],
+    "image": {
+      "file": "aretha-franklin.jpg",
+      "kind": "portrait",
+      "author": "Atlantic Records",
+      "licence": "Public domain",
+      "licenceUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aretha_Franklin_1968.jpg",
+      "alt": {
+        "fr": "Portrait en noir et blanc d'Aretha Franklin en 1968, le menton posé sur la main, photo publicitaire d'Atlantic Records.",
+        "en": "Black-and-white 1968 publicity portrait of Aretha Franklin resting her chin on her hand, for Atlantic Records."
+      }
+    }
+  },
+  "billie-holiday-ella-fitzgerald": {
+    "years": "1915–1959 · 1917–1996",
+    "nationality": {
+      "fr": "américaines",
+      "en": "American"
+    },
+    "sources": [
+      "https://en.wikipedia.org/wiki/Billie_Holiday",
+      "https://en.wikipedia.org/wiki/Ella_Fitzgerald",
+      "https://fr.wikipedia.org/wiki/Billie_Holiday",
+      "https://fr.wikipedia.org/wiki/Ella_Fitzgerald"
+    ],
+    "image": {
+      "file": "billie-holiday-ella-fitzgerald.jpg",
+      "kind": "portrait",
+      "author": "William P. Gottlieb",
+      "licence": "Public domain",
+      "licenceUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Portrait_of_Billie_Holiday_and_Mister,_Downbeat,_New_York,_N.Y.,_ca._Feb._1947_(LOC,_5020400274,_cropped).jpg",
+      "alt": {
+        "fr": "Billie Holiday vers 1947 à New York, un gardénia dans les cheveux, posant avec son chien Mister. Photo de William P. Gottlieb.",
+        "en": "Billie Holiday in New York around 1947, a gardenia in her hair, posing with her dog Mister. Photo by William P. Gottlieb."
+      }
+    }
+  },
+  "patti-smith": {
+    "years": "b. 1946",
+    "nationality": {
+      "fr": "américaine",
+      "en": "American"
+    },
+    "sources": [
+      "https://en.wikipedia.org/wiki/Patti_Smith",
+      "https://fr.wikipedia.org/wiki/Patti_Smith"
+    ],
+    "image": {
+      "file": "patti-smith.jpg",
+      "kind": "portrait",
+      "author": "Harald Krichel",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Patti_Smith_at_the_81st_Venice_International_Film_Festival_in_2024.jpg",
+      "alt": {
+        "fr": "Patti Smith en 2024 à la Mostra de Venise, longs cheveux gris et lunettes teintées.",
+        "en": "Patti Smith at the Venice Film Festival in 2024, with long grey hair and tinted glasses."
+      }
+    }
+  },
+  "madonna-beyonce": {
+    "years": "b. 1958 · b. 1981",
+    "nationality": {
+      "fr": "américaines",
+      "en": "American"
+    },
+    "sources": [
+      "https://en.wikipedia.org/wiki/Madonna",
+      "https://en.wikipedia.org/wiki/Beyoncé",
+      "https://fr.wikipedia.org/wiki/Madonna",
+      "https://fr.wikipedia.org/wiki/Beyoncé"
+    ],
+    "image": {
+      "file": "madonna-beyonce.jpg",
+      "kind": "portrait",
+      "author": "Raph_PH",
+      "licence": "CC BY 2.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/2.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:MadonnaO2171023_(97_of_133)_(53269593787)_(cropped).jpg",
+      "alt": {
+        "fr": "Madonna sur scène à Londres en 2023, guitare acoustique noire et veste en cuir, devant un micro.",
+        "en": "Madonna on stage in London in 2023, with a black acoustic guitar and leather jacket, at the microphone."
+      }
+    }
+  },
+  "amy-winehouse": {
+    "years": "1983–2011",
+    "nationality": {
+      "fr": "britannique",
+      "en": "British"
+    },
+    "sources": [
+      "https://en.wikipedia.org/wiki/Amy_Winehouse",
+      "https://fr.wikipedia.org/wiki/Amy_Winehouse"
+    ],
+    "image": {
+      "file": "amy-winehouse.jpg",
+      "kind": "portrait",
+      "author": "Rama",
+      "licence": "CC BY-SA 2.0 fr",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/2.0/fr/deed.en",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Amy_Winehouse_f4962007_crop.jpg",
+      "alt": {
+        "fr": "Amy Winehouse chantant aux Eurockéennes de Belfort en 2007, chignon haut et bras tatoué.",
+        "en": "Amy Winehouse singing at the Eurockéennes festival in Belfort, France, in 2007, with her beehive and tattooed arm."
+      }
+    }
+  },
+  "kate-bush": {
+    "years": "b. 1958",
+    "nationality": {
+      "fr": "britannique",
+      "en": "British"
+    },
+    "sources": [
+      "https://en.wikipedia.org/wiki/Kate_Bush",
+      "https://fr.wikipedia.org/wiki/Kate_Bush"
+    ],
+    "image": {
+      "file": "kate-bush.jpg",
+      "kind": "portrait",
+      "author": "Paul Carless",
+      "licence": "CC BY 2.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/2.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kate_Bush_Before_The_Dawn_2014_(cropped).jpg",
+      "alt": {
+        "fr": "Kate Bush chantant sur scène en 2014 lors de ses concerts Before the Dawn à Londres, photo en noir et blanc.",
+        "en": "Black-and-white photo of Kate Bush singing on stage during her Before the Dawn shows in London in 2014."
+      }
+    }
+  },
+  "adele": {
+    "years": "b. 1988",
+    "nationality": {
+      "fr": "britannique",
+      "en": "British"
+    },
+    "sources": [
+      "https://en.wikipedia.org/wiki/Adele",
+      "https://fr.wikipedia.org/wiki/Adele_(chanteuse)"
+    ],
+    "image": {
+      "file": "adele.jpg",
+      "kind": "portrait",
+      "author": "Marc E.",
+      "licence": "CC BY 2.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/2.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Adele_2016.jpg",
+      "alt": {
+        "fr": "Adele souriante en concert à Glasgow en 2016, en robe à paillettes.",
+        "en": "Adele smiling on stage in Glasgow in 2016, wearing a sequinned dress."
+      }
+    }
+  },
+  "joni-mitchell": {
+    "years": "b. 1943",
+    "nationality": {
+      "fr": "canadienne",
+      "en": "Canadian"
+    },
+    "sources": [
+      "https://en.wikipedia.org/wiki/Joni_Mitchell",
+      "https://fr.wikipedia.org/wiki/Joni_Mitchell"
+    ],
+    "image": {
+      "file": "joni-mitchell.jpg",
+      "kind": "portrait",
+      "author": "Shawn Miller, Library of Congress",
+      "licence": "CC0",
+      "licenceUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Joni_Mitchell_2021_Kennedy_Center_Honors_(cropped).jpg",
+      "alt": {
+        "fr": "Joni Mitchell en 2021 aux Kennedy Center Honors à Washington, longue tresse blanche et veste rouge.",
+        "en": "Joni Mitchell at the 2021 Kennedy Center Honors in Washington, with a long white braid and a red jacket."
+      }
+    }
+  },
+  "alanis-morissette": {
+    "years": "b. 1974",
+    "nationality": {
+      "fr": "canado-américaine",
+      "en": "Canadian-American"
+    },
+    "sources": [
+      "https://en.wikipedia.org/wiki/Alanis_Morissette",
+      "https://fr.wikipedia.org/wiki/Alanis_Morissette"
+    ],
+    "image": {
+      "file": "alanis-morissette.jpg",
+      "kind": "portrait",
+      "author": "Raph_PH",
+      "licence": "CC BY 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Glasto_2025_(46)_-_Alanis_Morissette_(cropped).jpg",
+      "alt": {
+        "fr": "Alanis Morissette chantant au festival de Glastonbury en 2025, micro en main.",
+        "en": "Alanis Morissette singing at the Glastonbury Festival in 2025, microphone in hand."
+      }
+    }
+  },
+  "lorde": {
+    "years": "b. 1996",
+    "nationality": {
+      "fr": "néo-zélandaise",
+      "en": "New Zealander"
+    },
+    "sources": [
+      "https://en.wikipedia.org/wiki/Lorde",
+      "https://fr.wikipedia.org/wiki/Lorde_(chanteuse)"
+    ],
+    "image": {
+      "file": "lorde.jpg",
+      "kind": "portrait",
+      "author": "Raph_PH",
+      "licence": "CC BY 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lorde_Glasto2025-9_(cropped).jpg",
+      "alt": {
+        "fr": "Lorde sur scène au festival de Glastonbury en 2025, en tee-shirt blanc, une main dans les cheveux.",
+        "en": "Lorde on stage at Glastonbury in 2025, in a white T-shirt, one hand in her hair."
+      }
+    }
+  },
+  "rihanna": {
+    "years": "b. 1988",
+    "nationality": {
+      "fr": "barbadienne",
+      "en": "Barbadian"
+    },
+    "sources": [
+      "https://en.wikipedia.org/wiki/Rihanna",
+      "https://fr.wikipedia.org/wiki/Rihanna"
+    ],
+    "image": {
+      "file": "rihanna.jpg",
+      "kind": "portrait",
+      "author": "SIGMA",
+      "licence": "CC BY 3.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/3.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rihanna_Fenty_2018.png",
+      "alt": {
+        "fr": "Rihanna souriante en 2018, robe rose, lors d'une campagne pour Fenty Beauty.",
+        "en": "Rihanna smiling in 2018 in a pink dress, in a Fenty Beauty campaign video."
+      }
+    }
+  },
+  "georgia-okeeffe": {
+    "years": "1887–1986",
+    "nationality": {
+      "fr": "américaine",
+      "en": "American"
+    },
+    "sources": [
+      "https://en.wikipedia.org/wiki/Georgia_O%27Keeffe",
+      "https://fr.wikipedia.org/wiki/Georgia_O%27Keeffe"
+    ],
+    "image": {
+      "file": "georgia-okeeffe.jpg",
+      "kind": "portrait",
+      "author": "Alfred Stieglitz",
+      "licence": "CC0",
+      "licenceUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Georgia_O%27Keeffe_MET_DP233006.jpg",
+      "alt": {
+        "fr": "Georgia O'Keeffe photographiée par Alfred Stieglitz en 1922, coiffée d'un chapeau sombre, le regard tourné vers la gauche, à côté d'un mur en planches.",
+        "en": "Georgia O'Keeffe photographed by Alfred Stieglitz in 1922, wearing a dark hat and looking to the left, beside a wall of wooden planks."
+      }
+    }
+  },
+  "mary-cassatt": {
+    "years": "1844–1926",
+    "nationality": {
+      "fr": "américaine",
+      "en": "American"
+    },
+    "sources": [
+      "https://en.wikipedia.org/wiki/Mary_Cassatt",
+      "https://fr.wikipedia.org/wiki/Mary_Cassatt",
+      "https://www.artic.edu/artworks/111442/the-child-s-bath",
+      "https://www.finestresullarte.info/fr/expositions/au-musee-d-orsay-une-grande-exposition-rend-hommage-a-la-peintre-impressionniste-mary-cassatt-et-a-son-independance"
+    ],
+    "image": {
+      "file": "mary-cassatt.jpg",
+      "kind": "artwork",
+      "author": "Mary Cassatt",
+      "licence": "Public domain",
+      "licenceUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mary_Cassatt_-_The_Child%27s_Bath_-_Google_Art_Project.jpg",
+      "alt": {
+        "fr": "The Child's Bath (1893) de Mary Cassatt : une femme en robe rayée tient une fillette sur ses genoux et lui lave les pieds dans une bassine.",
+        "en": "The Child's Bath (1893) by Mary Cassatt: a woman in a striped dress holds a little girl on her lap and washes her feet in a basin."
+      }
+    }
+  },
+  "tracey-emin": {
+    "years": "b. 1963",
+    "nationality": {
+      "fr": "britannique",
+      "en": "British"
+    },
+    "sources": [
+      "https://en.wikipedia.org/wiki/Tracey_Emin",
+      "https://fr.wikipedia.org/wiki/Tracey_Emin",
+      "https://www.camdennewjournal.co.uk/article/review-tracey-emin-a-second-life-at-tate-modern"
+    ],
+    "image": {
+      "file": "tracey-emin.jpg",
+      "kind": "portrait",
+      "author": "Piers Allardyce, crop by Tyrenius",
+      "licence": "CC BY 2.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/2.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tracey_Emin_1-cropped.jpg",
+      "alt": {
+        "fr": "Tracey Emin en 2007 lors d'une vente aux enchères caritative à Londres, cheveux bruns au carré, devant un néon rouge.",
+        "en": "Tracey Emin in 2007 at a charity auction in London, with a brown bob, in front of a red neon sign."
+      }
+    }
+  },
+  "emily-carr": {
+    "years": "1871–1945",
+    "nationality": {
+      "fr": "canadienne",
+      "en": "Canadian"
+    },
+    "sources": [
+      "https://en.wikipedia.org/wiki/Emily_Carr",
+      "https://fr.wikipedia.org/wiki/Emily_Carr"
+    ],
+    "image": {
+      "file": "emily-carr.jpg",
+      "kind": "artwork",
+      "author": "Emily Carr",
+      "licence": "Public domain",
+      "licenceUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Emily_Carr_-_Indian_Church.jpg",
+      "alt": {
+        "fr": "Indian Church (1929) d'Emily Carr : une petite église blanche à clocher, entourée d'une forêt vert sombre aux formes stylisées.",
+        "en": "The Indian Church (1929) by Emily Carr: a small white church with a steeple, surrounded by a stylised dark green forest."
+      }
+    }
+  },
+  "louise-bourgeois": {
+    "years": "1911–2010",
+    "nationality": {
+      "fr": "française naturalisée américaine",
+      "en": "French-born American"
+    },
+    "sources": [
+      "https://en.wikipedia.org/wiki/Louise_Bourgeois",
+      "https://fr.wikipedia.org/wiki/Louise_Bourgeois_(plasticienne)"
+    ],
+    "image": {
+      "file": "louise-bourgeois.jpg",
+      "kind": "portrait",
+      "author": "Oliver Mark",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Oliver_Mark_-_Louise_Bourgeois,_New_York_1996.jpg",
+      "alt": {
+        "fr": "Louise Bourgeois à New York en 1996, en noir et blanc, casquette sur la tête, les mains jointes sous le menton.",
+        "en": "Louise Bourgeois in New York in 1996, in black and white, wearing a cap, her hands clasped under her chin."
+      }
+    }
+  },
+  "barbara-hepworth": {
+    "years": "1903–1975",
+    "nationality": {
+      "fr": "britannique",
+      "en": "British"
+    },
+    "sources": [
+      "https://en.wikipedia.org/wiki/Barbara_Hepworth",
+      "https://fr.wikipedia.org/wiki/Barbara_Hepworth"
+    ],
+    "image": {
+      "file": "barbara-hepworth.jpg",
+      "kind": "portrait",
+      "author": "Geoff Charles",
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Barbara_Hepworth,_sculptress_(1569835).jpg",
+      "alt": {
+        "fr": "Barbara Hepworth vers 1970, en noir et blanc, debout en robe sombre et toque, une main sur la hanche, sur un sol clair parcouru de fissures.",
+        "en": "Barbara Hepworth around 1970, in black and white, standing in a dark dress and hat, one hand on her hip, on pale ground crossed by cracks."
+      }
+    }
+  },
+  "dorothea-lange": {
+    "years": "1895–1965",
+    "nationality": {
+      "fr": "américaine",
+      "en": "American"
+    },
+    "sources": [
+      "https://en.wikipedia.org/wiki/Dorothea_Lange",
+      "https://fr.wikipedia.org/wiki/Dorothea_Lange"
+    ],
+    "image": {
+      "file": "dorothea-lange.jpg",
+      "kind": "artwork",
+      "author": "Dorothea Lange",
+      "licence": "Public domain",
+      "licenceUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lange-MigrantMother02.jpg",
+      "alt": {
+        "fr": "Migrant Mother (1936) : Florence Owens Thompson, la main au menton, l'air inquiet, entourée de ses enfants qui détournent la tête, dans un camp de cueilleurs en Californie.",
+        "en": "Migrant Mother (1936): Florence Owens Thompson, hand to her chin and looking worried, with her children turning their faces away, in a pickers' camp in California."
+      }
+    }
+  },
+  "cindy-sherman": {
+    "years": "b. 1954",
+    "nationality": {
+      "fr": "américaine",
+      "en": "American"
+    },
+    "sources": [
+      "https://en.wikipedia.org/wiki/Cindy_Sherman",
+      "https://fr.wikipedia.org/wiki/Cindy_Sherman"
+    ],
+    "image": {
+      "file": "cindy-sherman.jpg",
+      "kind": "portrait",
+      "author": "New Zealand Government, Office of the Governor-General",
+      "licence": "CC BY 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/4.0",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cindy_Sherman_(cropped).jpg",
+      "alt": {
+        "fr": "Cindy Sherman souriante en 2016, cheveux blonds à frange, vêtue de noir, lors d'un déjeuner en son honneur à Wellington.",
+        "en": "Cindy Sherman smiling in 2016, blonde hair with a fringe, dressed in black, at a lunch in her honour in Wellington."
+      }
+    }
+  }
+}

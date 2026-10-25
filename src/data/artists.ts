@@ -73,7 +73,21 @@ const ENTRIES: Entry[] = [
   ['claire-mccardell', ['Claire McCardell'], 'fashion'],
 ]
 
-const FACTS: Partial<Record<string, ArtistFacts>> = facts
+type RawFacts = Omit<ArtistFacts, 'image'> & { image?: Omit<ArtistImage, 'kind'> & { kind: string } }
+
+const isImageKind = (kind: string): kind is ArtistImage['kind'] => kind === 'portrait' || kind === 'artwork'
+
+const toFacts = (slug: string, raw: RawFacts): ArtistFacts => {
+  const { image, ...rest } = raw
+  if (!image) return rest
+  if (!isImageKind(image.kind)) throw new Error(`Invalid image kind "${image.kind}" for ${slug}`)
+  return { ...rest, image: { ...image, kind: image.kind } }
+}
+
+const RAW_FACTS: Partial<Record<string, RawFacts>> = facts
+const FACTS: Partial<Record<string, ArtistFacts>> = Object.fromEntries(
+  Object.entries(RAW_FACTS).flatMap(([slug, raw]) => (raw ? [[slug, toFacts(slug, raw)]] : [])),
+)
 
 const EMPTY_FACTS: ArtistFacts = { years: '', nationality: { fr: '', en: '' }, sources: [] }
 
