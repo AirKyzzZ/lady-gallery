@@ -15,4 +15,4 @@ Elle commence par la poésie. Son premier livre, *Double Persephone*, est une mi
 
 Côté roman, il y a bien sûr *La Servante écarlate* (1985). Dans une Amérique devenue une théocratie, Gilead, les femmes sont soumises aux hommes et réparties en castes. Atwood a souvent répété qu'elle n'avait rien mis dans le livre qui n'ait déjà été fait quelque part. Elle a reçu deux fois le Booker Prize : pour *Le Tueur aveugle* en 2000, puis en 2019 pour la suite de *La Servante écarlate*. Entre les deux, *Captive* (1996) reconstitue un double meurtre réel commis au Canada en 1843.
 
-Lisez d'abord *La Servante écarlate*, puis ouvrez *Dearly* : on y retrouve son regard précis, en beaucoup moins de pages. En 2026, elle a publié ses mémoires, *Book of Lives*.
+Lisez d'abord *La Servante écarlate*, puis ouvrez *Dearly* : on y retrouve son regard précis, en beaucoup moins de pages. En 2025, elle a publié ses mémoires, *Book of Lives*.

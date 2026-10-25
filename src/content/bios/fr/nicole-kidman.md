@@ -15,4 +15,4 @@ Hollywood suit. Gus Van Sant lui offre dans *Prête à tout* (1995) le rôle d'u
 
 Le tournant, c'est *The Hours* (2002), aux côtés de Meryl Streep. Pour jouer Virginia Woolf dans l'Angleterre des années 1920, elle porte une prothèse de nez qui la rend presque méconnaissable. Elle remporte l'Oscar de la meilleure actrice. Elle revient aussi sur scène à Londres : en 1998 dans *The Blue Room* de David Hare, puis en 2015 dans *Photograph 51*, où elle joue la scientifique Rosalind Franklin.
 
-Pour la découvrir, regardez *The Hours*, puis la série *Big Little Lies*, qu'elle a produite et qui lui a valu un Emmy Award.
+Pour la découvrir, regardez *The Hours*, puis la série *Big Little Lies*, qu'elle a produite et qui lui a valu deux Emmy Awards, comme productrice et comme actrice.

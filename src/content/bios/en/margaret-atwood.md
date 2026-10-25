@@ -15,4 +15,4 @@ She started with poetry. Her first book, *Double Persephone*, was a pamphlet pub
 
 Then there is *The Handmaid's Tale* (1985). In Gilead, a theocracy that has replaced the United States, women are sorted into castes and kept under men's control. Atwood has often said she put nothing in the book that someone, somewhere, had not already done. She has won the Booker Prize twice: for *The Blind Assassin* in 2000 and in 2019 for the sequel to *The Handmaid's Tale*. In between, *Alias Grace* (1996) retells a real double murder in 1843 Canada.
 
-Read *The Handmaid's Tale* first, then pick up *Dearly*: the same sharp eye, in far fewer pages. Margaret Atwood published a memoir, *Book of Lives*, in 2026.
+Read *The Handmaid's Tale* first, then pick up *Dearly*: the same sharp eye, in far fewer pages. Margaret Atwood published a memoir, *Book of Lives*, in 2025.

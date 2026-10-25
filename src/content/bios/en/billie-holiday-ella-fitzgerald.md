@@ -12,7 +12,7 @@ people:
 workshop: bingo
 ---
 
-Billie Holiday (1915-1959) and Ella Fitzgerald (1917-1996) both got their start in Harlem in the mid-1930s. They share a page because their careers crossed early, and because they sang jazz in very different ways.
+Billie Holiday (1915-1959) and Ella Fitzgerald (1917-1996) both got their start in Harlem in the early 1930s. They share a page because their careers crossed early, and because they sang jazz in very different ways.
 
 On 16 January 1938, at the Savoy Ballroom, Count Basie's band with Holiday took on Chick Webb's band with Fitzgerald. Metronome magazine gave it to Webb and Fitzgerald, DownBeat to Basie and Holiday. The audience voted for Ella three to one. The two singers later became friends.
 

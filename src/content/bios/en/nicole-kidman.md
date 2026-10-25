@@ -15,4 +15,4 @@ Hollywood followed. In Gus Van Sant's *To Die For* (1995) she played a young wom
 
 The turning point was *The Hours* (2002), alongside Meryl Streep. To play Virginia Woolf in 1920s England she wore a prosthetic nose that made her hard to recognise, and she won the Oscar for Best Actress. She has also gone back to the London stage: in 1998 in David Hare's *The Blue Room*, and in 2015 in *Photograph 51*, as the scientist Rosalind Franklin.
 
-Start with *The Hours*, then watch *Big Little Lies*, the series she produced and starred in, which won her an Emmy.
+Start with *The Hours*, then watch *Big Little Lies*, the series she produced and starred in, which won her two Emmys, as producer and as lead actress.

@@ -13,6 +13,6 @@ Jane Campion a grandi dans le théâtre : ses parents, à Wellington, ont fondé
 
 En 1990, *Un ange à ma table* adapte les autobiographies de l'écrivaine néo-zélandaise Janet Frame, qu'elle admire. Trois ans plus tard, *La Leçon de piano* remporte la Palme d'or : Campion est la première réalisatrice à la recevoir. Holly Hunter y gagne le prix d'interprétation à Cannes et l'Oscar, la jeune Anna Paquin l'Oscar du second rôle, et Campion celui du meilleur scénario original.
 
-En 2014, elle devient la première femme à présider le jury des longs métrages à Cannes. En 2022, *The Power of the Dog*, adapté du roman de Thomas Savage, avec Benedict Cumberbatch et Kirsten Dunst, lui vaut l'Oscar de la meilleure réalisation. Elle est la première femme nommée deux fois dans cette catégorie.
+En 2014, elle préside le jury des longs métrages à Cannes. En 2022, *The Power of the Dog*, adapté du roman de Thomas Savage, avec Benedict Cumberbatch et Kirsten Dunst, lui vaut l'Oscar de la meilleure réalisation. Elle est la première femme nommée deux fois dans cette catégorie.
 
 Pour la découvrir, commencez par *La Leçon de piano*, puis regardez *The Power of the Dog*, tourné près de trente ans plus tard.

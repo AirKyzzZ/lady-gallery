@@ -15,4 +15,4 @@ En 1957, elle débute en Ophélie dans *Hamlet* avec la troupe de l'Old Vic. Ell
 
 Le cinéma la découvre tard. En 1995, elle devient M, la patronne de James Bond, dans *GoldenEye*, rôle qu'elle tient dans huit films jusqu'en 2015. Elle remporte l'Oscar du second rôle pour la reine Élisabeth Ire de *Shakespeare in Love*, un rôle d'environ huit minutes à l'écran, ce dont elle s'amusait elle-même en recevant la statuette.
 
-Atteinte de dégénérescence maculaire, elle a mis fin à sa carrière en 2024. Pour la découvrir, commencez par *Shakespeare in Love*, puis *Philomena* (2013), qui lui a valu une nomination à l'Oscar de la meilleure actrice.
+Atteinte de dégénérescence maculaire, elle ne joue pratiquement plus depuis 2024. Pour la découvrir, commencez par *Shakespeare in Love*, puis *Philomena* (2013), qui lui a valu une nomination à l'Oscar de la meilleure actrice.

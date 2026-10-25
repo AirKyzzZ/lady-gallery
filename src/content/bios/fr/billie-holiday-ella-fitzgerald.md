@@ -1,5 +1,5 @@
 ---
-lede: "Deux voix du jazz nées à Harlem dans les années 1930 : Billie Holiday, qui a chanté Strange Fruit, et Ella Fitzgerald, reine du scat."
+lede: "Deux voix du jazz qui ont débuté à Harlem dans les années 1930 : Billie Holiday, qui a chanté Strange Fruit, et Ella Fitzgerald, reine du scat."
 works:
   - { title: "Strange Fruit", year: "1939", kind: "chanson" }
   - { title: "Lady Sings the Blues", year: "1956", kind: "album" }
@@ -12,7 +12,7 @@ people:
 workshop: bingo
 ---
 
-Billie Holiday (1915-1959) et Ella Fitzgerald (1917-1996) ont débuté dans le même quartier, Harlem, au milieu des années 1930. On les présente ensemble parce que leurs carrières se sont croisées dès le départ, et parce qu'elles chantent le jazz de deux manières très différentes.
+Billie Holiday (1915-1959) et Ella Fitzgerald (1917-1996) ont débuté à Harlem au début des années 1930. On les présente ensemble parce que leurs carrières se sont croisées dès le départ, et parce qu'elles chantent le jazz de deux manières très différentes.
 
 Le 16 janvier 1938, au Savoy Ballroom, l'orchestre de Count Basie, avec Holiday, affronte celui de Chick Webb, avec Fitzgerald. Les deux grands magazines de jazz ne désignent pas le même vainqueur ; le public, lui, vote pour Ella à trois contre un. Les deux chanteuses deviennent ensuite amies.
 

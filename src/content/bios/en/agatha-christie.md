@@ -9,7 +9,7 @@ whyHere: "Her plots are built for guessing. At the reading stand, read the first
 workshop: reading
 ---
 
-Agatha Christie knew her poisons. During the First World War she worked in a hospital dispensary in Torquay, her home town, and did the same in London during the Second. In over half her novels, at least one victim is poisoned. She wrote her first detective novel during the war: *The Mysterious Affair at Styles*, published in 1920, introduced Hercule Poirot, a retired Belgian police officer who had fled to England.
+Agatha Christie knew her poisons. During the First World War she worked in a hospital dispensary in Torquay, her home town, and did the same in London during the Second. Poison turns up in many of her novels. She wrote her first detective novel during the war: *The Mysterious Affair at Styles*, published in 1920, introduced Hercule Poirot, a retired Belgian police officer who had fled to England.
 
 *The Murder of Roger Ackroyd* (1926) made her name with the way it tricks the reader. That same year her husband asked for a divorce. One December night she vanished. Her car was found abandoned above a chalk quarry, and more than 1,000 police officers and 15,000 volunteers searched for her. Eleven days later she turned up at a hotel in Harrogate, registered under the surname of her husband's lover. Her autobiography never mentions it.
 

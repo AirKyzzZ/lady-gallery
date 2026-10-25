@@ -11,7 +11,7 @@ workshop: bingo
 
 Kate Bush a grandi dans le Kent, dans une ancienne ferme près de Londres, et écrit ses premières chansons à 11 ans. Sa famille envoie aux maisons de disques une cassette de plus de 50 morceaux, sans succès. C'est David Gilmour, le guitariste de Pink Floyd, qui finance une démo plus soignée quand elle a 16 ans. EMI la signe.
 
-Le label voulait un titre plus rock comme premier single. Elle impose *Wuthering Heights*, tirée du roman d'Emily Brontë (*Les Hauts de Hurlevent*). En 1978, à 19 ans, la chanson reste quatre semaines numéro 1 au Royaume-Uni : c'est la première fois qu'une femme y parvient avec une chanson qu'elle a entièrement écrite. Elle a suivi des cours de danse et de mime avec Lindsay Kemp, l'ancien professeur de David Bowie, et cela se voit dans ses clips.
+Le label voulait un titre plus rock comme premier single. Elle impose *Wuthering Heights*, tirée du roman d'Emily Brontë (*Les Hauts de Hurlevent*). En 1978, à 19 ans, la chanson reste quatre semaines numéro 1 au Royaume-Uni : c'est la première fois qu'une femme y parvient avec une chanson qu'elle a entièrement écrite. Elle a suivi des cours de danse avec Lindsay Kemp, l'ancien professeur de David Bowie, et de mime avec Adam Darius, et cela se voit dans ses clips.
 
 Pour garder la main sur son travail, elle crée ses propres sociétés d'édition et de gestion, puis produit elle-même tous ses albums à partir de *The Dreaming* (1982). Après une seule tournée, en 1979, elle ne remonte sur scène qu'en 2014, pour 22 soirs à Londres. En 2022, la série *Stranger Things* fait de *Running Up That Hill*, sortie en 1985, un numéro 1 au Royaume-Uni.
 

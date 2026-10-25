@@ -13,6 +13,6 @@ Jane Campion grew up around theatre: her parents founded the New Zealand Players
 
 In 1990, *An Angel at My Table* told the life of the New Zealand writer Janet Frame, drawn from her autobiographies. Three years later *The Piano* won the Palme d'Or, making Campion the first woman director to receive it. Holly Hunter won Best Actress at Cannes and at the Oscars, the young Anna Paquin won Best Supporting Actress, and Campion took the Oscar for Best Original Screenplay.
 
-In 2014 she became the first woman to head the Cannes feature film jury. In 2022 *The Power of the Dog*, adapted from Thomas Savage's novel and starring Benedict Cumberbatch and Kirsten Dunst, won her the Oscar for Best Director. She was the first woman nominated twice in that category.
+In 2014 she headed the Cannes feature film jury. In 2022 *The Power of the Dog*, adapted from Thomas Savage's novel and starring Benedict Cumberbatch and Kirsten Dunst, won her the Oscar for Best Director. She was the first woman nominated twice in that category.
 
 Start with *The Piano*, then watch *The Power of the Dog*, made almost thirty years later.
