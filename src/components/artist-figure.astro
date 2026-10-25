@@ -20,8 +20,10 @@ const copy = ARTIST_COPY[locale]
         <Image
           src={image}
           alt={artist.image.alt[locale]}
-          widths={[360, 540, 720]}
-          sizes="(max-width: 52rem) 90vw, 26rem"
+          widths={[320, 480, 640]}
+          sizes="(max-width: 52rem) min(90vw, 22rem), 26rem"
+          format="avif"
+          quality={55}
           loading="eager"
           fetchpriority="high"
           class="figure-img"

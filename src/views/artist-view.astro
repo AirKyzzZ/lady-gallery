@@ -28,6 +28,9 @@ const discipline = artist.subcategories.length
   : category.label[locale]
 const name = getDisplayName(artist)
 const source = getArtistImage(artist)
+const hero = source
+  ? await getImage({ src: source, widths: [320, 480, 640], format: 'avif', quality: 55 })
+  : undefined
 const ogImage = source ? (await getImage({ src: source, width: 1200, format: 'jpeg' })).src : undefined
 const jsonLd = [
   ...personNodes(artist, locale, entry.data.lede, ogImage && new URL(ogImage, Astro.site).href),
@@ -36,6 +39,19 @@ const jsonLd = [
 ---
 
 <BaseLayout locale={locale} title={`${name}, Lady Gallery`} description={entry.data.lede} image={ogImage} jsonLd={jsonLd}>
+  {
+    hero && (
+      <link
+        slot="head"
+        rel="preload"
+        as="image"
+        type="image/avif"
+        imagesrcset={hero.srcSet.attribute}
+        imagesizes="(max-width: 52rem) min(90vw, 22rem), 26rem"
+        fetchpriority="high"
+      />
+    )
+  }
   <article class="artist wrap">
     <nav class="crumbs" aria-label="Breadcrumb">
       <a href={getPath('arts', locale)}>{t(locale, 'nav.arts')}</a>
