@@ -24,7 +24,6 @@ const UI = {
     'footer.terms': 'CGU',
     'footer.credits': 'Crédits photo',
     'footer.noCookies': 'Ce site ne dépose aucun cookie.',
-    'footer.handleTbc': 'compte à confirmer',
     'tbc': 'à confirmer',
   },
   en: {
@@ -50,7 +49,6 @@ const UI = {
     'footer.terms': 'Terms of use',
     'footer.credits': 'Image credits',
     'footer.noCookies': 'This site sets no cookies.',
-    'footer.handleTbc': 'account TBC',
     'tbc': 'TBC',
   },
 } as const satisfies Record<Locale, Record<string, string>>

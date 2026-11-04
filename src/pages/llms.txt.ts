@@ -19,7 +19,7 @@ export const GET: APIRoute = () => {
 
 > An event by students of the STC department of Bordeaux Montaigne University, France, about English-speaking women artists: visual arts, literature, music, film and theatre, fashion. Free entry. The site is in French (default) and English.
 
-Key facts: 45 women artists (43 pages, two of them duos), 5 rooms (visual arts, literature and poetry, music, film and theatre, fashion and design), 6 free workshops, free entry, organised by students of the STC department, Université Bordeaux Montaigne. Contact: Instagram ${EVENT.instagramHandle} (handle TBC).\n\nDate: ${EVENT.date.en}, ${EVENT.time.en}. Venue: ${EVENT.venue.en}, ${EVENT.address.en}, ${EVENT.city}.
+Key facts: 45 women artists (43 pages, two of them duos), 5 rooms (visual arts, literature and poetry, music, film and theatre, fashion and design), 6 free workshops, free entry, organised by students of the STC department, Université Bordeaux Montaigne. Contact: Instagram ${EVENT.instagramHandle}.\n\nDate: ${EVENT.date.en}, ${EVENT.time.en}. Venue: ${EVENT.venue.en}, ${EVENT.address.en}, ${EVENT.city}.
 
 ## Main pages
 

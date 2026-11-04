@@ -16,9 +16,8 @@ export const EVENT = {
   postalCode: '33607',
   city: 'Pessac',
   price: { fr: 'Entrée libre', en: 'Free entry' } satisfies Localised,
-  instagramHandle: '@ladygallery',
-  instagramUrl: 'https://www.instagram.com/ladygallery/',
-  tiktokUrl: 'https://www.tiktok.com/@ladygallery',
+  instagramHandle: '@ladygallery.event',
+  instagramUrl: 'https://www.instagram.com/ladygallery.event/',
 } as const
 
 export const WORKSHOPS: readonly { key: WorkshopKey; title: Localised }[] = [

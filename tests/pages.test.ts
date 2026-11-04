@@ -30,7 +30,7 @@ describe('pages', () => {
     const home = read('dist/index.html')
     expect(home).toContain('1er décembre 2026')
     expect(home).toContain('11h – 13h30')
-    expect(home).toContain('@ladygallery')
+    expect(home).toContain('@ladygallery.event')
   })
 
   it('renders a monogram when an artist has no safe image', () => {
