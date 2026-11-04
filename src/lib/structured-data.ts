@@ -13,9 +13,9 @@ export const organizationNode = (): Record<string, unknown> => ({
   name: 'Lady Gallery',
   url: SITE,
   logo: url('/apple-touch-icon.png'),
-  description: 'Student event from the language department of the University of Bordeaux about English-speaking women artists.',
+  description: 'Student event from the STC department of Bordeaux Montaigne University about English-speaking women artists.',
   sameAs: [EVENT.instagramUrl],
-  parentOrganization: { '@type': 'CollegeOrUniversity', name: 'Université de Bordeaux', url: 'https://www.u-bordeaux.fr' },
+  parentOrganization: { '@type': 'CollegeOrUniversity', name: 'Université Bordeaux Montaigne', url: 'https://www.u-bordeaux-montaigne.fr' },
 })
 
 export const websiteNode = (locale: Locale): Record<string, unknown> => ({
@@ -50,7 +50,7 @@ export const eventNode = (locale: Locale, description: string): Record<string, u
   url: url(getPath('home', locale)),
   location: {
     '@type': 'Place',
-    name: EVENT.venue[locale],
+    name: `${EVENT.venue[locale]}, ${EVENT.address[locale]}`,
     address: {
       '@type': 'PostalAddress',
       streetAddress: EVENT.streetAddress,

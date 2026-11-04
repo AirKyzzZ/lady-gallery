@@ -153,9 +153,9 @@ export const ABOUT_COPY: Record<Locale, { title: string; description: string; pa
   fr: {
     title: 'À propos',
     description:
-      'Lady Gallery est un projet d’étudiantes du département de langues de l’Université de Bordeaux autour des artistes femmes anglophones.',
+      'Lady Gallery est un projet d’étudiantes du département STC de l’Université Bordeaux Montaigne autour des artistes femmes anglophones.',
     paragraphs: [
-      'Lady Gallery est né dans un cours du département de langues de l’Université de Bordeaux. La consigne : monter un événement en lien avec le monde anglophone. On a choisi de parler des femmes qui y ont fait de l’art.',
+      'Lady Gallery est né dans un cours du département STC de l’Université Bordeaux Montaigne. La consigne : monter un événement en lien avec le monde anglophone. On a choisi de parler des femmes qui y ont fait de l’art.',
       'La liste n’a rien d’exhaustif. Elle mélange des noms que tout le monde connaît et d’autres qu’on a découverts en préparant la journée. Chacune a sa page sur ce site, écrite à partir de sources que vous pouvez vérifier.',
       'Le jour J, il y aura des œuvres à regarder, des textes à lire, de la musique et six ateliers. L’entrée est libre, pour les étudiants comme pour le public.',
     ],
@@ -165,9 +165,9 @@ export const ABOUT_COPY: Record<Locale, { title: string; description: string; pa
   en: {
     title: 'About',
     description:
-      'Lady Gallery is a student project from the language department of the University of Bordeaux about English-speaking women artists.',
+      'Lady Gallery is a student project from the STC department of Bordeaux Montaigne University about English-speaking women artists.',
     paragraphs: [
-      'Lady Gallery started in a class at the language department of the University of Bordeaux. The brief: put on an event connected to the English-speaking world. We chose to talk about the women who made art in it.',
+      'Lady Gallery started in a class at the STC department of Bordeaux Montaigne University. The brief: put on an event connected to the English-speaking world. We chose to talk about the women who made art in it.',
       'The list is not meant to be complete. It mixes names everyone knows with some we discovered while preparing the day. Each of them has a page on this site, written from sources you can check.',
       'On the day there will be works to look at, texts to read, music and six workshops. Entry is free, for students and for the public.',
     ],
@@ -179,7 +179,7 @@ export const ABOUT_COPY: Record<Locale, { title: string; description: string; pa
 export const PARTNERS_COPY: Record<Locale, { title: string; description: string; paragraphs: string[]; cta: string }> = {
   fr: {
     title: 'Partenariats',
-    description: 'Les partenaires de Lady Gallery et comment soutenir l’événement étudiant de l’Université de Bordeaux.',
+    description: 'Les partenaires de Lady Gallery et comment soutenir l’événement étudiant de l’Université Bordeaux Montaigne.',
     paragraphs: [
       'Nos partenaires seront annoncés ici dans les prochaines semaines.',
       'Librairie, disquaire, café, association, commerce bordelais : si vous voulez prêter du matériel, offrir des lots pour les ateliers ou simplement relayer l’événement, on serait ravies d’en parler.',
@@ -188,7 +188,7 @@ export const PARTNERS_COPY: Record<Locale, { title: string; description: string;
   },
   en: {
     title: 'Partners',
-    description: 'The partners of Lady Gallery and how to support this University of Bordeaux student event.',
+    description: 'The partners of Lady Gallery and how to support this Bordeaux Montaigne University student event.',
     paragraphs: [
       'Our partners will be announced here in the coming weeks.',
       'Bookshop, record shop, café, student society or local business: if you would like to lend equipment, offer prizes for the workshops or just help spread the word, we would love to talk.',

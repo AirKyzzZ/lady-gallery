@@ -39,10 +39,10 @@ describe('seo', () => {
     expect(types.filter((type) => type === 'Person')).toHaveLength(2)
   })
 
-  it('describes the organiser but no event while the facts are placeholders', () => {
+  it('describes the organiser and the event', () => {
     const types = jsonLdTypes(read('dist/index.html'))
     expect(types).toContain('Organization')
-    expect(types).not.toContain('Event')
+    expect(types).toContain('Event')
   })
 
   it('sets open graph tags with an absolute image', () => {

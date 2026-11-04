@@ -1,4 +1,7 @@
 ---
+import { Image } from 'astro:assets'
+import isicLogo from '../assets/brand/isic.png'
+import universityLogoUrl from '../assets/brand/universite-bordeaux-montaigne.svg?url'
 import { getAlternatePath, getPath, type Locale } from '../i18n/routes'
 import { t } from '../i18n/ui'
 import { EVENT } from '../data/event'
@@ -19,6 +22,14 @@ const legal = [
     <div>
       <p class="footer-name">Lady Gallery</p>
       <p>{t(locale, 'footer.project')}</p>
+      <div class="footer-logos">
+        <a href="https://www.u-bordeaux-montaigne.fr" rel="noopener">
+          <img src={universityLogoUrl} alt="Université Bordeaux Montaigne" width="173" height="55" loading="lazy" decoding="async" />
+        </a>
+        <a href="https://isic-bordeaux-montaigne.fr" rel="noopener">
+          <Image src={isicLogo} alt="ISIC Bordeaux Montaigne" width={72} densities={[1, 2]} />
+        </a>
+      </div>
     </div>
     <div>
       <p class="footer-title">{t(locale, 'footer.follow')}</p>
@@ -62,6 +73,27 @@ const legal = [
     font-family: var(--font-display);
     font-size: var(--step-2);
     line-height: 1;
+  }
+
+  .footer-logos {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-m);
+    width: fit-content;
+    margin-top: var(--space-s);
+    padding: var(--space-xs) var(--space-s);
+    background: #fff;
+  }
+
+  .footer-logos a {
+    display: block;
+  }
+
+  .footer-logos img {
+    display: block;
+    height: auto;
+    max-width: 100%;
   }
 
   .footer-title {

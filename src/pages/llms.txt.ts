@@ -17,9 +17,9 @@ export const GET: APIRoute = () => {
 
   const body = `# Lady Gallery
 
-> A one-day event by students of the language department of the University of Bordeaux, France, about English-speaking women artists: visual arts, literature, music, film and theatre, fashion. Free entry. The site is in French (default) and English.
+> An event by students of the STC department of Bordeaux Montaigne University, France, about English-speaking women artists: visual arts, literature, music, film and theatre, fashion. Free entry. The site is in French (default) and English.
 
-Key facts: 45 women artists (43 pages, two of them duos), 5 rooms (visual arts, literature and poetry, music, film and theatre, fashion and design), 6 free workshops, free entry, organised by students of the language department, Université de Bordeaux. Contact: Instagram ${EVENT.instagramHandle} (handle TBC).\n\nEvent date, time and venue are provisional (${EVENT.date.en}, ${EVENT.time.en}, ${EVENT.venue.en}) and marked TBC on the site.
+Key facts: 45 women artists (43 pages, two of them duos), 5 rooms (visual arts, literature and poetry, music, film and theatre, fashion and design), 6 free workshops, free entry, organised by students of the STC department, Université Bordeaux Montaigne. Contact: Instagram ${EVENT.instagramHandle} (handle TBC).\n\nDate: ${EVENT.date.en}, ${EVENT.time.en}. Venue: ${EVENT.venue.en}, ${EVENT.address.en}, ${EVENT.city}.
 
 ## Main pages
 

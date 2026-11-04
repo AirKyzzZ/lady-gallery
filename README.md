@@ -1,6 +1,6 @@
 # Lady Gallery
 
-Site of Lady Gallery, a student event from the language department of the University of Bordeaux about English-speaking women artists. French by default, English under `/en/`.
+Site of Lady Gallery, a student event from the STC department of Bordeaux Montaigne University about English-speaking women artists. French by default, English under `/en/`.
 
 Live: https://lady-gallery.netlify.app
 

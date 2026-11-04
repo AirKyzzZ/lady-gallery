@@ -9,12 +9,12 @@ export const FAQ_COPY: Record<Locale, { title: string; items: Faq[] }> = {
       {
         question: 'Qu’est-ce que Lady Gallery ?',
         answer:
-          'Une journée organisée par des étudiantes du département de langues de l’Université de Bordeaux autour de 45 artistes femmes anglophones : peintres, autrices, musiciennes, actrices, réalisatrices et créatrices de mode.',
+          'Une journée organisée par des étudiantes du département STC de l’Université Bordeaux Montaigne autour de 45 artistes femmes anglophones : peintres, autrices, musiciennes, actrices, réalisatrices et créatrices de mode.',
       },
       {
         question: 'Quand et où ?',
         answer:
-          'Au printemps 2027, à l’Université de Bordeaux. La date, les horaires et la salle exacte sont encore à confirmer. On les annonce ici et sur Instagram dès qu’ils sont fixés.',
+          'Le 1er décembre 2026, de 11h à 13h30, à l’Université Bordeaux Montaigne, dans le hall de l’amphi A700.',
       },
       {
         question: 'C’est payant ?',
@@ -37,12 +37,12 @@ export const FAQ_COPY: Record<Locale, { title: string; items: Faq[] }> = {
       {
         question: 'What is Lady Gallery?',
         answer:
-          'A day run by students of the language department of the University of Bordeaux about 45 English-speaking women artists: painters, writers, musicians, actresses, directors and fashion designers.',
+          'A day run by students of the STC department of Bordeaux Montaigne University about 45 English-speaking women artists: painters, writers, musicians, actresses, directors and fashion designers.',
       },
       {
         question: 'When and where?',
         answer:
-          'In spring 2027, at the University of Bordeaux. The exact date, times and room are still to be confirmed. We will post them here and on Instagram as soon as they are set.',
+          'On 1 December 2026, from 11am to 1:30pm, at Bordeaux Montaigne University, in the hall of lecture theatre A700.',
       },
       {
         question: 'Does it cost anything?',

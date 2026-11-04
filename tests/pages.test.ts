@@ -11,15 +11,25 @@ describe('pages', () => {
     expect(existsSync('dist/en/artists/billie-holiday-ella-fitzgerald/index.html')).toBe(true)
   })
 
-  it('flags placeholder event facts on both home pages', () => {
-    expect(read('dist/index.html')).toMatch(/class="ticket[\s\S]*?à confirmer/)
-    expect(read('dist/en/index.html')).toMatch(/class="ticket[\s\S]*?TBC/)
+  it('no longer flags the event facts as provisional', () => {
+    const ticket = (path: string): string => read(path).match(/class="ticket[\s\S]*?<\/section>/)?.[0] ?? ''
+    expect(ticket('dist/index.html')).toContain('hall de l’amphi A700')
+    expect(ticket('dist/index.html')).not.toContain('à confirmer')
+    expect(ticket('dist/en/index.html')).toContain('lecture theatre A700')
+    expect(ticket('dist/en/index.html')).not.toContain('TBC')
+  })
+
+  it('shows the department line and both logos in the footer', () => {
+    const home = read('dist/index.html')
+    expect(home).toContain('13 étudiantes en L3 Information-Communication Anglais')
+    expect(home).toContain('alt="Université Bordeaux Montaigne"')
+    expect(home).toContain('alt="ISIC Bordeaux Montaigne"')
   })
 
   it('shows the event facts on the home page', () => {
     const home = read('dist/index.html')
-    expect(home).toContain('Printemps 2027')
-    expect(home).not.toContain('25 mars')
+    expect(home).toContain('1er décembre 2026')
+    expect(home).toContain('11h – 13h30')
     expect(home).toContain('@ladygallery')
   })
 

@@ -25,8 +25,8 @@ export const HOME_COPY: Record<Locale, HomeCopy> = {
   fr: {
     title: 'Lady Gallery : exposition gratuite d’artistes femmes anglophones à Bordeaux',
     description:
-      'Une journée à l’Université de Bordeaux autour de 45 artistes anglophones : peintres, autrices, musiciennes, actrices, créatrices de mode. Entrée libre.',
-    kicker: 'Département de langues, Université de Bordeaux',
+      'Le 1er décembre à l’Université Bordeaux Montaigne : 45 artistes anglophones, peintres, autrices, musiciennes, actrices, créatrices de mode. Entrée libre.',
+    kicker: 'Département STC, Université Bordeaux Montaigne',
     intro:
       'Une journée, quarante-cinq femmes. Des peintres, des romancières, des chanteuses, des cinéastes, des créatrices de mode, toutes de langue anglaise. On les expose, on les lit, on les écoute, et on joue avec elles.',
     instagram: 'Suivre',
@@ -54,8 +54,8 @@ export const HOME_COPY: Record<Locale, HomeCopy> = {
   en: {
     title: 'Lady Gallery: free exhibition of English-speaking women artists in Bordeaux',
     description:
-      'A day at the University of Bordeaux about 45 English-speaking women: painters, writers, singers, actresses, fashion designers. Free entry.',
-    kicker: 'Language department, University of Bordeaux',
+      'On 1 December at Bordeaux Montaigne University: 45 English-speaking women, painters, writers, singers, actresses, fashion designers. Free entry.',
+    kicker: 'STC department, Bordeaux Montaigne University',
     intro:
       'One day, forty-five women. Painters, novelists, singers, filmmakers and fashion designers, all of them English-speaking. We hang them, read them, listen to them and play games with them.',
     instagram: 'Follow',
