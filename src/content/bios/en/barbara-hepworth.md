@@ -4,7 +4,7 @@ works:
   - { title: "Curved Form (Delphi)", year: "1955", kind: "sculpture" }
   - { title: "Single Form", year: "1964", kind: "sculpture" }
   - { title: "Two Forms (Divided Circle)", year: "1969", kind: "sculpture" }
-whyHere: "Her hollowed, pierced and strung shapes are a good starting point for the collage and craft workshop."
+whyHere: "Her hollowed, pierced and strung shapes are a good starting point for the sculpture workshop."
 workshop: craft
 ---
 

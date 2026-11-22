@@ -1,149 +1,201 @@
-import type { WorkshopKey } from '../data/event'
+import type { WorkshopGroup, WorkshopKey } from '../data/event'
+import type { PartnerKey, PartnerRole } from '../data/partners'
 import type { Locale } from './routes'
 
-type Workshop = { lead: string; howTo: string[]; artists: string }
+type Workshop = { players?: string; duration?: string; steps: string[]; outro?: string }
 
-export const WORKSHOPS_COPY: Record<
-  Locale,
-  {
-    title: string
-    description: string
-    intro: string
-    howToTitle: string
-    artistsTitle: string
-    note: string
-    items: Record<WorkshopKey, Workshop>
-  }
-> = {
+type WorkshopsCopy = {
+  title: string
+  description: string
+  intro: string
+  groups: Record<WorkshopGroup, { title: string; note: string }>
+  playersLabel: string
+  durationLabel: string
+  related: (room: string) => string
+  items: Record<WorkshopKey, Workshop>
+}
+
+export const WORKSHOPS_COPY: Record<Locale, WorkshopsCopy> = {
   fr: {
     title: 'Ateliers',
     description:
-      'Bingo musical, memory, Dobble, Qui est-ce ?, stand lecture et atelier collage : les six ateliers gratuits de Lady Gallery.',
-    intro:
-      'Six jeux et ateliers pour passer d’une salle à l’autre autrement qu’en lisant des cartels. Gratuits, sans inscription, en français et en anglais.',
-    howToTitle: 'Comment on joue',
-    artistsTitle: 'Avec',
-    note: 'Les horaires de chaque atelier seront annoncés avec le programme.',
+      'Qui est-ce ?, Dobble, Memory, coin lecture, atelier sculpture, bingo musical et pause gourmande : le programme gratuit de Lady Gallery.',
+    intro: 'Six ateliers gratuits pour découvrir les artistes en jouant, et une pause gourmande. Sans inscription.',
+    groups: {
+      games: { title: 'Jeux', note: 'Libres d’accès, de 11h à 13h30' },
+      stands: { title: 'Stands', note: 'Libres d’accès, de 11h à 13h30' },
+      slot: { title: 'Rendez-vous', note: 'De 12h45 à 13h30' },
+    },
+    playersLabel: 'Joueurs',
+    durationLabel: 'Durée',
+    related: (room) => `Salle liée : ${room}`,
     items: {
-      bingo: {
-        lead: 'On lance un extrait, vous cochez l’artiste sur votre grille. Trois secondes suffisent parfois.',
-        howTo: [
-          'Chaque joueur reçoit une grille de seize artistes.',
-          'L’animatrice passe des extraits de quelques secondes, dans le désordre.',
-          'Première ligne complète : criez « Lady ! » et venez faire vérifier.',
+      'guess-who': {
+        players: 'Seul ou en équipe de 2 à 3',
+        duration: '5 à 10 minutes par manche',
+        steps: [
+          'Avec l’animatrice ou seul, choisissez secrètement un film parmi les 24 proposés.',
+          'Posez des questions auxquelles on ne peut répondre que par « oui » ou « non ».',
+          'Éliminez progressivement les films qui ne correspondent pas.',
+          'Après 5 questions sans réponse, un indice vous sera donné.',
+          'Après la 6e question, vous devrez proposer une réponse !',
+          'Attention : une mauvaise réponse vous élimine.',
         ],
-        artists: 'Aretha Franklin, Billie Holiday, Ella Fitzgerald, Kate Bush, Amy Winehouse, Lorde et les autres musiciennes.',
-      },
-      memory: {
-        lead: 'Des cartes retournées, des tableaux à retrouver par paires. Le jeu oblige à regarder vraiment.',
-        howTo: [
-          'Les cartes sont posées face cachée.',
-          'À votre tour, retournez-en deux. Même œuvre : vous les gardez et vous rejouez.',
-          'À la fin, on vous demande de qui est le tableau. Bonus si vous trouvez.',
-        ],
-        artists: 'Mary Cassatt, Emily Carr et les peintres de la salle I.',
+        outro: 'Le premier à trouver le film mystère remportera un petit lot !',
       },
       dobble: {
-        lead: 'Entre deux cartes, il y a toujours un seul symbole en commun. Ici, ce sont des pièces de mode.',
-        howTo: [
-          'Une minijupe, un corset punk, une robe de mariée, une robe portefeuille.',
-          'Retournez une carte : le premier qui nomme le symbole commun la remporte.',
-          'Chaque symbole renvoie à une créatrice, on vous dira laquelle.',
+        players: '2 à 6 joueurs',
+        steps: [
+          'Observez attentivement les cartes.',
+          'Repérez le symbole commun entre les deux cartes.',
+          'Annoncez le symbole à voix haute le plus rapidement possible.',
+          'Récupérez les cartes selon les règles de la partie.',
+          'Le joueur qui possède le plus de cartes à la fin gagne !',
         ],
-        artists: 'Vivienne Westwood, Mary Quant, Stella McCartney, Vera Wang, Claire McCardell.',
+        outro:
+          'Découvrez également les petites fiches explicatives pour connaître l’histoire des symboles de mode et leur lien avec l’émancipation des femmes.',
       },
-      'guess-who': {
-        lead: 'Le Qui est-ce ? classique, mais avec des actrices et des réalisatrices.',
-        howTo: [
-          'Chaque joueur choisit une femme en secret.',
-          'On pose des questions fermées : « A-t-elle réalisé un film ? », « A-t-elle joué la reine ? »',
-          'On baisse les volets jusqu’à ce qu’il n’en reste qu’une.',
+      memory: {
+        players: '2 à 4 joueurs',
+        steps: [
+          'Les 24 cartes (12 paires) sont placées face cachée.',
+          'À tour de rôle, retournez deux cartes.',
+          'Si les deux cartes sont identiques, gardez la paire et rejouez.',
+          'Si elles sont différentes, retournez-les et laissez jouer la personne suivante.',
+          'Continuez jusqu’à ce que toutes les paires soient retrouvées.',
         ],
-        artists: 'Meryl Streep, Katharine Hepburn, Greta Gerwig, Judi Dench, Cate Blanchett, Jane Campion et les autres.',
+        outro:
+          'Le joueur qui possède le plus de paires remporte la partie ! Une affiche vous permettra également de découvrir les 12 artistes et leurs œuvres.',
       },
       reading: {
-        lead: 'Une table, des livres, des fauteuils. Prenez un extrait, lisez-le, laissez un mot si vous voulez.',
-        howTo: [
-          'Des extraits courts, en anglais avec leur traduction.',
-          'Des étudiantes lisent à voix haute à plusieurs moments de la journée.',
-          'Une boîte pour noter la phrase qui vous a arrêté.',
+        steps: [
+          'Parcourez les livres présentés sur la table.',
+          'Découvrez les recommandations de l’équipe pour chaque ouvrage.',
+          'Lisez les petites fiches pour connaître l’histoire du livre et savoir à qui il pourrait plaire.',
+          'N’hésitez pas à feuilleter les ouvrages.',
+          'Laissez votre avis, un commentaire ou une impression sur un post-it !',
         ],
-        artists: 'Toni Morrison, Virginia Woolf, Sylvia Plath, Maya Angelou, Margaret Atwood et les autres autrices.',
+        outro: 'Découvrez des autrices anglophones des XXe et XXIe siècles.',
       },
       craft: {
-        lead: 'Ciseaux, colle, vieux magazines. Vous repartez avec votre propre affiche.',
-        howTo: [
-          'On fournit papier, images, typographies découpées.',
-          'Vous composez une affiche sur l’artiste de votre choix.',
-          'Les meilleures seront affichées à la sortie, et peut-être sur notre Instagram.',
+        players: '8 personnes à la fois',
+        steps: [
+          'Prenez votre portion de pâte autodurcissante.',
+          'Créez librement : un visage, un objet, une forme abstraite ou une petite figurine.',
+          'N’hésitez pas à demander conseil aux animatrices.',
+          'Une fois votre création terminée, indiquez votre prénom sur le sachet prévu.',
         ],
-        artists: 'Toutes, au choix.',
+        outro: 'Vous pouvez repartir avec votre sculpture ! Attention : la pâte doit sécher chez vous.',
+      },
+      snack: {
+        steps: [
+          'Découvrez les gourmandises proposées sur notre stand.',
+          'Retrouvez des cookies, brownies, muffins, bonbons, chocolats ou spécialités des pays anglophones.',
+          'Profitez de ce petit moment convivial pendant votre visite !',
+        ],
+        outro: 'Bon appétit et bonne découverte !',
+      },
+      bingo: {
+        players: 'Seul ou en groupe de 2 à 3',
+        steps: [
+          'Récupérez une grille de bingo de 25 cases (5 × 5) et un crayon.',
+          'Écoutez attentivement les extraits musicaux d’environ 5 secondes.',
+          'Lorsqu’une chanson ou son interprète apparaît sur votre grille, cochez la case correspondante.',
+          'Le premier à compléter une colonne entière doit crier « BINGO ! ».',
+          'Une animatrice vérifiera votre grille avec la liste des extraits.',
+        ],
+        outro:
+          'Si toutes vos réponses sont correctes, vous remportez un lot pour votre groupe ! De nouvelles grilles seront distribuées à chaque nouvelle partie.',
       },
     },
   },
   en: {
     title: 'Workshops',
     description:
-      'Music bingo, memory, Dobble, Guess Who?, a reading corner and a collage workshop: the six free workshops of Lady Gallery.',
-    intro:
-      'Six games and workshops to move from one room to the next without just reading wall labels. Free, no booking, in English and French.',
-    howToTitle: 'How to play',
-    artistsTitle: 'Featuring',
-    note: 'Times for each workshop will be announced with the programme.',
+      'Who’s This?, Dobble, Memory, a reading corner, a sculpture workshop, music bingo and a snack break: the free programme of Lady Gallery.',
+    intro: 'Six free workshops to discover the artists through play, plus a snack break. No booking needed.',
+    groups: {
+      games: { title: 'Games', note: 'Drop in any time, 11am to 1:30pm' },
+      stands: { title: 'Stands', note: 'Drop in any time, 11am to 1:30pm' },
+      slot: { title: 'Fixed slot', note: '12:45 to 1:30pm' },
+    },
+    playersLabel: 'Players',
+    durationLabel: 'Length',
+    related: (room) => `Related room: ${room}`,
     items: {
-      bingo: {
-        lead: 'We play a clip, you tick the artist on your card. Sometimes three seconds is enough.',
-        howTo: [
-          'Each player gets a card with sixteen artists.',
-          'The host plays short clips in random order.',
-          'First full line: shout “Lady!” and come and get it checked.',
+      'guess-who': {
+        players: 'On your own or in teams of 2 or 3',
+        duration: '5 to 10 minutes a round',
+        steps: [
+          'With the host or on your own, secretly pick one film out of the 24 on the board.',
+          'Ask questions that can only be answered with “yes” or “no”.',
+          'Rule out the films that don’t fit, one by one.',
+          'After 5 questions without the answer, you get a clue.',
+          'After the 6th question, you have to make a guess!',
+          'Careful: a wrong answer knocks you out.',
         ],
-        artists: 'Aretha Franklin, Billie Holiday, Ella Fitzgerald, Kate Bush, Amy Winehouse, Lorde and the other musicians.',
-      },
-      memory: {
-        lead: 'Cards face down, paintings to match in pairs. The game makes you actually look.',
-        howTo: [
-          'All cards are laid face down.',
-          'On your turn, flip two. Same painting: keep them and go again.',
-          'At the end we ask who painted it. Bonus point if you know.',
-        ],
-        artists: 'Mary Cassatt, Emily Carr and the painters of room I.',
+        outro: 'The first to find the mystery film wins a small prize!',
       },
       dobble: {
-        lead: 'Any two cards share exactly one symbol. Here, the symbols are pieces of clothing.',
-        howTo: [
-          'A miniskirt, a punk corset, a wedding dress, a wrap dress.',
-          'Flip a card: the first to name the shared symbol wins it.',
-          'Each symbol comes from one designer, and we’ll tell you which.',
+        players: '2 to 6 players',
+        steps: [
+          'Look closely at the cards.',
+          'Spot the one symbol two cards have in common.',
+          'Call it out as fast as you can.',
+          'Collect the cards according to the rules of the round.',
+          'Whoever holds the most cards at the end wins!',
         ],
-        artists: 'Vivienne Westwood, Mary Quant, Stella McCartney, Vera Wang, Claire McCardell.',
+        outro: 'Read the little cards next to the game to learn the story of each fashion symbol and how it ties in with women’s emancipation.',
       },
-      'guess-who': {
-        lead: 'Classic Guess Who?, with actresses and directors on the board.',
-        howTo: [
-          'Each player secretly picks a woman.',
-          'Ask yes-or-no questions: “Has she directed a film?”, “Has she played the Queen?”',
-          'Flip down the faces until only one is left.',
+      memory: {
+        players: '2 to 4 players',
+        steps: [
+          'The 24 cards (12 pairs) are laid face down.',
+          'Take turns flipping two cards.',
+          'If they match, keep the pair and play again.',
+          'If they don’t, turn them back over and let the next person play.',
+          'Keep going until every pair has been found.',
         ],
-        artists: 'Meryl Streep, Katharine Hepburn, Greta Gerwig, Judi Dench, Cate Blanchett, Jane Campion and the others.',
+        outro: 'Whoever has the most pairs wins! A poster also introduces the 12 artists and their works.',
       },
       reading: {
-        lead: 'A table, books, armchairs. Pick an excerpt, read it, leave a note if you like.',
-        howTo: [
-          'Short excerpts in English, with a French translation.',
-          'Students read aloud at a few points during the day.',
-          'A box to write down the line that stopped you.',
+        steps: [
+          'Browse the books laid out on the table.',
+          'Read the team’s recommendation for each one.',
+          'Check the little cards to learn the story behind each book and who might like it.',
+          'Feel free to leaf through them.',
+          'Leave your opinion, a comment or a first impression on a sticky note!',
         ],
-        artists: 'Toni Morrison, Virginia Woolf, Sylvia Plath, Maya Angelou, Margaret Atwood and the other writers.',
+        outro: 'Discover English-speaking women writers of the 20th and 21st centuries.',
       },
       craft: {
-        lead: 'Scissors, glue, old magazines. You leave with a poster of your own.',
-        howTo: [
-          'We provide paper, pictures and cut-out lettering.',
-          'Make a poster about the artist of your choice.',
-          'The best ones go up by the exit, and maybe on our Instagram.',
+        players: '8 people at a time',
+        steps: [
+          'Take your share of air-dry clay.',
+          'Make whatever you like: a face, an object, an abstract shape or a small figure.',
+          'Ask the hosts for tips any time.',
+          'When you are done, write your first name on the bag provided.',
         ],
-        artists: 'Any of them, your pick.',
+        outro: 'You can take your sculpture home! Note: the clay finishes drying at your place.',
+      },
+      snack: {
+        steps: [
+          'Have a look at the treats on our stand.',
+          'Cookies, brownies, muffins, sweets, chocolate and specialities from English-speaking countries.',
+          'Enjoy a friendly little break during your visit!',
+        ],
+        outro: 'Enjoy, and happy exploring!',
+      },
+      bingo: {
+        players: 'On your own or in groups of 2 or 3',
+        steps: [
+          'Pick up a bingo card with 25 squares (5 × 5) and a pencil.',
+          'Listen closely to music clips of about 5 seconds.',
+          'When a song or its singer is on your card, tick the square.',
+          'The first to fill a whole column shouts “BINGO!”.',
+          'A host checks your card against the list of clips.',
+        ],
+        outro: 'If all your answers are right, your group wins a prize! New cards are handed out for every round.',
       },
     },
   },
@@ -176,23 +228,45 @@ export const ABOUT_COPY: Record<Locale, { title: string; description: string; pa
   },
 }
 
-export const PARTNERS_COPY: Record<Locale, { title: string; description: string; paragraphs: string[]; cta: string }> = {
+type PartnersCopy = {
+  title: string
+  description: string
+  intro: string
+  groups: Record<PartnerRole, string>
+  blurbs: Record<PartnerKey, string>
+  contact: string
+  cta: string
+}
+
+export const PARTNERS_COPY: Record<Locale, PartnersCopy> = {
   fr: {
     title: 'Partenariats',
-    description: 'Les partenaires de Lady Gallery et comment soutenir l’événement étudiant de l’Université Bordeaux Montaigne.',
-    paragraphs: [
-      'Nos partenaires seront annoncés ici dans les prochaines semaines.',
-      'Librairie, disquaire, café, association, commerce bordelais : si vous voulez prêter du matériel, offrir des lots pour les ateliers ou simplement relayer l’événement, on serait ravies d’en parler.',
-    ],
+    description: 'ISIC Rider, Fnac, Krazy Kat, Book Lovers et Utopia : les partenaires qui relaient Lady Gallery et offrent les lots.',
+    intro: 'Merci à celles et ceux qui font vivre la journée, en parlant de l’événement ou en offrant les lots des ateliers.',
+    groups: { relay: 'Relais de l’événement', prizes: 'Ils offrent les lots' },
+    blurbs: {
+      'isic-rider': 'Le bureau des étudiants de l’ISIC, qui relaie l’événement.',
+      fnac: 'Livres, musique, jeux : l’enseigne culturelle.',
+      'krazy-kat': 'Librairie BD et café à Bordeaux.',
+      'book-lovers': 'Librairie bordelaise dédiée à la romance.',
+      utopia: 'Cinéma art et essai de Bordeaux, place Camille Jullian.',
+    },
+    contact: 'Vous voulez soutenir Lady Gallery ? Écrivez-nous.',
     cta: 'Nous écrire sur Instagram',
   },
   en: {
     title: 'Partners',
-    description: 'The partners of Lady Gallery and how to support this Bordeaux Montaigne University student event.',
-    paragraphs: [
-      'Our partners will be announced here in the coming weeks.',
-      'Bookshop, record shop, café, student society or local business: if you would like to lend equipment, offer prizes for the workshops or just help spread the word, we would love to talk.',
-    ],
+    description: 'ISIC Rider, Fnac, Krazy Kat, Book Lovers and Utopia: the partners who spread the word about Lady Gallery and give the prizes.',
+    intro: 'Thank you to everyone who makes the day happen, by spreading the word or giving prizes for the workshops.',
+    groups: { relay: 'Spreading the word', prizes: 'They give the prizes' },
+    blurbs: {
+      'isic-rider': 'The ISIC student union, spreading the word about the event.',
+      fnac: 'Books, music and games: the culture retailer.',
+      'krazy-kat': 'Comic book shop and café in Bordeaux.',
+      'book-lovers': 'Bordeaux bookshop devoted to romance.',
+      utopia: 'Art-house cinema in Bordeaux, place Camille Jullian.',
+    },
+    contact: 'Want to support Lady Gallery? Get in touch.',
     cta: 'Message us on Instagram',
   },
 }

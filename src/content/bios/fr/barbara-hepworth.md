@@ -4,7 +4,7 @@ works:
   - { title: "Curved Form (Delphi)", year: "1955", kind: "sculpture" }
   - { title: "Single Form", year: "1964", kind: "sculpture" }
   - { title: "Two Forms (Divided Circle)", year: "1969", kind: "sculpture" }
-whyHere: "Ses formes creusées, percées, parfois tendues de cordes, donnent de bonnes idées pour l'atelier collage et bricolage."
+whyHere: "Ses formes creusées, percées, parfois tendues de cordes, donnent de bonnes idées pour l'atelier sculpture."
 workshop: craft
 ---
 

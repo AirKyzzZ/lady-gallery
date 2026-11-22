@@ -14,7 +14,7 @@ export const FAQ_COPY: Record<Locale, { title: string; items: Faq[] }> = {
       {
         question: 'Quand et où ?',
         answer:
-          'Le 1er décembre 2026, de 11h à 13h30, à l’Université Bordeaux Montaigne, dans le hall de l’amphi A700.',
+          'Le 1er décembre 2026, de 11h à 13h30, à l’Université Bordeaux Montaigne, dans le hall de la CLEFF.',
       },
       {
         question: 'C’est payant ?',
@@ -42,7 +42,7 @@ export const FAQ_COPY: Record<Locale, { title: string; items: Faq[] }> = {
       {
         question: 'When and where?',
         answer:
-          'On 1 December 2026, from 11am to 1:30pm, at Bordeaux Montaigne University, in the hall of lecture theatre A700.',
+          'On 1 December 2026, from 11am to 1:30pm, at Bordeaux Montaigne University, in the CLEFF hall.',
       },
       {
         question: 'Does it cost anything?',

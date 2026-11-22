@@ -4,8 +4,7 @@ works:
   - { title: "White Angel Breadline", year: "1933", kind: "photographie" }
   - { title: "Migrant Mother", year: "1936", kind: "photographie" }
   - { title: "An American Exodus", year: "1939", kind: "livre" }
-whyHere: "Ses photos vont toujours avec les mots des gens qu'elle a rencontrés : à l'atelier collage, on peut associer images et légendes comme elle le faisait."
-workshop: craft
+whyHere: "Ses photos vont toujours avec les mots des gens qu'elle a rencontrés : ses légendes comptent autant que ses images."
 ---
 
 Dorothea Lange a commencé comme portraitiste de la bonne société de San Francisco. Quand la Grande Dépression s'installe, elle quitte son studio pour photographier la rue. Atteinte de la polio à 7 ans, elle boite toute sa vie ; elle disait que cela l'avait formée.

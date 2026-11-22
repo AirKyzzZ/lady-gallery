@@ -13,9 +13,9 @@ describe('pages', () => {
 
   it('no longer flags the event facts as provisional', () => {
     const ticket = (path: string): string => read(path).match(/class="ticket[\s\S]*?<\/section>/)?.[0] ?? ''
-    expect(ticket('dist/index.html')).toContain('hall de l’amphi A700')
+    expect(ticket('dist/index.html')).toContain('hall de la CLEFF')
     expect(ticket('dist/index.html')).not.toContain('à confirmer')
-    expect(ticket('dist/en/index.html')).toContain('lecture theatre A700')
+    expect(ticket('dist/en/index.html')).toContain('CLEFF hall')
     expect(ticket('dist/en/index.html')).not.toContain('TBC')
   })
 
@@ -66,7 +66,77 @@ describe('pages', () => {
 
   it('anchors each workshop', () => {
     const html = read('dist/ateliers/index.html')
-    for (const id of ['bingo', 'memory', 'dobble', 'guess-who', 'reading', 'craft']) expect(html).toContain(`id="${id}"`)
+    for (const id of ['bingo', 'memory', 'dobble', 'guess-who', 'reading', 'craft', 'snack']) expect(html).toContain(`id="${id}"`)
+  })
+
+  it('puts the new venue in the faq', () => {
+    expect(read('dist/index.html').match(/hall de la CLEFF/g)?.length ?? 0).toBeGreaterThanOrEqual(2)
+    expect(read('dist/en/index.html').match(/CLEFF hall/g)?.length ?? 0).toBeGreaterThanOrEqual(2)
+  })
+
+  it('names the publisher in the legal notice', () => {
+    for (const path of ['dist/mentions-legales/index.html', 'dist/en/legal-notice/index.html']) {
+      const html = read(path)
+      expect(html).toContain('Oriane Poupard')
+      expect(html).toContain('href="mailto:orianepoupard@icloud.com"')
+    }
+    expect(read('dist/mentions-legales/index.html')).not.toContain('à compléter')
+    expect(read('dist/en/legal-notice/index.html')).not.toContain('to be added')
+  })
+
+  it('drops the provisional wording from the terms', () => {
+    expect(read('dist/cgu/index.html')).not.toContain('à confirmer')
+    expect(read('dist/en/terms/index.html')).not.toContain('TBC')
+  })
+
+  it('shows the three real posters', () => {
+    const wall = (path: string): string => read(path).match(/class="poster-wall[\s\S]*?<\/section>/)?.[0] ?? ''
+    const fr = wall('dist/index.html')
+    expect(fr.match(/<img/g)).toHaveLength(3)
+    expect(fr.match(/<a[^>]*href="\/_astro\/[^"]+\.webp"/g)).toHaveLength(3)
+    for (const text of ['hall de la CLEFF', '12h45', '1er décembre']) expect(fr).toContain(text)
+    expect(read('dist/index.html')).not.toContain('Affiche à venir')
+    expect(read('dist/index.html')).not.toContain('en cours de dessin')
+    const en = wall('dist/en/index.html')
+    expect(en).toContain('CLEFF hall')
+    expect(read('dist/en/index.html')).not.toContain('Poster coming soon')
+  })
+
+  it('lists the partners with their logos', () => {
+    const urls = [
+      'https://www.instagram.com/isic_rider/',
+      'https://www.fnac.com',
+      'https://www.canalbd.net/krazy-kat/',
+      'https://www.booklovers.fr',
+      'https://bordeaux.cinemas-utopia.org',
+    ]
+    const names = ['ISIC Rider', 'Fnac', 'Krazy Kat', 'Book Lovers', 'Utopia']
+    const fr = read('dist/partenariats/index.html')
+    for (const name of names) expect(fr).toContain(`alt="Logo ${name}"`)
+    for (const url of urls) expect(fr).toContain(`href="${url}" rel="noopener"`)
+    expect(fr).not.toContain('annoncés ici')
+    const en = read('dist/en/partners/index.html')
+    for (const name of names) expect(en).toContain(`alt="Logo ${name}"`)
+    expect(en).not.toContain('announced here')
+    expect(read('dist/credits/index.html')).toContain('Book Lovers')
+  })
+
+  it('shows the real workshop rules', () => {
+    const fr = read('dist/ateliers/index.html')
+    for (const text of ['parmi les 24 proposés', '5 × 5', 'pâte autodurcissante', '12 paires', '12h45', 'Pause gourmande', 'Atelier sculpture', 'Coin lecture'])
+      expect(fr).toContain(text)
+    for (const text of ['Lady !', 'seize artistes', 'collage', 'Les horaires de chaque atelier']) expect(fr).not.toContain(text)
+    const en = read('dist/en/workshops/index.html')
+    for (const text of ['out of the 24', '5 × 5', '12:45', 'Snack break']) expect(en).toContain(text)
+    expect(en).not.toContain('collage')
+  })
+
+  it('links artists to the right workshop', () => {
+    const bourgeois = read('dist/artistes/louise-bourgeois/index.html')
+    expect(bourgeois).toContain('href="/ateliers/#craft"')
+    expect(bourgeois).toContain('Atelier sculpture')
+    expect(read('dist/artistes/cindy-sherman/index.html')).not.toContain('/ateliers/#')
+    for (const slug of readdirSync('dist/artistes')) expect(read(`dist/artistes/${slug}/index.html`), slug).not.toContain('collage')
   })
 
   it('builds an english 404 page', () => {

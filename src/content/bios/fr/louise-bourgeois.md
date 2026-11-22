@@ -4,7 +4,7 @@ works:
   - { title: "Femme Maison", year: "1946-1947", kind: "série" }
   - { title: "Destruction of the Father", year: "1974", kind: "installation" }
   - { title: "Maman", year: "1999", kind: "sculpture" }
-whyHere: "Française de naissance, elle a fait toute sa carrière à New York. Fil, tissu, objets trouvés : son travail donne des idées pour l'atelier collage et bricolage."
+whyHere: "Française de naissance, elle a fait toute sa carrière à New York. Bois, bronze, marbre, tissu : elle a sculpté avec toutes sortes de matières, de quoi donner des idées à l'atelier sculpture."
 workshop: craft
 ---
 

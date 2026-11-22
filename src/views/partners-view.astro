@@ -1,8 +1,10 @@
 ---
+import { Image } from 'astro:assets'
 import BaseLayout from '../layouts/base-layout.astro'
 import PageHeader from '../components/page-header.astro'
 import type { Locale } from '../i18n/routes'
 import { EVENT } from '../data/event'
+import { PARTNERS, PARTNER_ROLES } from '../data/partners'
 import { PARTNERS_COPY } from '../i18n/pages-copy'
 
 type Props = { locale: Locale }
@@ -12,17 +14,117 @@ const copy = PARTNERS_COPY[locale]
 ---
 
 <BaseLayout locale={locale} title={`${copy.title}, Lady Gallery`} description={copy.description}>
-  <PageHeader title={copy.title} />
-  <div class="wrap prose body">
-    {copy.paragraphs.map((p) => <p>{p}</p>)}
-    <p><a class="button" href={EVENT.instagramUrl} rel="noopener">{copy.cta}</a></p>
+  <PageHeader title={copy.title}><p>{copy.intro}</p></PageHeader>
+  <div class="wrap partners">
+    {
+      PARTNER_ROLES.map((role) => (
+        <section aria-labelledby={`partners-${role}`}>
+          <h2 id={`partners-${role}`}>{copy.groups[role]}</h2>
+          <ul class="partner-grid" role="list">
+            {PARTNERS.filter((partner) => partner.role === role).map((partner) => (
+              <li>
+                <a class="partner" href={partner.url} rel="noopener">
+                  <span class:list={['partner-logo', { 'partner-logo--dark': partner.darkTile }]}>
+                    <Image src={partner.logo} alt={`Logo ${partner.name}`} width={240} densities={[1, 2]} format={partner.logo.format === 'svg' ? 'svg' : 'avif'} quality={70} loading={role === 'relay' ? 'eager' : 'lazy'} />
+                  </span>
+                  <span class="partner-name">{partner.name}</span>
+                  <span class="partner-blurb">{copy.blurbs[partner.key]}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ))
+    }
+    <p class="contact">
+      {copy.contact}
+      <a class="button" href={EVENT.instagramUrl} rel="noopener">{copy.cta}</a>
+    </p>
   </div>
 </BaseLayout>
 
 <style>
-  .body {
+  .partners {
+    display: grid;
+    gap: var(--space-xl);
     padding-top: var(--space-l);
+  }
+
+  h2 {
+    margin-bottom: var(--space-m);
+    font-size: var(--step-2);
+  }
+
+  .partner-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 14rem), 1fr));
+    gap: var(--space-m);
+    padding: 0;
+    list-style: none;
+  }
+
+  .partner {
+    display: grid;
+    gap: var(--space-2xs);
+    height: 100%;
+    padding: var(--space-s);
+    border-top: 1px solid var(--red);
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  .partner-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 9rem;
+    margin-bottom: var(--space-xs);
+    padding: var(--space-m);
+    background: #fff;
+    box-shadow: 0 10px 20px -14px rgb(41 47 67 / 0.45);
+    transition: transform 0.2s ease;
+  }
+
+  .partner-logo--dark {
+    background: var(--navy);
+  }
+
+  .partner-logo :global(img) {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .partner:hover .partner-logo,
+  .partner:focus-visible .partner-logo {
+    transform: translateY(-3px);
+  }
+
+  .partner-name {
+    font-family: var(--font-display);
     font-size: var(--step-1);
-    line-height: 1.55;
+  }
+
+  .partner:hover .partner-name {
+    color: var(--red);
+  }
+
+  .partner-blurb {
+    color: var(--ink-muted);
+    font-size: var(--step--1);
+  }
+
+  .contact {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-s) var(--space-m);
+    font-size: var(--step-1);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .partner-logo {
+      transition: none;
+    }
   }
 </style>

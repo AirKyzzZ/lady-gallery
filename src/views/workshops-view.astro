@@ -1,53 +1,100 @@
 ---
 import BaseLayout from '../layouts/base-layout.astro'
 import PageHeader from '../components/page-header.astro'
-import type { Locale } from '../i18n/routes'
-import { WORKSHOPS } from '../data/event'
+import { getPath, type Locale } from '../i18n/routes'
+import { WORKSHOPS, WORKSHOP_GROUPS } from '../data/event'
+import { CATEGORIES } from '../data/taxonomy'
 import { WORKSHOPS_COPY } from '../i18n/pages-copy'
 
 type Props = { locale: Locale }
 
 const { locale } = Astro.props
 const copy = WORKSHOPS_COPY[locale]
+const categoryLabel = (key: string): string | undefined => CATEGORIES.find((c) => c.key === key)?.label[locale]
 ---
 
 <BaseLayout locale={locale} title={`${copy.title}, Lady Gallery`} description={copy.description}>
   <PageHeader title={copy.title}><p>{copy.intro}</p></PageHeader>
   <div class="wrap workshops">
     {
-      WORKSHOPS.map((workshop) => {
-        const item = copy.items[workshop.key]
-        return (
-          <section class="workshop" id={workshop.key} aria-labelledby={`${workshop.key}-title`}>
-            <h2 id={`${workshop.key}-title`}>{workshop.title[locale]}</h2>
-            <p class="lead">{item.lead}</p>
-            <div class="workshop-cols">
-              <div>
-                <h3>{copy.howToTitle}</h3>
-                <ol>
-                  {item.howTo.map((step) => (
-                    <li>{step}</li>
-                  ))}
-                </ol>
-              </div>
-              <div>
-                <h3>{copy.artistsTitle}</h3>
-                <p>{item.artists}</p>
-              </div>
-            </div>
-          </section>
-        )
-      })
+      WORKSHOP_GROUPS.map((group) => (
+        <section class="group" aria-labelledby={`group-${group}`}>
+          <header class="group-header">
+            <h2 id={`group-${group}`}>{copy.groups[group].title}</h2>
+            <p class="group-note">{copy.groups[group].note}</p>
+          </header>
+          {WORKSHOPS.filter((workshop) => workshop.group === group).map((workshop) => {
+            const item = copy.items[workshop.key]
+            const related = workshop.category && categoryLabel(workshop.category)
+            return (
+              <section class="workshop" id={workshop.key} aria-labelledby={`${workshop.key}-title`}>
+                <div class="workshop-head">
+                  <h3 id={`${workshop.key}-title`}>{workshop.title[locale]}</h3>
+                  {(item.players || item.duration) && (
+                    <dl class="facts">
+                      {item.players && (
+                        <div>
+                          <dt>{copy.playersLabel}</dt>
+                          <dd>{item.players}</dd>
+                        </div>
+                      )}
+                      {item.duration && (
+                        <div>
+                          <dt>{copy.durationLabel}</dt>
+                          <dd>{item.duration}</dd>
+                        </div>
+                      )}
+                    </dl>
+                  )}
+                  {workshop.category && related && (
+                    <a class="related" href={getPath('category', locale, workshop.category)}>
+                      {copy.related(related)}
+                    </a>
+                  )}
+                </div>
+                <div class="workshop-body">
+                  <ol>
+                    {item.steps.map((step) => (
+                      <li>{step}</li>
+                    ))}
+                  </ol>
+                  {item.outro && <p class="outro">{item.outro}</p>}
+                </div>
+              </section>
+            )
+          })}
+        </section>
+      ))
     }
-    <p class="note">{copy.note}</p>
   </div>
 </BaseLayout>
 
 <style>
   .workshops {
     display: grid;
-    gap: var(--space-xl);
+    gap: var(--space-2xl);
     padding-top: var(--space-l);
+  }
+
+  .group {
+    display: grid;
+    gap: var(--space-l);
+  }
+
+  .group-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: var(--space-2xs) var(--space-m);
+  }
+
+  h2 {
+    font-size: var(--step-3);
+  }
+
+  .group-note {
+    color: var(--red);
+    font-style: italic;
   }
 
   .workshop {
@@ -58,28 +105,37 @@ const copy = WORKSHOPS_COPY[locale]
     border-top: 1px solid var(--red);
   }
 
-  h2 {
-    font-size: var(--step-3);
-  }
-
-  .lead {
-    font-size: var(--step-1);
-    line-height: 1.5;
-  }
-
-  .workshop-cols {
-    grid-column: 2;
-    display: grid;
-    grid-template-columns: 1.4fr 1fr;
-    gap: var(--space-l);
-  }
-
   h3 {
-    margin-bottom: var(--space-xs);
+    font-family: var(--font-display);
+    font-size: var(--step-2);
+    font-weight: 400;
+  }
+
+  .facts {
+    display: grid;
+    gap: var(--space-2xs);
+    margin: var(--space-s) 0 0;
+  }
+
+  .facts div {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 0.5em;
+  }
+
+  dt {
     color: var(--red);
-    font-size: var(--step-0);
     font-style: italic;
-    font-weight: 500;
+  }
+
+  dd {
+    margin: 0;
+  }
+
+  .related {
+    display: inline-block;
+    margin-top: var(--space-s);
+    font-size: var(--step--1);
   }
 
   ol {
@@ -90,20 +146,14 @@ const copy = WORKSHOPS_COPY[locale]
     margin-top: 0.4rem;
   }
 
-  .note {
-    color: var(--ink-muted);
+  .outro {
+    margin-top: var(--space-s);
     font-style: italic;
   }
 
   @media (max-width: 52rem) {
     .workshop {
       grid-template-columns: 1fr;
-    }
-
-    .workshop-cols {
-      grid-column: auto;
-      grid-template-columns: 1fr;
-      gap: var(--space-m);
     }
   }
 </style>

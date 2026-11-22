@@ -19,4 +19,7 @@ npm run dev
 - Artist bios: `src/content/bios/fr/<slug>.md` and `src/content/bios/en/<slug>.md`.
 - Artist facts and image credits: `src/data/artist-facts.json`, images in `src/assets/artists/`.
 - Page text: `src/i18n/*-copy.ts`, navigation and footer strings in `src/i18n/ui.ts`.
-- Legal notice publisher fields marked `[à compléter]`: `src/views/legal-view.astro`.
+- Workshops (titles, groups, linked room): `src/data/event.ts`, their rules in `src/i18n/pages-copy.ts`.
+- Partners: `src/data/partners.ts`, logos in `src/assets/partners/`, blurbs in `src/i18n/pages-copy.ts`.
+- Posters on the home page: `src/assets/posters/`, alt text and captions in `src/i18n/home-copy.ts`.
+- Legal notice publisher: `src/views/legal-view.astro`.

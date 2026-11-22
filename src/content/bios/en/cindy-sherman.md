@@ -5,8 +5,7 @@ works:
   - { title: "Centerfolds", year: "1981", kind: "series" }
   - { title: "History Portraits", year: "1988-1990", kind: "series" }
   - { title: "Society Portraits", year: "2008", kind: "series" }
-whyHere: "Wigs, make-up and thrift-shop clothes: she builds every character by hand, which is exactly the spirit of the collage and craft workshop."
-workshop: craft
+whyHere: "Wigs, make-up and thrift-shop clothes: she builds every character by hand and poses for each one, yet none of the pictures is a self-portrait."
 ---
 
 Cindy Sherman works alone in her studio, acting as photographer, director, make-up artist, hairstylist, wardrobe department and model. She appears in almost all of her pictures, yet she insists they are not self-portraits. "Sometimes I disappear," she has said.

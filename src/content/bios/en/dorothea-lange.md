@@ -4,8 +4,7 @@ works:
   - { title: "White Angel Breadline", year: "1933", kind: "photograph" }
   - { title: "Migrant Mother", year: "1936", kind: "photograph" }
   - { title: "An American Exodus", year: "1939", kind: "book" }
-whyHere: "Her pictures always came with the words of the people in them, which suits the collage workshop: pair an image with a caption, the way she did."
-workshop: craft
+whyHere: "Her pictures always came with the words of the people in them, and her captions matter as much as the images."
 ---
 
 Dorothea Lange started out photographing San Francisco's wealthy families in her portrait studio. When the Depression hit, she took her camera out into the street. Polio at the age of seven had left her with a limp for life, and she said it formed her.

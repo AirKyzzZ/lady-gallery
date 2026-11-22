@@ -4,7 +4,7 @@ works:
   - { title: "Femme Maison", year: "1946-1947", kind: "series" }
   - { title: "Destruction of the Father", year: "1974", kind: "installation" }
   - { title: "Maman", year: "1999", kind: "sculpture" }
-whyHere: "French by birth, she made her whole career in New York. Thread, fabric and found objects run through her work, a good prompt for the craft workshop."
+whyHere: "French by birth, she made her whole career in New York. Wood, bronze, marble, fabric: she sculpted with all kinds of materials, a good prompt for the sculpture workshop."
 workshop: craft
 ---
 

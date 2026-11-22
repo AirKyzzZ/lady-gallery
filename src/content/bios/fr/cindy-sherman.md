@@ -5,8 +5,7 @@ works:
   - { title: "Centerfolds", year: "1981", kind: "série" }
   - { title: "History Portraits", year: "1988-1990", kind: "série" }
   - { title: "Society Portraits", year: "2008", kind: "série" }
-whyHere: "Perruques, maquillage, vêtements de friperie : elle fabrique ses personnages à la main, comme on le fera à l'atelier collage et bricolage."
-workshop: craft
+whyHere: "Perruques, maquillage, vêtements de friperie : elle fabrique ses personnages à la main et pose pour chacun, sans jamais faire d'autoportrait."
 ---
 
 Cindy Sherman travaille seule dans son atelier. Elle est à la fois la photographe, la maquilleuse, la coiffeuse, la costumière et le modèle de presque toutes ses images. Pourtant, elle affirme ne jamais y voir d'autoportraits : « Parfois, je disparais. »
